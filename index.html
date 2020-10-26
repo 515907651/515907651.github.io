@@ -156,7 +156,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -192,6 +192,1037 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/22/JavaScript/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/22/JavaScript/" class="post-title-link" itemprop="url">Untitled</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-10-22 15:21:02" itemprop="dateCreated datePublished" datetime="2020-10-22T15:21:02+08:00">2020-10-22</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-10-26 15:21:22" itemprop="dateModified" datetime="2020-10-26T15:21:22+08:00">2020-10-26</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><h1 id="ECMAScript"><a href="#ECMAScript" class="headerlink" title="ECMAScript"></a>ECMAScript</h1><p>客户端脚本语言标准</p>
+<h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><ol>
+<li><p>与html结合方式</p>
+<ol>
+<li><p>内部JS：</p>
+<ul>
+<li>定义script，标签内容就是js代码</li>
+</ul>
+</li>
+<li><p>外部JS：</p>
+<ul>
+<li>定义script，通过src属性引入外部的js文件</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>注意：</p>
+<ul>
+<li><p>script可以定义在html页面的任意位置，定义位置会影响执行顺序</p>
+</li>
+<li><p>script可以定义多个</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>注释</p>
+<ol>
+<li>单行注释：//注释内容</li>
+<li>多行注释：/* 注释内容 */</li>
+</ol>
+</li>
+<li><p>数据类型</p>
+<ol>
+<li>原始数据类型<ol>
+<li>number：数字。整数/小数/NaN（not a number 一个不是数字的数字类型）</li>
+<li>string：字符串。”abc” “a” ‘abc’ ‘a’</li>
+<li>boolean：true和false</li>
+<li>null：一个对象为空的占位符</li>
+<li>undefined：未定义。如果一个变量没有初始化，默认类型为undefined</li>
+<li>typeof可以显示数据类型</li>
+</ol>
+</li>
+<li>引用数据类型：对象</li>
+</ol>
+</li>
+<li><p>变量</p>
+<ul>
+<li><p>变量：一小块存储数据的内存空间</p>
+</li>
+<li><p>java语言是强类型语言，JavaScript是弱类型语言。</p>
+<ul>
+<li>强类型语言：在开辟变量存储空间时，定义了空间将来存储的数据的数据类型。只能存储固定类型的数据。</li>
+<li>弱类型语言：在开辟变量存储空间时，不定义空间将来存储的数据类型，可存放任意类型的数据</li>
+</ul>
+</li>
+<li><p>语法：var 变量名 = 初始化值</p>
+</li>
+</ul>
+</li>
+</ol>
+<ol start="5">
+<li><p>运算符</p>
+<ul>
+<li><p>+或者-都可以将其他类型转为number，如果转换不成就是NaN</p>
+</li>
+<li><p>比较运算符：</p>
+<ol>
+<li>类型相同:直接比较<ul>
+<li>字符串:按照字典顺序比较。按位逐一比较,直到得出大小为止。</li>
+</ul>
+</li>
+<li>类型不同:先进行类型转换,再比较</li>
+<li>===:全等于。在比较之前，先判断类型，如果类型不一样，则直接返回false</li>
+</ol>
+</li>
+<li><p>逻辑运算符：</p>
+<ul>
+<li><p>其他类型转boolean：</p>
+<ul>
+<li><p>number:e或NaN为假,其他为真</p>
+</li>
+<li><p>string:除了空字符串(“)，其他都是true</p>
+</li>
+<li><p>null&amp;undefined :都是false</p>
+</li>
+<li><p>对象都是true</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>特殊语法</p>
+<ul>
+<li><p>语句以;结尾，如果一行只有一条语句则;可以省略(不建议)</p>
+</li>
+<li><p>2变量的定义使用var关键字,也可以不使用</p>
+<ul>
+<li><p>用:―定义的变量是局部变量</p>
+</li>
+<li><p>不用:定义的变量是全局变量(不建议)</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>function</p>
+<ol>
+<li>定义<ul>
+<li>var fun = new function(形参列表，方法体)；</li>
+<li>function 方法名称（形参列表）{方法体}</li>
+<li>var 方法名 = function（形参列表）{方法体}</li>
+</ul>
+</li>
+<li>特点<ul>
+<li>length：代表形参的个数</li>
+<li>方法定义是，形参类型不用写，返回值类型不用写</li>
+<li>方法是一个对象，如果定义方法名称一样的方法，会被覆盖</li>
+<li>在js中，方法的调用只和方法名称有关，和参数列表无关</li>
+<li>在方法声明中有一个隐藏的内置对象（数组），arguments，封装所有参数</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>各种对象</p>
+<ul>
+<li>Array：数组对象<ol>
+<li>创建：<ul>
+<li>var arr = new Array（元素列表）</li>
+<li>var arr = new Array（默认长度）</li>
+<li>var arr = [元素列表]</li>
+</ul>
+</li>
+<li>特点和属性<ul>
+<li>length</li>
+<li>数组长度可变，自动加长</li>
+<li>数组元素类型可变</li>
+<li>jion（符号），将数组中的元素按指定符号分割</li>
+<li>push（），在数组尾部添加一个</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h2><ul>
+<li><p>功能：控制html文档的内容</p>
+</li>
+<li><p>概念：Document Object Model文档对象模型</p>
+<ul>
+<li>将标记语言文档的各个组成部分，封装为对象。可以使用这些对象，对标记语言文档进行cRUD的动态</li>
+</ul>
+</li>
+<li><p>w3C DOM标准被分为3个不同的部分︰</p>
+<ul>
+<li>核心DOM -针对任何结构化文档的标准模型<ul>
+<li>Document :文档对象</li>
+<li>Element :元秦对象</li>
+<li>Attribute :属性对象</li>
+<li>Text :文本对象</li>
+<li>comment:注释对象</li>
+<li>Node :节点对象，其他5个的父对象</li>
+</ul>
+</li>
+<li>XMLDOM -针对XML文档的标准模型</li>
+<li>HTML DOM -针对HTML文档的标准模型</li>
+</ul>
+</li>
+<li><p>核心DOM模型：</p>
+<ul>
+<li><p>Document :文档对象</p>
+<ol>
+<li><p>创建(获取):在html dom模型中可以使用windows对象来获取</p>
+<ol>
+<li>window . document</li>
+<li>document</li>
+</ol>
+</li>
+<li><p>方法</p>
+<ol>
+<li>获取Element对象：<ol>
+<li>getElementById() :根据id属性值获取元素对象。id属性值一般唯一</li>
+<li>getElementsByTagName():根据元素名称获取元素对象们。返回值是一个数组</li>
+<li>getElementsByClassName():根据Class属性值获取元素对象们。返回值是一个数组</li>
+<li>getElementsByName():根据name属性值获取元素对象们。返回值是一个数组</li>
+</ol>
+</li>
+<li>创建其他DOM对象:<ul>
+<li>createAttribute(name)</li>
+<li>createComment(）</li>
+<li>createElement()</li>
+<li>createTextNode()</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>Element :元秦对象</p>
+</li>
+<li><p>Node :节点对象，其他5个的父对象</p>
+</li>
+</ul>
+</li>
+<li><p>代码：获取页面标签(元秦)对象Element<br>document.getElementById(“id值”):通过元素的id获取元素对象</p>
+</li>
+<li><p>操作Element对象︰</p>
+<ol>
+<li>修改属性值:<ol>
+<li>明确获取的对象是哪一个?</li>
+<li>查看API文档，找其中有哪些属性可以设置</li>
+</ol>
+</li>
+<li>修改标签体内容:<ul>
+<li>属性:innerHTML</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>事件：</p>
+<ul>
+<li>功能：某些组件被执行某些操作后，触发某些代码的执行</li>
+<li>绑定事件：<ul>
+<li>直接在html标签上，指定事件属性，属性值是js代码<ul>
+<li>事件：oneclick—单击事件</li>
+</ul>
+</li>
+<li>通过js获取元素对象，指定事件属性，设置一个函数</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h2><ol>
+<li><p>概念：browser object model 浏览器对象模型</p>
+<ul>
+<li>将浏览器的各个组成部分封装成对象</li>
+</ul>
+</li>
+<li><p>组成：</p>
+<ul>
+<li>window：窗口对象<ol>
+<li>创建</li>
+<li>方法<ol>
+<li>与弹出框有关的方法：<ul>
+<li>alert(）显示带有一段消息和─个确认按钮的警告框。</li>
+<li>confirm(）显示带有一段消息以及确认按钮和取消按钮的对话框。<ul>
+<li>*如果用户点击取消按钮，则方法返回false</li>
+</ul>
+</li>
+<li>prompt显示可提示用户输入的对话框。<ul>
+<li>返回值：获取用户输入的值</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>与打开关闭有关的方法<ul>
+<li>close（）关闭浏览器窗口（关闭当前调用它的窗口）</li>
+<li>open（）打开一个新窗口</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>特点<ul>
+<li>window对象不需要创建可以直接使用window使用。window .方法名();</li>
+<li>window引用可以省略。方法名(）</li>
+</ul>
+</li>
+<li>属性<ol>
+<li>获取其他BOM1对家:<ul>
+<li>history</li>
+<li>location</li>
+<li>Navigator</li>
+<li>Screen </li>
+</ul>
+</li>
+<li>获取DOM对象<ul>
+<li>document</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>prompt（）显示可提示用户输入的对话框。</p>
+<ul>
+<li>navigator：浏览器对象</li>
+<li>screen：显示器屏幕对象</li>
+<li>history：历史记录对象</li>
+<li>location：地址栏对象</li>
+</ul>
+</li>
+<li><p>与定时器有关的方法</p>
+<ol>
+<li>setTimeout（）在指定的毫秒数后调用函数或者计算表达式<ul>
+<li>参数：<ol>
+<li>js代码或者对象</li>
+<li>毫秒值</li>
+</ol>
+</li>
+<li>返回值：唯一标识，用于取消计时器</li>
+</ul>
+</li>
+<li>clearTimeout（）取消由 setTimeout()方法设置的 timeout。</li>
+<li>setInterval()按照指定的周期（以毫秒计)来调用函数或计算表达式。</li>
+<li>clearInterval()取消由setInterval()设置的timeout。</li>
+</ol>
+</li>
+<li></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/20/CSS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/20/CSS/" class="post-title-link" itemprop="url">Untitled</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-10-20 15:16:41" itemprop="dateCreated datePublished" datetime="2020-10-20T15:16:41+08:00">2020-10-20</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-10-22 15:21:13" itemprop="dateModified" datetime="2020-10-22T15:21:13+08:00">2020-10-22</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><ul>
+<li>概念：Cascading Style Sheets 层叠样式表<ul>
+<li>层叠：多个样式可以作用在同一个html元素上，同时生效</li>
+</ul>
+</li>
+<li>优点：<ul>
+<li>功能强大</li>
+<li>将内容展示和样式控制分离<ul>
+<li>降低耦合度，解耦</li>
+<li>让分工协作更容易</li>
+<li>提高开发效率</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="css的使用"><a href="#css的使用" class="headerlink" title="css的使用"></a>css的使用</h2><ol>
+<li><p>内联样式</p>
+<ul>
+<li><p>在标签内使用style属性指定CSS代码</p>
+</li>
+<li><pre><code class="html">&lt;div style=&quot;color:red&quot;&gt;
+    生如夏花
+&lt;/div&gt;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   * 不推荐使用，达不到分离的效果</span><br><span class="line"></span><br><span class="line">2. 内部样式</span><br><span class="line"></span><br><span class="line">   * 在head标签内，定义style标签，style标签体内容就是css代码</span><br><span class="line"></span><br><span class="line">   * &#96;&#96;&#96;html</span><br><span class="line">     &lt;style&gt;</span><br><span class="line">         div&#123;</span><br><span class="line">         color:blue</span><br><span class="line">         &#125;</span><br><span class="line">     &lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure></code></pre>
+</li>
+</ul>
+</li>
+<li><p>外部样式</p>
+<ul>
+<li><p>定义css资源文件</p>
+</li>
+<li><p>在head标签内，定义link标签，引入外部资源文件</p>
+</li>
+<li><pre><code class="css">div&#123;
+color:yellow;
+&#125;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* &#96;&#96;&#96;html</span><br><span class="line">  &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;a.css&quot;&gt;</span><br></pre></td></tr></table></figure></code></pre>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>三种方式范围不断增大</li>
+<li>1不常用，常用2.3</li>
+</ul>
+<ol start="4">
+<li><p>css语法：</p>
+<ul>
+<li><p>格式：</p>
+<p>选择器{</p>
+<p>​    属性名1:属性值1;</p>
+<p>​    属性名2:属性值2;</p>
+<p>​    属性名3:属性值3;</p>
+<p>​    …</p>
+<p>}</p>
+</li>
+<li><p>选择器：筛选具有相似特征的元素</p>
+</li>
+<li><p>注意：</p>
+<p>每一对属性需要;隔开，最后一行可以不用</p>
+</li>
+</ul>
+</li>
+<li><p>选择器</p>
+<ol>
+<li>基础选择器<ol>
+<li>id选择器：选择具体的id属性值的元素，建议在一个html文件中id唯一<ul>
+<li>语法：#id属性值{}</li>
+</ul>
+</li>
+<li>元素选择器：选择具有相同标签名称的元素<ul>
+<li>语法：标签名称{}</li>
+<li>注意：id选择器优先高于元素选择器</li>
+</ul>
+</li>
+<li>类选择器：选择具有相同class属性值的元素<ul>
+<li>语法：.class属性值{}</li>
+<li>注意：类选择器优先级高于元素选择器</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>扩展选择器<ol>
+<li>选择所有元素：<ul>
+<li>语法：*{}</li>
+</ul>
+</li>
+<li>并集选择器：<ul>
+<li>语法：选择器1，选择器2{}</li>
+</ul>
+</li>
+<li>子选择器：筛选选择器1元素下的选择器2元素<ul>
+<li>语法：选择器1 选择器2{}</li>
+</ul>
+</li>
+<li>父选择器：筛选选择器2的父元素选择器1<ul>
+<li>语法：选择器1&gt;选择器2{}</li>
+</ul>
+</li>
+<li>属性选择器：选择元素名称，属性名=属性值的元素<ul>
+<li>语法：元素名称[属性名=”属性值”]{}</li>
+</ul>
+</li>
+<li>伪类选择器：选择一些元素具有的状态<ul>
+<li>语法：元素：状态[]</li>
+<li>如：a<ul>
+<li>状态：<ul>
+<li>link：初始化的状态</li>
+<li>visited：被访问过的状态</li>
+<li>active：正在访问状态</li>
+<li>hover：鼠标悬浮状态</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>属性</p>
+<ol>
+<li>字体、文本<ul>
+<li>font-size：字体大小</li>
+<li>color：文本颜色</li>
+<li>text-align：对齐方式</li>
+<li>line-height：行高</li>
+</ul>
+</li>
+<li>背景<ul>
+<li>background</li>
+</ul>
+</li>
+<li>边框<ul>
+<li>border</li>
+</ul>
+</li>
+<li>尺寸<ul>
+<li>width</li>
+<li>height</li>
+</ul>
+</li>
+<li>盒子模型：控制布局<ul>
+<li>margin：外边距</li>
+<li>padding：内边距<ul>
+<li>默认情况下内边距会影响整个盒子的大小</li>
+<li>box-sizing：border-box；设置盒子的属性，让width和height就是盒子的大小</li>
+</ul>
+</li>
+<li>flout：浮动<ul>
+<li>left</li>
+<li>right</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/16/%E9%81%87%E5%88%B0%E7%9A%84bug/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/16/%E9%81%87%E5%88%B0%E7%9A%84bug/" class="post-title-link" itemprop="url">Untitled</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2020-10-16 15:06:33 / Modified: 15:06:34" itemprop="dateCreated datePublished" datetime="2020-10-16T15:06:33+08:00">2020-10-16</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="遇到的bug"><a href="#遇到的bug" class="headerlink" title="遇到的bug"></a>遇到的bug</h1><h2 id="世界标准时间"><a href="#世界标准时间" class="headerlink" title="世界标准时间"></a>世界标准时间</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Connection conn = DriverManager.getConnection(<span class="string">&quot;jdbc:mysql://localhost:3306/gg?serverTimezone=UTC&quot;</span>,<span class="string">&quot;root&quot;</span>,<span class="string">&quot;315818&quot;</span>);</span><br><span class="line"><span class="comment">//不加?serverTimezone=UTC会报错</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="梯子不能上网"><a href="#梯子不能上网" class="headerlink" title="梯子不能上网"></a>梯子不能上网</h2><p>拨号名必须为英文</p>
+<h2 id="No-database-selected"><a href="#No-database-selected" class="headerlink" title="No database selected"></a>No database selected</h2><p>要先选定数据库</p>
+<p>use gg;</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/16/HTML/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/16/HTML/" class="post-title-link" itemprop="url">Untitled</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-10-16 14:48:07" itemprop="dateCreated datePublished" datetime="2020-10-16T14:48:07+08:00">2020-10-16</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-10-20 09:39:00" itemprop="dateModified" datetime="2020-10-20T09:39:00+08:00">2020-10-20</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><p>Hyper Text Markup Language 超文本标记语言</p>
+<p>超文本：超文本是用超链接的方法，将各种不同空间的文字信息组织在一起的网状文本</p>
+<p>标记语言：由标签构成的语言，不是编程语言</p>
+<h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><ol>
+<li><p>html文档后缀名.html或者.htm</p>
+</li>
+<li><p>标签分为</p>
+<ol>
+<li>围堵标签：有开始和结束标签。<html></html></li>
+<li>自闭合标签：开始标签和结束标签在一起。<br/></li>
+</ol>
+</li>
+<li><p>标签可以嵌套</p>
+<p>错误嵌套：<a> <b></a></b></p>
+<p>正确嵌套：<a> <b></b></a></p>
+</li>
+<li><p>在开始标签中可以定义属性。属性由键值对构成，值需要引号（单双都可）引起来</p>
+</li>
+<li><p>html的标签不分大小写，建议小写</p>
+</li>
+</ol>
+<h2 id="标签学习"><a href="#标签学习" class="headerlink" title="标签学习"></a>标签学习</h2><ol>
+<li><p>文件标签：构成html最基本的根标签</p>
+<ul>
+<li>html：html文件的根标签</li>
+<li>head：头标签。用于指定html文件的一些属性，引入外部资源</li>
+<li>title：标题标签</li>
+<li>body：体标签</li>
+<li>!DOCTYPE：html5中定义该文档是html文档，两边加&lt;&gt;</li>
+</ul>
+</li>
+<li><p>文本标签：和文本有关的标签</p>
+<ul>
+<li><p>注释：<!-- 注释内容--></p>
+</li>
+<li><p>h1 to h6：标题标签，字体依次变小</p>
+</li>
+<li><p>p：换行标签</p>
+</li>
+<li><p>hr：展示一条水平线</p>
+<p>属性：</p>
+<ul>
+<li>color</li>
+<li>width</li>
+<li>size</li>
+<li>align：center， left，right</li>
+</ul>
+</li>
+<li><p>b：字体加粗</p>
+</li>
+<li><p>i：字体斜体</p>
+</li>
+<li><p>font：字体标签</p>
+</li>
+<li><p>center：文本居中</p>
+</li>
+<li><p>属性定义：</p>
+<ul>
+<li>color：<ul>
+<li>英文单词：red，green等</li>
+<li>rgb（值1，值2，值3）：值的范围：0-255</li>
+<li>#值1值2值3：值的范围：00-FF</li>
+</ul>
+</li>
+<li>width：<ul>
+<li>数值：单位是像素</li>
+<li>数值%：占比相对于父元素的比例</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>图片标签：</p>
+<p>ima source=路径</p>
+<p>路径：</p>
+<ul>
+<li>绝对路径</li>
+<li>相对路径：<ul>
+<li>./ 代表当前目录</li>
+<li>../ 代表上一级目录</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>列表标签：</p>
+<ul>
+<li>有序列表：ol，li代表行</li>
+<li>无序列表：ul，li代表行</li>
+</ul>
+</li>
+<li><p>连接标签：</p>
+<p>a href=”指定资源”URL</p>
+<p>target：</p>
+<ul>
+<li>_self：在当前页面跳转</li>
+<li>_blank：空页面打开</li>
+</ul>
+</li>
+<li><p>div 和 span</p>
+<p>结合css使用</p>
+<p>span中的内容没有任何效果，只能起一个包含的作用，文字不换行，块级标签</p>
+<p>div自动换行，内联标签</p>
+</li>
+<li><p>语义化标签：为了提高可读性</p>
+<ul>
+<li>header</li>
+<li>footer</li>
+</ul>
+</li>
+<li><p>表格标签：</p>
+<ul>
+<li><p>table：定义表格</p>
+<ul>
+<li>width：宽度</li>
+<li>border：边框</li>
+<li>cellpadding：定义内容和单元格之间的距离</li>
+<li>cellspacing：定义单元格之间的距离。如果指定为0，单元格的线为0</li>
+<li>bgcolor：背景色</li>
+<li>align：对齐方式</li>
+</ul>
+</li>
+<li><p>tr：行</p>
+<ul>
+<li>bgcolor：背景颜色</li>
+<li>align：对其方式</li>
+</ul>
+</li>
+<li><p>td：单元格</p>
+<ul>
+<li>colspan：合并列</li>
+<li>rowspan：合并行</li>
+</ul>
+</li>
+<li><p>th：表头单元格</p>
+</li>
+<li><p>caption：表格标题</p>
+</li>
+<li><p>tread：表格的头部分</p>
+</li>
+<li><p>tbody：表格的体部分</p>
+</li>
+<li><p>tfoot：表格的脚</p>
+</li>
+</ul>
+</li>
+<li><p>表单标签</p>
+<ul>
+<li>概念：用于采集用户数据，和服务器进行交互</li>
+<li>form：用于定义表单的。可以定义一个范围，范围代表采集用户数据的范围</li>
+<li>属性：<ul>
+<li>action：指定提交数据的URL</li>
+<li>method：指定提交方式<ul>
+<li>get：<ul>
+<li>请求参数会在地址栏显示。封装在请求中</li>
+<li>请求参数大小有限制</li>
+<li>不安全</li>
+</ul>
+</li>
+<li>post：<ul>
+<li>请求参数不在地址栏显示。封装在请求体中</li>
+<li>参数大小没有限制</li>
+<li>安全</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>表单项中的数据要想被提交：必须指定name参数</li>
+</ul>
+</li>
+</ol>
+   <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;$&quot;</span> <span class="attr">method</span>=<span class="string">&quot;get&quot;</span>&gt;</span></span><br><span class="line">    用户名:<span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    密码:<span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;登录&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>input：可以通过type属性值，改变元素展示的样式<ul>
+<li>type属性：<ul>
+<li>text：文本输入框，默认值<ul>
+<li>placeholder：指定输入框的提示信息，当输入框的内容发生变化时，会自动清空提示信息</li>
+</ul>
+</li>
+<li>password：密码输入框</li>
+<li>radio：单选框<ul>
+<li>想要让多个单选框实现单选的效果，则多个单选框的name属性必须一致</li>
+<li>指定value属性，指定其被选中后提交的值</li>
+<li>checked属性，指定默认值</li>
+</ul>
+</li>
+<li>checkbox：复选框<ul>
+<li>一般会给每一个单选框提供value属性，指定其被选中后提交的值</li>
+<li>checked属性，指定默认值</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>label：指定输入项的文字描述信息<ul>
+<li>label属性一般会和input的id属性对应。如果对应了，点击label区域，会让input输入框获取焦点</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>select：下拉列表<ul>
+<li>子元素：option，指定列表项</li>
+</ul>
+</li>
+<li>textarea：文本域<ul>
+<li>cols：指定列数，每一行有多少字符</li>
+<li>rows：默认多少行</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/09/%E5%88%A4%E6%96%AD%E9%93%BE%E8%A1%A8%E4%B8%AD%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E7%8E%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/09/%E5%88%A4%E6%96%AD%E9%93%BE%E8%A1%A8%E4%B8%AD%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E7%8E%AF/" class="post-title-link" itemprop="url">Untitled</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-10-09 15:34:13" itemprop="dateCreated datePublished" datetime="2020-10-09T15:34:13+08:00">2020-10-09</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="判断链表中是否存在环"><a href="#判断链表中是否存在环" class="headerlink" title="判断链表中是否存在环"></a>判断链表中是否存在环</h1><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>快慢指针判断，快指针fast每次走两步，满指针slow每次走一步，如果存在环，两者必定相遇</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasCycle</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//判断head为空和判断head.next为空</span></span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span> || head.next == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//设置快慢指针，从头开始</span></span><br><span class="line">        ListNode slow = head;</span><br><span class="line">        ListNode fast = head.next;</span><br><span class="line">        <span class="keyword">while</span> (slow != fast) &#123;</span><br><span class="line">            <span class="keyword">if</span> (fast == <span class="keyword">null</span> || fast.next == <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            slow = slow.next;</span><br><span class="line">            fast = fast.next.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="自己写的代码"><a href="#自己写的代码" class="headerlink" title="自己写的代码"></a>自己写的代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123;</span></span><br><span class="line"><span class="comment"> *         val = x;</span></span><br><span class="line"><span class="comment"> *         next = null;</span></span><br><span class="line"><span class="comment"> *     &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasCycle</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        ListNode slow = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">if</span>(head.next==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        slow = head.next;</span><br><span class="line">        ListNode fast = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">if</span>(head.next.next==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        fast = head.next.next;</span><br><span class="line">        <span class="keyword">while</span>(slow!=fast)&#123;</span><br><span class="line">            <span class="keyword">if</span>(slow.next==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            slow = slow.next;</span><br><span class="line">            <span class="keyword">if</span>(fast.next==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            <span class="keyword">if</span>(fast.next.next==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            fast = fast.next.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>简直就是shit，本来想用指针，写的是 ListNode *slow = head，应该把 * 去掉的，重复在判断.next是否为空。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/30/MySQL%E5%AD%A6%E4%B9%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -219,10 +1250,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2020-09-30 19:05:40 / Modified: 19:08:14" itemprop="dateCreated datePublished" datetime="2020-09-30T19:05:40+08:00">2020-09-30</time>
+      <time title="Created: 2020-09-30 19:05:40" itemprop="dateCreated datePublished" datetime="2020-09-30T19:05:40+08:00">2020-09-30</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-10-16 14:48:19" itemprop="dateModified" datetime="2020-10-16T14:48:19+08:00">2020-10-16</time>
+      </span>
 
   
 </div>
@@ -251,6 +1288,359 @@
 <p>5.average计算平均值</p>
 <p>注意：聚合函数的计算要排除null值</p>
 <p>解决方法：1.选择不为null的列 2.用ifnull函数</p>
+<h2 id="分组查询"><a href="#分组查询" class="headerlink" title="分组查询"></a>分组查询</h2><p>1.语法：group by 分组字段；</p>
+<p>注意：1.分组之后查询的字段：分组查询、聚合函数</p>
+<p>​            2.where和having的区别：where在分组之前进行限定，如果不满足条件，则不参与分组。having在分组之后进行限定，若不满足结果，则不会被查询出来</p>
+<p>​            where后面不可以跟聚合函数，having后面可以跟着聚合函数</p>
+<p>例子：SELECT id FROM stu WHERE name!=”gang” GROUP BY name HAVING id&gt;AVE(id);</p>
+<h2 id="分页查询"><a href="#分页查询" class="headerlink" title="分页查询"></a>分页查询</h2><p>1.语法：limit 开始的位置，每页的数量</p>
+<p>例子：SELECT id FROM temp1 LIMIT 0,3;<br>           SELECT id FROM temp1 LIMIT 3,3;</p>
+<h2 id="SELECT-FROM"><a href="#SELECT-FROM" class="headerlink" title="SELECT FROM"></a>SELECT FROM</h2><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><p>SELECT 字段列表 </p>
+<p>FROM 表名列表 </p>
+<p>WHERE 条件列表 </p>
+<p>GROUP BY 分组字段 </p>
+<p>HAVING 分组之后的条件 </p>
+<p>ORDER BY 排序 </p>
+<p>LIMIT 分页限定    </p>
+<h3 id="基础查询"><a href="#基础查询" class="headerlink" title="基础查询"></a>基础查询</h3><h4 id="多个字段的查询"><a href="#多个字段的查询" class="headerlink" title="多个字段的查询"></a>多个字段的查询</h4><p>SELECT 字段名1，字段名2… FROM 表名</p>
+<p>如果是查询所有，可以用SELECT*</p>
+<h4 id="去重"><a href="#去重" class="headerlink" title="去重"></a>去重</h4><p>distinct</p>
+<p>distinct加在select后面</p>
+<p>SELECT DISTINCT name  FROM temp1 ;</p>
+<h4 id="计算列"><a href="#计算列" class="headerlink" title="计算列"></a>计算列</h4><p>一般可以用四则运算计算一些列的值（一般是数值的计算）。</p>
+<p>例子：SELECT math+english FROM grade;</p>
+<p>ifnull（表达式1，表达式2）：null参与的运算，计算结果都为null</p>
+<p>表达式1：那个字段需要判断null</p>
+<p>表达式2：将为null的值换位表达式2</p>
+<p>例子：SELECT math + ifnull(english,0) FROM grade;</p>
+<h4 id="起别名"><a href="#起别名" class="headerlink" title="起别名"></a>起别名</h4><p>as：as 可以省略</p>
+<h2 id="WHERE"><a href="#WHERE" class="headerlink" title="WHERE"></a>WHERE</h2><p>where 后面跟着条件</p>
+<p>运算符：</p>
+<ul>
+<li><p>&lt;, &gt;, &lt;=, &gt;=, =, &lt;&gt;</p>
+</li>
+<li><p>BETWEEN…AND</p>
+</li>
+<li><p>IN(集合)</p>
+</li>
+<li><p>LIKE：模糊查询</p>
+<ul>
+<li><p>占位符：</p>
+<ul>
+<li><p>_ ：单个任意字符</p>
+</li>
+<li><p>% ：多个任意字符</p>
+<p>例子：SELCET name FROM stu WHERE name LIKE “gang__”;</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>IS NULL</p>
+</li>
+<li><p>AND 或者 &amp;&amp;</p>
+</li>
+<li><p>OR 或者 ||</p>
+</li>
+<li><p>NOT 或者 ！</p>
+</li>
+</ul>
+<p>例子：</p>
+<p>查询年龄大于等于20，小于等于30</p>
+<p>SELECT * FROM student WHERE age &gt;=20 &amp;&amp; age&lt;=30;</p>
+<p>SELECT * FROM student WHERE age &gt;=20 AND age&lt;=30;</p>
+<p>SELECT * FROM student WHERE age BETWEEN 20 AND 30;</p>
+<p>查询年龄22岁，18岁，25岁的信息</p>
+<p>SELECT * FROM student WHERE age = 22 OR age = 18 OR age = 25；</p>
+<p>SELECT * FROM student WHERE age IN (22,18,25);</p>
+<p>查询英语成绩为NULL</p>
+<p>SELECT * FROM student WHERE english = NULL;</p>
+<p>SELECT * FROM student WHERE English IS NULL;</p>
+<p>查询英语成绩不为null</p>
+<p>SELECT * FROM student WHERE English IS NOT NULL;</p>
+<h2 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>对表中数据进行限定，保证数据的正确性、有效性和完整性</p>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ol>
+<li>主键约束：primary key</li>
+<li>非空约束： not null</li>
+<li>唯一约束：unique</li>
+<li>外键约束：foreign key</li>
+</ol>
+<h3 id="非空约束"><a href="#非空约束" class="headerlink" title="非空约束"></a>非空约束</h3><ol>
+<li><p>创建表时添加约束</p>
+<p>CREATE TABLE stu(</p>
+<p>id INT,</p>
+<p>name VARCHAR(20) NOT NULL </p>
+<p>)</p>
+</li>
+<li><p>创建表完成后，添加非空约束</p>
+<p>ALTER TABLE stu MODIFY name VARCHAR(20) NOT NULL;</p>
+</li>
+<li><p>删除非空约束</p>
+<p>ALTER TABLE stu MODIFY name VARCHAR(20);</p>
+</li>
+</ol>
+<h3 id="唯一约束"><a href="#唯一约束" class="headerlink" title="唯一约束"></a>唯一约束</h3><ol>
+<li><p>创建表时，添加唯一约束</p>
+<p>CREATE TABLE stu(</p>
+<p>id INT,</p>
+<p>name VARCHAR(20) UNIQUE</p>
+<p>)</p>
+<p>注意唯一约束的表中，可以有多个NULL</p>
+</li>
+<li><p>删除唯一约束</p>
+<p>ALTER TABLE stu DROP INDEX name;</p>
+<p>注意不能像非空那样直接更改</p>
+</li>
+<li><p>创建表后，添加唯一约束</p>
+<p>ALTER TABLE stu MODIFY name VARCHAR(20) UNIQUE;</p>
+</li>
+</ol>
+<h3 id="主键约束"><a href="#主键约束" class="headerlink" title="主键约束"></a>主键约束</h3><ol>
+<li><p>注意：</p>
+<ol>
+<li>含义：非空且唯一</li>
+<li>一张表只能有一个主键</li>
+<li>主键就是表中记录的唯一标识</li>
+</ol>
+</li>
+<li><p>在创建表时，添加主键约束</p>
+<p>CREATE TABLE stu(</p>
+<p>id INT PRIMARY KEY,</p>
+<p>name VARCHAR(20) </p>
+<p>)</p>
+</li>
+<li><p>删除主键</p>
+<p>– 错误 ALTER TABLE sut MODIFY id INT;</p>
+<p>ALTER TABLE stu DROP PRIMARY KEY;</p>
+</li>
+<li><p>创建完表后，添加主键</p>
+<p>ALTER TABLE stu MODIFY id INT PRIMARY KEY;</p>
+</li>
+</ol>
+<h3 id="自动增长"><a href="#自动增长" class="headerlink" title="自动增长"></a>自动增长</h3><ol>
+<li><p>如果某一列是数值类型的，可以用AUTO_INCREMENT完成值的自动增长</p>
+</li>
+<li><p>在创建表时，添加主键约束，完成主键自动增长</p>
+<p>CREATE TABLE stu(</p>
+<p>id INT PRIMARY KEY AUTO_INCREMENT,</p>
+<p>name VARCHAR(20) </p>
+<p>)</p>
+</li>
+<li><p>删除自动增长</p>
+<p>ALTER TABLE stu MODIFY id INT ;</p>
+</li>
+<li><p>添加自动增长</p>
+<p>ALTER TABLE stu MODIFY id INT AUTO_INCREMENT;</p>
+</li>
+</ol>
+<h3 id="外键约束"><a href="#外键约束" class="headerlink" title="外键约束"></a>外键约束</h3><ol>
+<li><p>foreign key，让表和表产生关系，从而保证数据的正确性。</p>
+<p>CREATE TABLE(</p>
+<p>…</p>
+<p>外键列</p>
+<p>CONSTRAIT 外键名称 FOREIGH KEY (外键列名称) REFERENCENCES 主表名称（主表列名称）</p>
+<p>)；</p>
+</li>
+<li><p>删除外键</p>
+<p>ALTER TABLE 表名 DROP FOREIGH KEY 外键名称;</p>
+</li>
+<li><p>创建表之后添加外键</p>
+<p>ALTER TABLE 表名 ADD CONSTRAIT 外键名称 FOREIGH KEY (外键列名称) REFERENCENCES 主表名称（主表列名称);</p>
+</li>
+<li><p>级联操作</p>
+<ol>
+<li><p>添加级联</p>
+<p>ALTER TABLE 表名 ADD CONSTRAIT 外键名称 FOREIGH KEY (外键列名称) REFERENCENCES 主表名称（主表列名称) ON UPDATE CASCADE ON DELETE CASCADE;</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="多表"><a href="#多表" class="headerlink" title="多表"></a>多表</h2><h3 id="实现关系"><a href="#实现关系" class="headerlink" title="实现关系"></a>实现关系</h3><h4 id="一对多（多对一）"><a href="#一对多（多对一）" class="headerlink" title="一对多（多对一）"></a>一对多（多对一）</h4><p>在多的一方建立外键，指向一的一方的主键</p>
+<h4 id="多对多"><a href="#多对多" class="headerlink" title="多对多"></a>多对多</h4><p>需要第三张中间表，中间表至少包含两个字段，将这两个字段座位第三张表的外键，分别指向两张表的主键</p>
+<h2 id="三大范式"><a href="#三大范式" class="headerlink" title="三大范式"></a>三大范式</h2><p>第一范式（1NF）：每一项都是不可分割的原子数据项</p>
+<p>第二范式（2NF）：在1NF的基础上，非码属性必须完全依赖于码（在1NF基础上消除非主属性对主码的部分函数依赖）</p>
+<p>第三范式（3NF）：在2NF的基础上，任何非主属性不依赖于其他非主属性</p>
+<h2 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h2><h3 id="内连接查询"><a href="#内连接查询" class="headerlink" title="内连接查询"></a>内连接查询</h3><h4 id="隐式内查询"><a href="#隐式内查询" class="headerlink" title="隐式内查询"></a>隐式内查询</h4><p>直接用where</p>
+<p>SELECT * FROM stu1 t1, stu2 t2 WHERE t1.id = t2.id;</p>
+<h4 id="显式内查询"><a href="#显式内查询" class="headerlink" title="显式内查询"></a>显式内查询</h4><p>SELECT* FROM stu1 [INNER] JOINT stu2 ON stu1.id = stu2.id;</p>
+<h3 id="外连接查询"><a href="#外连接查询" class="headerlink" title="外连接查询"></a>外连接查询</h3><h4 id="左外连接"><a href="#左外连接" class="headerlink" title="左外连接"></a>左外连接</h4><p>SELECT 字段 FROM 表1 LEFT [OUTER] JOIN 表2 ON 条件；</p>
+<p>查询的是表一（左表）全部加交集部分</p>
+<h4 id="右外连接"><a href="#右外连接" class="headerlink" title="右外连接"></a>右外连接</h4><p>SELECT 字段 FROM 表1 RIGHT [OUTER] JOIN 表2 ON 条件；</p>
+<p>查询的是表2（右表）全部加交集部分</p>
+<h3 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h3><p>查询中嵌套查询</p>
+<h4 id="子查询是单行单列的"><a href="#子查询是单行单列的" class="headerlink" title="子查询是单行单列的"></a>子查询是单行单列的</h4><p>查询大于平均工资的人的姓名</p>
+<p>SELECT name FROM employee WHERE salary &gt; (SELCET AVG(salary) from employee);</p>
+<h4 id="子查询是多行单列的"><a href="#子查询是多行单列的" class="headerlink" title="子查询是多行单列的"></a>子查询是多行单列的</h4><p>使用in去选择判断</p>
+<p>查询学了数学和英语的人的名字</p>
+<p>SELECT name FROM stu WHERE class IN (SELECT class FROM stu2 WHERE class IN (‘math’,’english’));</p>
+<h4 id="子查询是多行多列的"><a href="#子查询是多行多列的" class="headerlink" title="子查询是多行多列的"></a>子查询是多行多列的</h4><p>将子查询看做一个虚拟表进行查询</p>
+<p>查询入职时间在2011年以后的员工信息和部门信息</p>
+<p>SELECT* FROM dept t1，（SELECT* FROM emplyee WHERE date&gt;2011）t2 WHERE t1.id = t2.id;</p>
+<p>不使用嵌套：</p>
+<p>SELECT* FROM emp t1, dept t2 WHERE t1.id = t2.id AND t1.date &gt; 2011;</p>
+<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><h3 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h3><p>如果一个包含多个步骤的业务操作被事务管理，那么这些操作要么同时成功，要么同时失败</p>
+<h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><ol>
+<li>开启事务：START TRANSACTION</li>
+<li>回滚：ROLL BACK</li>
+<li>提交：COMMIT</li>
+</ol>
+<h3 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h3><p>事务提交的两种方式：</p>
+<ol>
+<li><p>自动提交：</p>
+<p>mysql是自动提交的</p>
+<p>一条DML语句会提交一次事务</p>
+</li>
+<li><p>手动提交：</p>
+<p>Oracle数据库是手动提交的</p>
+<p>需要先开启事务，在提交</p>
+</li>
+</ol>
+<p>修改事务的默认提交方式：</p>
+<p>查看事务的默认提交方式：SELECT @@AUTOCOMMIT；– 1代表自动提交 0代表手动提交</p>
+<p>修改默认提交方式：SET @@AUTOCOMMIT=0;</p>
+<h3 id="事务的四大特征"><a href="#事务的四大特征" class="headerlink" title="事务的四大特征"></a>事务的四大特征</h3><ol>
+<li>原子性：是不可分割的最小操作单元，要么同时成功，要么同时失败</li>
+<li>持久性：当事务成功提交或回滚后，数据库会持久化保存数据</li>
+<li>隔离性：多个事务之间，相互独立</li>
+<li>一致性：事务操作前后，数据总量不变</li>
+</ol>
+<h3 id="事务的隔离级别"><a href="#事务的隔离级别" class="headerlink" title="事务的隔离级别"></a>事务的隔离级别</h3><h4 id="概念-2"><a href="#概念-2" class="headerlink" title="概念"></a>概念</h4><p>多个事务是相互独立，互相隔离的。但是多个事务操作同一批数据，会引发一系列问题，需要设置隔离级别</p>
+<h4 id="存在问题"><a href="#存在问题" class="headerlink" title="存在问题"></a>存在问题</h4><ol>
+<li>脏读：一个事务，读取到另一个事务中没有提交的数据</li>
+<li>不可重复读（虚读）：在同一个事务中，两次读取到的数据不一样</li>
+<li>幻读：一个事务操作数据表中的所有记录，另一个事务添加了一条数据，则第一个事务查询不到自己的修改</li>
+</ol>
+<h4 id="隔离级别"><a href="#隔离级别" class="headerlink" title="隔离级别"></a>隔离级别</h4><ol>
+<li><p>READ UNCOMMITTED：读未提交</p>
+<p>产生问题：脏读、不可重复读、幻读</p>
+</li>
+<li><p>READ COMMITTED：读已提交</p>
+<p>产生的问题：不可重复读、幻读</p>
+</li>
+<li><p>REPEATABLE READ：可重复读</p>
+<p>产生的问题：幻读</p>
+</li>
+<li><p>SERIALIZABLE：串行化</p>
+<p>解决以上所有问题</p>
+</li>
+</ol>
+<p>隔离级别越高，安全性越高，效率越低</p>
+<h1 id="DCL"><a href="#DCL" class="headerlink" title="DCL"></a>DCL</h1><p>SQL分类：</p>
+<ol>
+<li>DDL:操作数据库和表</li>
+<li>DML:增删改表中的数据</li>
+<li>DQL:查表中的数据</li>
+<li>DLC:管理用户，授权</li>
+</ol>
+<p>DBA:数据库管理员</p>
+<ol>
+<li><p>添加用户：</p>
+<p>CREATE USER “用户名”@”主机名” IDENTIFIED BY “密码”；</p>
+</li>
+<li><p>删除用户：</p>
+<p>DROP USER “用户名”@”主机名”；</p>
+</li>
+<li><p>修改用户密码：</p>
+<p>UPDATE USER SET PASSWORD = PASSWORD(‘新密码’) WHERE USER = ‘用户名’；</p>
+<p>SET PASSWORD FOR ‘用户名‘@’主机’ = PASSWORD(‘新密码’)；</p>
+</li>
+<li><p>查询用户：</p>
+<p>–切换到目标数据库</p>
+<p>use gg；</p>
+<p>–查询user表</p>
+<p>SELECT * FROM USER;</p>
+<p>%表示可以在任意主机使用用户登录数据库</p>
+</li>
+</ol>
+<p>权限管理</p>
+<ol>
+<li><p>查询权限</p>
+<p>SHOW GRANTS FOR ‘用户名‘@’主机名’;</p>
+</li>
+<li><p>授予权限</p>
+<p>GRANT 权限列表 ON 数据库名.表名 TO ‘用户名‘@’主机名’;</p>
+</li>
+<li><p>撤销权限</p>
+<p>REVOKE 权限列表 ON 数据库名.表名 FROM ‘用户名‘@’主机名’;</p>
+</li>
+</ol>
+<h1 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h1><ol>
+<li>DriverManager：驱动管理对象</li>
+</ol>
+<ul>
+<li><p>注册驱动：告诉程序使用哪一个数据库驱动jar</p>
+<p>static void registerDriver(Driver driver)：注册与给定的驱动程序 DriverManager。</p>
+<p>写代码使用 Class.forName(“com.mysql.cj.jdbc.Driver”) 会自动调用DriverManager</p>
+</li>
+<li><p>获取数据库连接：</p>
+<p>方法：static Connection getConnection(String url, String user, String password)</p>
+<p>url：指定连接的路径，jdbc:mysql://ip地址(域名):端口号/数据库名称</p>
+</li>
+</ul>
+<ol start="2">
+<li><p>Connection：数据库连接对象</p>
+<ul>
+<li><p>获取执行sql的对象：</p>
+<p>Statement createStatement()</p>
+<p>PreparedStatement preparedStatement (String sql)</p>
+</li>
+<li><p>管理事务：</p>
+<p>开启事务：setAutoCommit(boolean automent)：调用该方法设置参数为false，开启事务</p>
+<p>提交事务：commit()</p>
+<p>回滚事务：roolback()</p>
+</li>
+</ul>
+</li>
+<li><p>Statement：执行sql的对象</p>
+<ul>
+<li><p>boolean execute(String sql)：可以执行任意的sql （了解）</p>
+</li>
+<li><p>int executeUpdate(String sql)：执行DML(insert、update、delete)语句，DDL语句，</p>
+<p>返回值是影响的行数，小于0则执行失败</p>
+</li>
+<li><p>ResultSet executeQuery(String sql)：执行DQL(select)语句</p>
+</li>
+</ul>
+</li>
+<li><p>ResultSet：结果集对象，封装查询结果</p>
+<ul>
+<li><p>next()：游标向下一行</p>
+</li>
+<li><p>getXxx(参数)：获取数据</p>
+<p>参数：</p>
+<ol>
+<li>int：代表列的编号，从1开始</li>
+<li>String：代表列名称</li>
+</ol>
+<p>遍历的时候用while(resultSet.next())</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>插入练习(insert)：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.cast.jdbc;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.DriverManager;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"><span class="keyword">import</span> java.sql.Statement;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JdbcDemo2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">        Connection conn = <span class="keyword">null</span>;</span><br><span class="line">        Statement stmt = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Class.forName(<span class="string">&quot;com.mysql.cj.jdbc.Driver&quot;</span>);</span><br><span class="line">            String sql = <span class="string">&quot;insert into temp1 values(2,&#x27;hu&#x27;)&quot;</span>;</span><br><span class="line">            conn = DriverManager.getConnection(<span class="string">&quot;jdbc:mysql://localhost:3306/gg?serverTimezone=UTC&quot;</span>, <span class="string">&quot;root&quot;</span>, <span class="string">&quot;315818&quot;</span>);</span><br><span class="line">            stmt = conn.createStatement();</span><br><span class="line">            <span class="keyword">int</span> count = stmt.executeUpdate(sql);</span><br><span class="line">            <span class="keyword">if</span>(count&gt;<span class="number">0</span>)&#123;</span><br><span class="line">                System.out.println(count);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;错误&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span> (SQLException throwables) &#123;</span><br><span class="line">                throwables.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(stmt!=<span class="keyword">null</span>)&#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    stmt.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (SQLException throwables) &#123;</span><br><span class="line">                    throwables.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(conn!= <span class="keyword">null</span>)&#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    conn.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (SQLException throwables) &#123;</span><br><span class="line">                    throwables.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>更新操作（update）:</p>
+<p>删除操作（delete）：</p>
+<ol start="5">
+<li><p>PreparedStatement：执行sql的对象</p>
+<ol>
+<li><p>sql注入问题：在拼接sql语句的时候，有一些sql的特殊关键字段参与字符串的拼接。会造成安全性问题。</p>
+</li>
+<li><p>解决用PreparedStatement</p>
+<ul>
+<li><p>sql使用？作为占位符。例子：select* from temp1 where id = ? and name = ?;</p>
+</li>
+<li><p>PreparedStatement pres = Connection.preparestatement (String sql)</p>
+</li>
+<li><p>给？赋值：</p>
+<p>setXxx（位置，值） </p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
 
       
     </div>
