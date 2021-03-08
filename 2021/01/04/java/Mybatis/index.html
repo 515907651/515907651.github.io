@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+
+  <meta name="description" content="title：mybatisMybatis开发步骤：   &lt;dependencies&gt;     &lt;dependency&gt;         &lt;groupId&gt;mysql&lt;&#x2F;groupId&gt;         &lt;artifactId&gt;mysql-connector-java&lt;&#x2F;artifactId&gt;         &lt;vers">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2021/01/04/java/Mybatis/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="title：mybatisMybatis开发步骤：   &lt;dependencies&gt;     &lt;dependency&gt;         &lt;groupId&gt;mysql&lt;&#x2F;groupId&gt;         &lt;artifactId&gt;mysql-connector-java&lt;&#x2F;artifactId&gt;         &lt;vers">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="c:/Users/51590/AppData/Roaming/Typora/typora-user-images/image-20210104192904057.png">
+<meta property="og:image" content="c:/Users/51590/AppData/Roaming/Typora/typora-user-images/image-20210104213439447.png">
+<meta property="og:image" content="c:/Users/51590/AppData/Roaming/Typora/typora-user-images/image-20210104214400437.png">
+<meta property="og:image" content="c:/Users/51590/AppData/Roaming/Typora/typora-user-images/image-20210104214434306.png">
+<meta property="og:image" content="c:/Users/51590/AppData/Roaming/Typora/typora-user-images/image-20210104214530219.png">
+<meta property="og:image" content="c:/Users/51590/AppData/Roaming/Typora/typora-user-images/image-20210104214546406.png">
+<meta property="og:image" content="c:/Users/51590/AppData/Roaming/Typora/typora-user-images/image-20210104214656875.png">
+<meta property="og:image" content="c:/Users/51590/AppData/Roaming/Typora/typora-user-images/image-20210104214825615.png">
+<meta property="og:image" content="c:/Users/51590/AppData/Roaming/Typora/typora-user-images/image-20210104215530036.png">
+<meta property="og:image" content="c:/Users/51590/AppData/Roaming/Typora/typora-user-images/image-20210104220218368.png">
+<meta property="og:image" content="c:/Users/51590/AppData/Roaming/Typora/typora-user-images/image-20210104220232585.png">
+<meta property="og:image" content="c:/Users/51590/AppData/Roaming/Typora/typora-user-images/image-20210104220259604.png">
+<meta property="og:image" content="c:/Users/51590/AppData/Roaming/Typora/typora-user-images/image-20210105155005180.png">
+<meta property="og:image" content="c:/Users/51590/AppData/Roaming/Typora/typora-user-images/image-20210105155345573.png">
+<meta property="og:image" content="c:/Users/51590/AppData/Roaming/Typora/typora-user-images/image-20210105195240564.png">
+<meta property="og:image" content="c:/Users/51590/AppData/Roaming/Typora/typora-user-images/image-20210105205930945.png">
+<meta property="og:image" content="c:/Users/51590/AppData/Roaming/Typora/typora-user-images/image-20210109195638271.png">
+<meta property="og:image" content="c:/Users/51590/AppData/Roaming/Typora/typora-user-images/image-20210109200015383.png">
+<meta property="og:image" content="c:/Users/51590/AppData/Roaming/Typora/typora-user-images/image-20210109200702339.png">
+<meta property="og:image" content="c:/Users/51590/AppData/Roaming/Typora/typora-user-images/image-20210109201638928.png">
+<meta property="article:published_time" content="2021-01-04T11:27:42.295Z">
+<meta property="article:modified_time" content="2021-01-09T12:52:31.286Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/51590/AppData/Roaming/Typora/typora-user-images/image-20210104192904057.png">
+
+
+<link rel="canonical" href="http://example.com/2021/01/04/java/Mybatis/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title> | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Hexo</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#title%EF%BC%9Amybatis"><span class="nav-number">1.</span> <span class="nav-text">title：mybatis</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mybatis"><span class="nav-number"></span> <span class="nav-text">Mybatis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5"><span class="nav-number">1.</span> <span class="nav-text">增删改查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">核心配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#environments"><span class="nav-number">3.</span> <span class="nav-text">environments</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mapper"><span class="nav-number">4.</span> <span class="nav-text">mapper</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#properties"><span class="nav-number">5.</span> <span class="nav-text">properties</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#typeAliases"><span class="nav-number">6.</span> <span class="nav-text">typeAliases</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Myba%E7%9B%B8%E5%BA%94API"><span class="nav-number">7.</span> <span class="nav-text">Myba相应API</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mybatis%E7%9A%84Dao%E5%B1%82%E5%AE%9E%E7%8E%B0"><span class="nav-number"></span> <span class="nav-text">Mybatis的Dao层实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%90%86%E5%BC%80%E5%8F%91"><span class="nav-number">1.</span> <span class="nav-text">代理开发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E8%A1%A8%E6%93%8D%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">多表操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E5%AF%B9%E4%B8%80%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.1.</span> <span class="nav-text">一对一查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E5%AF%B9%E5%A4%9A%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.2.</span> <span class="nav-text">一对多查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E5%AF%B9%E5%A4%9A%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.3.</span> <span class="nav-text">多对多查询</span></a></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/04/java/Mybatis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-01-04 19:27:42" itemprop="dateCreated datePublished" datetime="2021-01-04T19:27:42+08:00">2021-01-04</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-01-09 20:52:31" itemprop="dateModified" datetime="2021-01-09T20:52:31+08:00">2021-01-09</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <hr>
+<h2 id="title：mybatis"><a href="#title：mybatis" class="headerlink" title="title：mybatis"></a>title：mybatis</h2><h1 id="Mybatis"><a href="#Mybatis" class="headerlink" title="Mybatis"></a>Mybatis</h1><p>开发步骤：</p>
+<p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210104192904057.png" alt="image-20210104192904057"></p>
+<ol>
+<li><pre><code class="xml">&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;mysql&lt;/groupId&gt;
+        &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+        &lt;version&gt;5.1.32&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.mybatis&lt;/groupId&gt;
+        &lt;artifactId&gt;mybatis&lt;/artifactId&gt;
+        &lt;version&gt;3.4.6&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;junit&lt;/groupId&gt;
+        &lt;artifactId&gt;junit&lt;/artifactId&gt;
+        &lt;version&gt;4.12&lt;/version&gt;
+        &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;log4j&lt;/groupId&gt;
+        &lt;artifactId&gt;log4j&lt;/artifactId&gt;
+        &lt;version&gt;1.2.12&lt;/version&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">4. &#96;&#96;&#96;xml</span><br><span class="line">   &lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot; ?&gt;</span><br><span class="line">   &lt;!DOCTYPE mapper PUBLIC &quot;-&#x2F;&#x2F;mybatis.org&#x2F;&#x2F;DTD Mapper 3.0&#x2F;&#x2F;EN&quot; &quot;http:&#x2F;&#x2F;mybatis.org&#x2F;dtd&#x2F;mybatis-3-mapper.dtd&quot;&gt;</span><br><span class="line">   &lt;mapper namespace&#x3D;&quot;userMapper&quot;&gt;</span><br><span class="line">       &lt;select id&#x3D;&quot;findAll&quot; resultType&#x3D;&quot;domain.User&quot;&gt;</span><br><span class="line">           select * from user</span><br><span class="line">       &lt;&#x2F;select&gt;</span><br><span class="line">   &lt;&#x2F;mapper&gt;</span><br></pre></td></tr></table></figure></code></pre>
+</li>
+<li><pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE configuration PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
+        &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;
+&lt;configuration&gt;
+    &lt;environments default=&quot;development&quot;&gt;
+        &lt;environment id=&quot;development&quot;&gt;
+            &lt;transactionManager type=&quot;JDBC&quot;/&gt;
+            &lt;dataSource type=&quot;POOLED&quot;&gt;
+                &lt;property name=&quot;driver&quot; value=&quot;com.mysql.jdbc.Driver&quot;/&gt;
+                &lt;property name=&quot;url&quot; value=&quot;jdbc:mysql://localhost:3306/gg?serverTimezone=UTC&quot;/&gt;
+                &lt;property name=&quot;username&quot; value=&quot;root&quot;/&gt;
+                &lt;property name=&quot;password&quot; value=&quot;315818&quot;/&gt;
+            &lt;/dataSource&gt;
+        &lt;/environment&gt;
+    &lt;/environments&gt;
+    &lt;mappers&gt;
+        &lt;mapper resource=&quot;mapper/UserMapper.xml&quot;/&gt;
+    &lt;/mappers&gt;
+&lt;/configuration&gt;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">数据库中的数据名要与domain中的数据名一致，估计是set和get方法要找对应的方法。</span><br><span class="line"></span><br><span class="line">文档类型[定义](https:&#x2F;&#x2F;baike.baidu.com&#x2F;item&#x2F;定义)（DTD，Document Type Definition）是一种特殊文档，它规定、约束符合标准通用标示语言（SGML）或SGML子集可扩展标示语言（XML）规则的定义和陈述。</span><br><span class="line"></span><br><span class="line">## Mybatis映射文件概述</span><br><span class="line"></span><br><span class="line">![image-20210104211709104](C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210104211709104.png)</span><br><span class="line"></span><br><span class="line">## 插入数据</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;java</span><br><span class="line">User user &#x3D; new User();</span><br><span class="line">user.setId(1);</span><br><span class="line">user.setUserPass(&quot;123456465&quot;);</span><br><span class="line">user.setUsername(&quot;wang&quot;);</span><br><span class="line">InputStream resourceAsStream &#x3D; Resources.getResourceAsStream(&quot;sqlMapConfig.xml&quot;);</span><br><span class="line">SqlSessionFactory build &#x3D; new SqlSessionFactoryBuilder().build(resourceAsStream);</span><br><span class="line">SqlSession sqlSession &#x3D; build.openSession();</span><br><span class="line">sqlSession.insert(&quot;userMapper.save&quot;,user);</span><br><span class="line">&#x2F;&#x2F;List&lt;User&gt; userList &#x3D; sqlSession.selectList(&quot;userMapper.findAll&quot;);</span><br><span class="line">sqlSession.commit();</span><br><span class="line">&#x2F;&#x2F; 提交事务，Mybatis默认不自动提交</span><br><span class="line">sqlSession.close();</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ol>
+<p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210104213439447.png" alt="image-20210104213439447"></p>
+<h2 id="增删改查"><a href="#增删改查" class="headerlink" title="增删改查"></a>增删改查</h2><p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210104214400437.png" alt="image-20210104214400437"></p>
+<h2 id="核心配置文件"><a href="#核心配置文件" class="headerlink" title="核心配置文件"></a>核心配置文件</h2><p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210104214434306.png" alt="image-20210104214434306"></p>
+<h2 id="environments"><a href="#environments" class="headerlink" title="environments"></a>environments</h2><p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210104214530219.png" alt="image-20210104214530219"></p>
+<p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210104214546406.png" alt="image-20210104214546406"></p>
+<h2 id="mapper"><a href="#mapper" class="headerlink" title="mapper"></a>mapper</h2><p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210104214656875.png" alt="image-20210104214656875"></p>
+<h2 id="properties"><a href="#properties" class="headerlink" title="properties"></a>properties</h2><p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210104214825615.png" alt="image-20210104214825615"></p>
+<h2 id="typeAliases"><a href="#typeAliases" class="headerlink" title="typeAliases"></a>typeAliases</h2><p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210104215530036.png" alt="image-20210104215530036"></p>
+<p>要遵守顺序</p>
+<h2 id="Myba相应API"><a href="#Myba相应API" class="headerlink" title="Myba相应API"></a>Myba相应API</h2><p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210104220218368.png" alt="image-20210104220218368"></p>
+<p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210104220232585.png" alt="image-20210104220232585"></p>
+<p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210104220259604.png" alt="image-20210104220259604"></p>
+<h1 id="Mybatis的Dao层实现"><a href="#Mybatis的Dao层实现" class="headerlink" title="Mybatis的Dao层实现"></a>Mybatis的Dao层实现</h1><h2 id="代理开发"><a href="#代理开发" class="headerlink" title="代理开发"></a>代理开发</h2><p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210105155005180.png" alt="image-20210105155005180"></p>
+<p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210105155345573.png" alt="image-20210105155345573"></p>
+<p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210105195240564.png" alt="image-20210105195240564"></p>
+<p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210105205930945.png" alt="image-20210105205930945"></p>
+<h2 id="多表操作"><a href="#多表操作" class="headerlink" title="多表操作"></a>多表操作</h2><h3 id="一对一查询"><a href="#一对一查询" class="headerlink" title="一对一查询"></a>一对一查询</h3><p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210109195638271.png" alt="image-20210109195638271"></p>
+<p>其中对应的user可以用<img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210109200015383.png" alt="image-20210109200015383"></p>
+<h3 id="一对多查询"><a href="#一对多查询" class="headerlink" title="一对多查询"></a>一对多查询</h3><p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210109200702339.png" alt="image-20210109200702339"></p>
+<h3 id="多对多查询"><a href="#多对多查询" class="headerlink" title="多对多查询"></a>多对多查询</h3><p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210109201638928.png" alt="image-20210109201638928"></p>
+<p>感觉就是写个resultMap，然后补充它的内容，如果里面有其他类的list就加个collection</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/12/29/java/BUG/" rel="prev" title="">
+                  <i class="fa fa-chevron-left"></i> 
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/03/08/%E6%AF%8F%E5%A4%A9%E7%9A%84%E5%A4%8D%E4%B9%A0%E5%86%85%E5%AE%B9/%E7%AC%AC%E4%B8%80%E5%91%A8/3.4/" rel="next" title="3.4日复习内容">
+                  3.4日复习内容 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

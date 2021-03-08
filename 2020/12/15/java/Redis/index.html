@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+
+  <meta name="description" content="Redis 概念: redis是一款高性能的NOSQL系列的非关系型数据库   redis的数据结构   字符串类型 String 存储: set key value 获取:get key 删除: del key   哈希类型 hash 存储: hset key field value 获取︰ hget key field:获取指定的field对应的值  hgetall key:获取所有的fiel">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis">
+<meta property="og:url" content="http://example.com/2020/12/15/java/Redis/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Redis 概念: redis是一款高性能的NOSQL系列的非关系型数据库   redis的数据结构   字符串类型 String 存储: set key value 获取:get key 删除: del key   哈希类型 hash 存储: hset key field value 获取︰ hget key field:获取指定的field对应的值  hgetall key:获取所有的fiel">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="c:/Users/51590/AppData/Roaming/Typora/typora-user-images/image-20201215142819245.png">
+<meta property="og:image" content="c:/Users/51590/AppData/Roaming/Typora/typora-user-images/image-20201215143045852.png">
+<meta property="article:published_time" content="2020-12-15T06:25:20.559Z">
+<meta property="article:modified_time" content="2020-12-15T07:25:05.620Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/51590/AppData/Roaming/Typora/typora-user-images/image-20201215142819245.png">
+
+
+<link rel="canonical" href="http://example.com/2020/12/15/java/Redis/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Redis | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Hexo</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis"><span class="nav-number">1.</span> <span class="nav-text">Redis</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/15/java/Redis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Redis
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2020-12-15 14:25:20 / Modified: 15:25:05" itemprop="dateCreated datePublished" datetime="2020-12-15T14:25:20+08:00">2020-12-15</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><ol>
+<li><p>概念: redis是一款高性能的NOSQL系列的非关系型数据库</p>
+<p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201215142819245.png" alt="image-20201215142819245"></p>
+</li>
+<li><p>redis的数据结构</p>
+<p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201215143045852.png" alt="image-20201215143045852"></p>
+<ul>
+<li>字符串类型 String<ol>
+<li>存储: set key value</li>
+<li>获取:get key</li>
+<li>删除: del key</li>
+</ol>
+</li>
+<li>哈希类型 hash<ol>
+<li>存储: hset key field value</li>
+<li>获取︰<ul>
+<li>hget key field:获取指定的field对应的值 </li>
+<li>hgetall key:获取所有的field和value</li>
+</ul>
+</li>
+<li>删除: hdel key field</li>
+</ol>
+</li>
+<li>列表类型 list<ol>
+<li>添加<ol>
+<li>lpush key value:将元素加入列表左表</li>
+<li>rpush key value :将元素加入列表右边</li>
+</ol>
+</li>
+<li>获取<ul>
+<li>lrange key startl end:范围获取</li>
+</ul>
+</li>
+<li>删除<ol>
+<li>lpop key :，删除列表最左边的元素，并将元秦返回</li>
+<li>rpop key : |删除列表最右边的元素，并将元秦返回</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>集合类型 set 不允许重复元素<ol>
+<li>存储:sadd key value</li>
+<li>获取: smembers key:获取set集合中所有元素</li>
+<li>删除: srem key value:删除set集合中的某个元秦</li>
+</ol>
+</li>
+<li>有序集合类型 sortedset 不允许重复元素且有序<ol>
+<li>存储:zadd key score value :</li>
+<li>获取:Irange key start end</li>
+<li>删除: zrem key value</li>
+</ol>
+</li>
+<li>通用命令：<ul>
+<li>keys * :查询所有的键</li>
+<li>type key :获取键对应的value的类型</li>
+<li>del key :删除指定的key value</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>持久化,RDB和AOF的区别<a target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1654694618189745916&amp;wfr=spider&amp;for=pc">https://baijiahao.baidu.com/s?id=1654694618189745916&amp;wfr=spider&amp;for=pc</a></p>
+<ol>
+<li>redis是一个内存数据库，当redis服务器重后，获取电脑重后，数据会丢失，我们可以捋redis内存中的数据持久化保存到硬盘的文件中。、</li>
+<li>redis持久化机制：<ol>
+<li>RDB(Redis Database):默认方式,不需要进行配逻，默认就使用这种机制<ul>
+<li>在一定的间隔时间中，检测key的变化情况，然后持久化数据</li>
+<li>save secs keys，secs是秒数，keys是key数</li>
+<li>修改步骤是，先修改配置文件，再重启服务器指定配置文件</li>
+</ul>
+</li>
+<li>AOF(Apend Only File):日志记录的方式，可以记录每一条命合的操作。可以每一次命合操作后，持久化数据<ul>
+<li>编辑配置文件(redis.windows.conf)</li>
+<li>appendonly no -&gt; appendonly yes(开启)</li>
+<li>appendfsync always:每一次操作都进行持久化</li>
+<li>appendfsync everysec:每隔一秒进行一次持久化</li>
+<li>appendfsync no:不进行持久化</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/12/14/java/Stack&Deque/" rel="prev" title="Stack&Deque">
+                  <i class="fa fa-chevron-left"></i> Stack&Deque
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/12/17/java/JVM/" rel="next" title="JVM">
+                  JVM <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

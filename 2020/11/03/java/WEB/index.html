@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+
+  <meta name="description" content="title:Web  WebWeb概述 软件架构 C&#x2F;S:客户端&#x2F;服务器端 B&#x2F;S:浏览器&#x2F;服务器端   资源分类 静态资源:所有用户访问后，得到的结果都是一样的，称为静态资源.静态资源可以直接被浏览器解析 如: html,css,Javascript   动态资源:每个用户访问相同资源后，得到的结果可能不一样。称为动态资源。动态资源被访问后，需要先转换为静态资源，在返回给浏览器 如: serv">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2020/11/03/java/WEB/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="title:Web  WebWeb概述 软件架构 C&#x2F;S:客户端&#x2F;服务器端 B&#x2F;S:浏览器&#x2F;服务器端   资源分类 静态资源:所有用户访问后，得到的结果都是一样的，称为静态资源.静态资源可以直接被浏览器解析 如: html,css,Javascript   动态资源:每个用户访问相同资源后，得到的结果可能不一样。称为动态资源。动态资源被访问后，需要先转换为静态资源，在返回给浏览器 如: serv">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="c:/Users/51590/AppData/Roaming/Typora/typora-user-images/image-20201130152650384.png">
+<meta property="og:image" content="c:/Users/51590/AppData/Roaming/Typora/typora-user-images/image-20201211143927382.png">
+<meta property="og:image" content="c:/Users/51590/AppData/Roaming/Typora/typora-user-images/image-20201214144957388.png">
+<meta property="article:published_time" content="2020-11-03T06:55:25.967Z">
+<meta property="article:modified_time" content="2020-12-14T07:41:25.146Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/51590/AppData/Roaming/Typora/typora-user-images/image-20201130152650384.png">
+
+
+<link rel="canonical" href="http://example.com/2020/11/03/java/WEB/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title> | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Hexo</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Web"><span class="nav-number">1.</span> <span class="nav-text">Web</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Web%E6%A6%82%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">Web概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BD%AF%E4%BB%B6"><span class="nav-number">1.2.</span> <span class="nav-text">Web服务器软件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tomcat"><span class="nav-number">1.3.</span> <span class="nav-text">Tomcat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Servlet"><span class="nav-number">1.4.</span> <span class="nav-text">Servlet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP"><span class="nav-number">1.5.</span> <span class="nav-text">HTTP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#REQUEST"><span class="nav-number">1.6.</span> <span class="nav-text">REQUEST</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E5%B1%82%E6%9E%B6%E6%9E%84"><span class="nav-number">1.7.</span> <span class="nav-text">三层架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#filter"><span class="nav-number">1.8.</span> <span class="nav-text">filter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Listener"><span class="nav-number">1.9.</span> <span class="nav-text">Listener</span></a></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/03/java/WEB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-11-03 14:55:25" itemprop="dateCreated datePublished" datetime="2020-11-03T14:55:25+08:00">2020-11-03</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-12-14 15:41:25" itemprop="dateModified" datetime="2020-12-14T15:41:25+08:00">2020-12-14</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <hr>
+<p>title:Web</p>
+<hr>
+<h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="Web概述"><a href="#Web概述" class="headerlink" title="Web概述"></a>Web概述</h2><ol>
+<li>软件架构<ol>
+<li>C/S:客户端/服务器端</li>
+<li>B/S:浏览器/服务器端</li>
+</ol>
+</li>
+<li>资源分类<ol>
+<li>静态资源:所有用户访问后，得到的结果都是一样的，称为静态资源.静态资源可以直接被浏览器解析<ul>
+<li>如: html,css,Javascript</li>
+</ul>
+</li>
+<li>动态资源:每个用户访问相同资源后，得到的结果可能不一样。称为动态资源。动态资源被访问后，需要先转换为静态资源，在返回给浏览器<ul>
+<li>如: servlet/jsp,php,asp.. ..</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>网络通信三要素<ol>
+<li>IP:电子设备(计算机)在网络中的唯—标识。</li>
+<li>端口∶应用程序在计算机中的唯一标识。0~65536</li>
+<li>传输协议:规定了数据传输的规则<ol>
+<li>tcp:安全协议，三次握手。速度稍慢</li>
+<li>udp :不安全协议。速度快</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="Web服务器软件"><a href="#Web服务器软件" class="headerlink" title="Web服务器软件"></a>Web服务器软件</h2><p>服务器:安装了服务器软件的计算机</p>
+<p>服务器软件:接收用户的请求，处理请求，做出响应</p>
+<p>web服务器软件:接收用户的请求，处理请求，做出响应。</p>
+<ul>
+<li>在web服务器软件中，可以部署web项目，让用户通过浏览器来访问这些项目</li>
+<li>web容器</li>
+</ul>
+<p>常见的java相关的web服务器软件︰</p>
+<ul>
+<li>webLogic : oracle公司，大型的JavaEE服务器，支持所有的JavaEE规范，收费的。</li>
+<li>websphere : IBM公司，大型的JavaEE服务器，支持所有的JavaEE规范，收费的。</li>
+<li>3BOSs : BOSs公司的，大型的JavaEE服务器，支持所有的JavaEE规范，收费的。</li>
+<li>Tomcat : Apache基金组织，中小型的3avaEE服务器，仅仅支持少量的javaEE规范servlet/jsp。开源的，免费的。</li>
+</ul>
+<p>JavaEE : Java语言在企业级开发中使用的技术规范的总和，一共规定了13项大的规范</p>
+<h2 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h2><p>关闭：</p>
+<ol>
+<li>正常关闭:<ul>
+<li>bin/ shutdown. bat</li>
+<li>ctrl+c</li>
+</ul>
+</li>
+<li>强制关闭</li>
+</ol>
+<p>配置项目：</p>
+<ul>
+<li>部署项目的方式:<ol>
+<li>直接将项目放到webapps目录下即可。<ul>
+<li>/hello: 项目的访问路径- - &gt;虚拟目录</li>
+<li>简化部署:将项目打成一个war包， 再将war包放置到webapps目录下。<ul>
+<li>war包会自动解压缩</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>配置conf/server . xml文件<ul>
+<li>在<Host>标签体中配置</li>
+<li><Context docBase="D: \hello" path=" /hehe" />
+* docBase: 项目存放的路径
+* path:虚拟目录</li>
+</ul>
+</li>
+<li>在conf\Catalina\localhost创建任意 名称的xml文件。在文件中编写<ul>
+<li><Context docBase="D: \hello" />
+* 虚拟目录: xml文件的名称
+
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<p>静态项目和动态项目</p>
+<ul>
+<li>目录结构<ul>
+<li>java动态项目的目录结构：<ul>
+<li>项目的根目录<ul>
+<li>WEB-INF目录<ul>
+<li>web.xml：web项目的核心配置文件</li>
+<li>classes目录:放置字节码文件的目录</li>
+<li>lib目录:放置依赖的jar包</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h2><p>server applet</p>
+<ul>
+<li>概念:运行在服务器端的小程序<ul>
+<li>Servlet就是一个接口，定义了Java类被浏览器访问到(tomcat识别)的规则。</li>
+<li>将来我们自定义一个类，实现Servlet接口， 复写方法。</li>
+</ul>
+</li>
+<li>执行原理<ol>
+<li>当服务器接受到客户端浏览器的请求后，会解析请求URL路径，获取访问的Servlet的资源路径</li>
+<li>查找web.xml文件，足否有对应的<url-pattern>标签体内容。</li>
+<li>如果有，则在找到对应的<servlet-class>全类名</li>
+<li>tomcat会将字节码文件加载进内存，并且创建其对象</li>
+<li>调用其方法</li>
+</ol>
+</li>
+</ul>
+<p>多个方法：</p>
+<ul>
+<li>public void init<ul>
+<li>初始化方法</li>
+<li>在servlet创建时执行，只执行一次</li>
+<li>servlet什么时候被创建？<ul>
+<li>默认情况下，第一次被访问时，servlet被创建</li>
+<li>可以配置执行servlet的创建时机<ul>
+<li>第一次被访问时创建<ul>
+<li><load-on-startup>为负值</li>
+</ul>
+</li>
+<li>在服务器被启动时创建<ul>
+<li><load-on-startup>的值为0或者正值</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>servlet的init方法，只执行一次，说明一个servlet在内存中只存在一个对象，servlet足单例的<ul>
+<li>多个用户同时访问时，可能存在线程安全问题。</li>
+<li>解决∶尽往不要在servlet中定义成员变量。即使定义了成员变量，也不要修改值</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>public void service<ul>
+<li>提供服务方法</li>
+<li>每次访问，都会执行一次</li>
+</ul>
+</li>
+<li>public void destroy<ul>
+<li>销毁方法</li>
+<li>只执行一次</li>
+<li>servlet被销毁时执行。服务器关闭时，servlet被销毁</li>
+<li>只有服务器正常关闭时,才会执行destroy方法。</li>
+<li>destroy方法在servlet被销毁之前执行，一般用于释放资源</li>
+</ul>
+</li>
+</ul>
+<p>servlet3.0：</p>
+<ul>
+<li>好处：支持注解配置，可以不需要web.xml了</li>
+<li>步骤：<ol>
+<li>创建JavaEE项目，选择servlet的版本3.o以上，可以不创建web.xml</li>
+<li>定义一个类，实现servlet接口</li>
+<li>覆写方法</li>
+<li>在类上使用@webservlet注解，进行配置</li>
+<li>@WebServlet(“资源路径”）</li>
+</ol>
+</li>
+</ul>
+<p>idea和tomcat的相关配置</p>
+<ol>
+<li>IDEA会为每一个tomcat部署的项目单独建立一份配置文件</li>
+<li>工作空间项目和tomcat部著的web项目<ul>
+<li>tomcat真正访问的是”“tomcat部署的web项目”，”tomcat部署的web项目””对应着”工作空间项目”的web目录下的所有资源</li>
+<li>WEB-INF目录下的资源不能被浏览器直接访问。</li>
+</ul>
+</li>
+<li>断点调试:使用”小虫子”启动dubug启动</li>
+</ol>
+<p>servlet体系结构</p>
+<p>servlet – 接口 ————GenericServlet – 抽象类————HTTPServlet –抽象类</p>
+<ul>
+<li>GenericServlet<ul>
+<li>将Servlet接口中其他方法做了默认空实现，只将service()方法作为抽象</li>
+<li>定义servlet类，继承GenericServlet，只需要实现service方法</li>
+</ul>
+</li>
+<li>HttpServlet：对http协议的一种封装，简化操作<ul>
+<li>定义类继承HttpServlet</li>
+<li>覆写doGet/doPost方法</li>
+</ul>
+</li>
+</ul>
+<p>servlet相关配置</p>
+<ul>
+<li>urlpartten：servlet访问路径<ul>
+<li>一个servlet可以定义多个访问路径：@WebServlet({“/d3”, “/d4”, “/d5”})</li>
+<li>路径定义规则：<ul>
+<li>/xxx</li>
+<li>/xxx/xxx</li>
+<li>*.do</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h2><p>概念：hyper text transfer protocol 超文本传输协议</p>
+<ul>
+<li>传输协议：定义了客户端和服务器端通信时，发送数据的格式</li>
+<li>特点：<ul>
+<li>基于TCP/IP的高级协议</li>
+<li>默认端口号80</li>
+<li>基于请求响应模型的：一次请求对应一次响应</li>
+<li>无状态的：每次请求之间相互独立，不能相互交换数据</li>
+</ul>
+</li>
+<li>历史版本：<ul>
+<li>1.0：每次请求都建立新的链接</li>
+<li>1.1：复用链接</li>
+</ul>
+</li>
+</ul>
+<p>请求消息数据格式</p>
+<ul>
+<li>请求行<ul>
+<li>请求方式 请求url 请求协议/版本：GET/login.html HTTP/1.1</li>
+<li>请求方式：<ul>
+<li>HTTP有7种请求方式，常用的有两种<ul>
+<li>Get：<ul>
+<li>请求参数在请求行中，在URL后面</li>
+<li>请求的url长度是有限制的</li>
+<li>不安全</li>
+</ul>
+</li>
+<li>POST:<ul>
+<li>请求参数在请求体里</li>
+<li>请求URL长度没有限制</li>
+<li>相对安全</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>请求头，客户端传给服务器端的信息<ul>
+<li>请求头名称：请求头值</li>
+<li>常见的请求头：<ul>
+<li>user-agent：浏览器版本信息，解决浏览器的兼容问题</li>
+<li>Referer：<a target="_blank" rel="noopener" href="http://localhost/login.html">http://localhost/login.html</a><ul>
+<li>告诉服务器，我从哪里来</li>
+<li>作用<ul>
+<li>防盗链</li>
+<li>统计工作</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>请求空行<ul>
+<li>空行，分割请求头和请求体</li>
+</ul>
+</li>
+<li>请求体<ul>
+<li>封装POST请求消息的请求参数的</li>
+</ul>
+</li>
+</ul>
+<p>响应消息数据格式</p>
+<ul>
+<li>响应行<ol>
+<li>组成：协议/版本 响应状态码 状态码描述</li>
+<li>响应状态码：服务器告诉客户端浏览器本次请求和响应的一个状态<ol>
+<li>状态码都是三位的数字</li>
+<li>分类：<ul>
+<li>1xx：服务器就收客户端消息，但没有接受完成，等待一段时间后，发送1xx多状态码</li>
+<li>2xx：成功。代表200</li>
+<li>3xx：重定向。代表302(重定向)，304(访问缓存)</li>
+<li>4xx：客户端错误。<ul>
+<li>代表：<ul>
+<li>404：请求路径没有对应的资源</li>
+<li>405：请求方式没有对应的doXxx方法</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>5xx：服务器端错误。代表500：服务器内部出现异常</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>响应头<ul>
+<li>格式：头名称：值</li>
+<li>常见的响应头：<ul>
+<li>Content-type：服务器告诉客户端本次响应体数据格式以及编码格式<ul>
+<li>值：<ul>
+<li>in-line：默认值，在当前页面打开</li>
+<li>attachment；filename=Xxx：以附件形式打开响应体。文件下载</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>响应空行</li>
+<li>响应体：传输的数据</li>
+</ul>
+<h2 id="REQUEST"><a href="#REQUEST" class="headerlink" title="REQUEST"></a>REQUEST</h2><ol>
+<li><p>Request对象和Response对象的原理</p>
+<ul>
+<li>request和response对象都是由服务器创建</li>
+<li>request对象是来获取请求消息，response是设置响应消息</li>
+<li><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201130152650384.png" alt="image-20201130152650384"></li>
+</ul>
+</li>
+<li><p>request对象继承体系结构</p>
+<ul>
+<li>ServletRequest – 接口 ——继承——&gt;HttpServletRequest – 接口 ——实现——&gt;org.apache.catalina.connector.RequestFacade类(tomcat)</li>
+</ul>
+</li>
+<li><p>request功能</p>
+<ol>
+<li><p>获取请求消息数据</p>
+<ol>
+<li>获取请求行消息数据<ul>
+<li>GET /day14/ demo1?name=zhangsan HTTP/1.1</li>
+<li>方法：<ol>
+<li>获取请求方式：GET<ul>
+<li>String getMethod();</li>
+</ul>
+</li>
+<li>(重点)获取虚拟目录： /day14<ul>
+<li>String getContextPath();</li>
+</ul>
+</li>
+<li>获取Servlet路径：/demo1<ul>
+<li>String getServletPath();</li>
+</ul>
+</li>
+<li>获取get方式请求参数：name=zhangsan<ul>
+<li>String getQueryString();</li>
+</ul>
+</li>
+<li>(重点)获取请求URL：/day14/ demo1<ul>
+<li>String getRequestURI()：/day14/ demo1</li>
+<li>String getRequestURL()：http: / /localhost/day14/demo1</li>
+</ul>
+</li>
+<li>获取协议及版本：HTTP/1.1<ul>
+<li>String getProtocol()</li>
+</ul>
+</li>
+<li>获取客户机的IP地址：<ul>
+<li>String getRemoteAddr()</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>获取请求头数据</p>
+<ul>
+<li>方法：<ul>
+<li>String getHeader(String name)：通过请求头的名称获取请求头的值</li>
+<li>Enumeration&lt; String &gt; getHeaderNames()：获取所有的请求头名称</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>获取请求体数据</p>
+<ul>
+<li>请求体：只有POST请求方式有请求体</li>
+<li>步骤：<ol>
+<li>获取流对象<ul>
+<li>Bufferedreader getReader()：获取字符输入流，只能操作字符数据</li>
+<li>ServletInputStream getInputStream()：获取字节输入流，可以操作所有类型数据</li>
+</ul>
+</li>
+<li>从流对象中取得数据</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>其他功能</p>
+<ol>
+<li>获取请求参数通用方式<ul>
+<li>string getParameter(string name):根据参数名称获取参数值 username=zs&amp;password=123</li>
+<li>string[] getParametervalues(String name):根据参数名称获取参数值的数组hobby=xx&amp;hobby=game</li>
+<li>Enumeration<string> getParameterNames():获取所有请求的参数名称</li>
+<li>Map&lt;string,string[]&gt; getParameterMap():获取所有参数的map集合T</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>解决中文乱码问题</p>
+<ul>
+<li><p>post会出现乱码</p>
+</li>
+<li><pre><code class="java">req.setCharacterEncoding(&quot;utf-8&quot;);
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   6. 请求转发</span><br><span class="line"></span><br><span class="line">      * 一种在服务器内部的资源跳转方式</span><br><span class="line">      * 步骤：</span><br><span class="line">        1. 通过request对象获取请求转发器对象∶RequestDispatcher getRequestDispatcher(string path)</span><br><span class="line">        2. 使用RequestDispatcher对象来进行转发: forward(ServletRequest request，servletResponse response)</span><br><span class="line">      * 特点：</span><br><span class="line">        1. 浏览器地址栏不发生变化</span><br><span class="line">        2. 只能转发到当前服务器内部资源中</span><br><span class="line">        3. 转发是一次请求</span><br><span class="line">        4. 都在doGet里</span><br><span class="line"></span><br><span class="line">   7. 共享数据</span><br><span class="line"></span><br><span class="line">      * 域对象：一个有作用范围的对象，可以在范围内共享数据</span><br><span class="line">      * request域：代表一次请求的范围，一般用于请求转发的多个资源中共享数据</span><br><span class="line">      * 方法：</span><br><span class="line">        * void setAttribute(string name,object obj):存储数据</span><br><span class="line">        * object getAttitude( string name):通过键获取值</span><br><span class="line">        * void removeAttribute(string name):通过键移除键值对</span><br><span class="line"></span><br><span class="line">   8. 获取servletContext：</span><br><span class="line"></span><br><span class="line">      * ServletContext getservletcontext()</span><br><span class="line"></span><br><span class="line">和数据库结合使用-登录案例</span><br><span class="line"></span><br><span class="line">## Response</span><br><span class="line"></span><br><span class="line">* 功能：设置响应消息</span><br><span class="line">  1. 设置响应行</span><br><span class="line">     1. 格式：HTTP&#x2F;1.1 200 ok</span><br><span class="line">     2. 设置状态码：setstatus(int sc)</span><br><span class="line">  2. 设置响应头：setHeader(string name, string value)</span><br><span class="line">  3. 设置响应体：</span><br><span class="line">     1. 获取输出流：</span><br><span class="line">        * 字符输出流：Printwriter getwriter()</span><br><span class="line">        * 字节输出流：servletoutputstream getoutputstream()</span><br><span class="line">     2. 使用输出流，将数据输出到客户端浏览器</span><br><span class="line">     3. 问题：write和print有什么区别</span><br><span class="line"></span><br><span class="line">## 重定向</span><br><span class="line"></span><br><span class="line">redirect</span><br><span class="line"></span><br><span class="line">特点：</span><br><span class="line"></span><br><span class="line">* 地址栏发生变化</span><br><span class="line">* 重定向是两次请求。不能使用request对象来共享数据</span><br><span class="line">* 重定向可以访问其他网站资源</span><br><span class="line"></span><br><span class="line">## 路径</span><br><span class="line"></span><br><span class="line">* 相对路径</span><br><span class="line">  * 如.&#x2F;index.html</span><br><span class="line">  * 不以&#x2F;开头，以.开头路径</span><br><span class="line">  * 规则:找到当前资源和目标资源之间的相对关系</span><br><span class="line">    * .&#x2F;当前路径</span><br><span class="line">    * ..&#x2F;前一个目录路径</span><br><span class="line">* 绝对路径</span><br><span class="line">* 给客户端使用：</span><br><span class="line">  * 需要添加虚拟目录（项目的访问路径）</span><br><span class="line">  * 建议虚拟目录动态获取：request.getContextPath()</span><br><span class="line"></span><br><span class="line">## ServletContext</span><br><span class="line"></span><br><span class="line">概念：代表整个web应用，可以与程序的容器（服务器）通信</span><br><span class="line"></span><br><span class="line">功能：</span><br><span class="line"></span><br><span class="line">1. 获取MINE类型</span><br><span class="line">   * Multipurpose Internet Mail Extensions，多用途互联网邮件扩展类型</span><br><span class="line">   * 格式：大类型&#x2F;小类型 text&#x2F;html</span><br><span class="line">   * 获取：String getMineType（String file）</span><br><span class="line">   * 注意要在ServletContext里使用</span><br><span class="line">2. 域对象：共享数据</span><br><span class="line">   * setAttribute（String name, object valve）</span><br><span class="line">   * setAttribute（String name）</span><br><span class="line">   * removeAttribute（String name）</span><br><span class="line">   * ServletContext对象范围：所有用户所有请求的数据</span><br><span class="line">3. 获取文件的真实路径</span><br><span class="line">   * getRealPath(String filename)</span><br><span class="line"></span><br><span class="line">获取ServletContext：</span><br><span class="line"></span><br><span class="line">1. this.getServletContext()</span><br><span class="line">2. req.getServletContext()</span><br><span class="line"></span><br><span class="line">两者获得的ServletContext一样，我猜是因为ServletContext只有一个，概念中说是代表整个web应用</span><br><span class="line"></span><br><span class="line">## 会话技术</span><br><span class="line"></span><br><span class="line">会话:一次会话中包含多次请求和响应。</span><br><span class="line"></span><br><span class="line">会话:一次会话中包含多次请求和响应。</span><br><span class="line"></span><br><span class="line">* 一次会话:浏览器第一次给服务器资源发送请求，会话建立，直到有一方断开为止</span><br><span class="line">* 功能:在一次会话的范国内的多次请求间，共享数据</span><br><span class="line"></span><br><span class="line">方式:</span><br><span class="line"></span><br><span class="line">1. 客户端会话技术:Cookie</span><br><span class="line">2. 服务器端会话技术: Session</span><br><span class="line"></span><br><span class="line">## cookie</span><br><span class="line"></span><br><span class="line">概念∶客户端会话技术，将数据保存到客户端</span><br><span class="line"></span><br><span class="line">使用步骤︰</span><br><span class="line"></span><br><span class="line">1. 创建cookie对象，绑定数据</span><br><span class="line">   new Cookie(string name, string value)</span><br><span class="line">2. 发送cookie对象</span><br><span class="line">   response.addcookie(cookie cookie)</span><br><span class="line">3. 获取cookie，拿到数据</span><br><span class="line">   cookierequest.getcookies()</span><br><span class="line"></span><br><span class="line">![image-20201204155756242](C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201204155756242.png)</span><br><span class="line"></span><br><span class="line">1. 一次可不可以发送多个cookie?</span><br><span class="line"></span><br><span class="line">   * 可以</span><br><span class="line">   * 可以创建多个cookie对象，使用response调用多次addcookie方法发送cookie即可。</span><br><span class="line"></span><br><span class="line">2. cookie在浏览器中保存多长时间?</span><br><span class="line">   1． 默认情况下，当浏览器关闭后，Cookie数据被销毁</span><br><span class="line"></span><br><span class="line">   2．持久化存储:</span><br><span class="line"></span><br><span class="line">   * setMaxAge(int seconds)</span><br><span class="line">     1. 正数︰将cookie数据写到硬盘的文件中。持久化存储。并指定cookie存活时间，时间到后，cookie文件自动失效</span><br><span class="line">     2. 负数:默认值</span><br><span class="line">     3. 0︰删除cookie信息</span><br><span class="line"></span><br><span class="line">3. cookie能不能存中文?</span><br><span class="line"></span><br><span class="line">   * 在tomcat 8之前cookie中不能直接存储中文数据。</span><br><span class="line">     * 需要将中文数据转码---—般采用URL编码(%E3)</span><br><span class="line">   * 在tomcat 8之后，cookie支持中文数据。</span><br><span class="line"></span><br><span class="line">4. cookie获取范围多大?</span><br><span class="line"></span><br><span class="line">   1. 假设在一个tomcat服务器中，部署了多个web项目，那么在这些web项目中cookie能不能共享?</span><br><span class="line">      * 默认情况下cookie不能共享</span><br><span class="line">      * setPath(String path):设置cookie的获取范围。默认情况下，设置当前的虚拟目录</span><br><span class="line">        如果要共享，则可以将path设置为”&#x2F;”</span><br><span class="line"></span><br><span class="line">   2. 不同的tomcat服务器间cookie共享问题?</span><br><span class="line">      * setDomain(string path):如果设置一级域名相同，融多个服务器之间cookie可以共享</span><br><span class="line">      * setDomain(&quot;.baidu.com&quot;),那么tieba.baidu.com和news.baidu.com中cookie可以共享</span><br><span class="line"></span><br><span class="line">5. Cookie的特点和作用</span><br><span class="line"></span><br><span class="line">   1. cookie存储数据在客户端浏览器</span><br><span class="line">   2. 浏览器对于单个cookie 的大小有限制(4kb)以及对同一个域名下的总cookie数量也有限制(20个)</span><br><span class="line"></span><br><span class="line">   * 作用:</span><br><span class="line"></span><br><span class="line">   1. cookie—般用于存出少量的不太敏感的数据</span><br><span class="line">   2. 在不登录的情况下，完成服务器对客户端的身份识别</span><br><span class="line"></span><br><span class="line">## JSP</span><br><span class="line"></span><br><span class="line">1.概念：</span><br><span class="line"></span><br><span class="line">* Java Server Pages : java服务器端页面</span><br><span class="line"></span><br><span class="line">  * 可以理解为:一个特殊的页面，其中既可以指定定义html标签，又可以定义java代码</span><br><span class="line">  * 用于简化书写</span><br><span class="line"></span><br><span class="line">  ![image-20201208145421300](C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201208145421300.png)</span><br><span class="line"></span><br><span class="line">2. 原理</span><br><span class="line"></span><br><span class="line">   本质上是servlet</span><br><span class="line"></span><br><span class="line">3. JSP脚本：JSP定义java代码的方式</span><br><span class="line"></span><br><span class="line">   * &lt;%代码%&gt;∶定义的java代码，在service方法中。service方法中可以定义什么，该脚本中就可以定义什么。</span><br><span class="line">   * &lt;%!代码%&gt;∶定义的java代码，在jsp转换后的java类的成员位置。</span><br><span class="line">   * &lt;%&#x3D;代码%&gt;∶定义的java代码，会输出到页面上。输出语句中可以定义什么，该脚本中就可以定义什么。</span><br><span class="line"></span><br><span class="line">4. JSP内置对象</span><br><span class="line"></span><br><span class="line">   * 在jsp页面中不需要获取和创建，可以直接使用的对象</span><br><span class="line">   * jsp共有9个内置对象。</span><br><span class="line">     * request</span><br><span class="line">     * response</span><br><span class="line">     * out:字符输出流对象。可以将数据输出到页面上。和response.getwriter()类似</span><br><span class="line">       * response.getwriter()和out.write()的区别:</span><br><span class="line">         * 在tomcat服务器真正给客户端做出响应之前，会先找response缓冲区数据，再找out缓冲区数据。</span><br><span class="line">         * response.getwriter()数据输出永远在out.write()之前</span><br><span class="line"></span><br><span class="line">5. 指令</span><br><span class="line"></span><br><span class="line">   * 作用：配置JSP页面，导入资源文件</span><br><span class="line">   * 格式：&lt;%指合名称属性名1&#x3D;属性值1属性名2&#x3D;属性值2 ... %&gt;</span><br><span class="line">   * 分类：</span><br><span class="line">     * page：:配置JSP页面的</span><br><span class="line">       * contentType :等同于response.setcontentType(）</span><br><span class="line">         * 设置响应体的mime类型以及字符集</span><br><span class="line">         * 设置当前jsp页面的编码〈只能是高级的IDE才能生效，如果使用低级工具，则需要设置pageEncoding属性设置当前页面的字符集)</span><br><span class="line">       * import :导包</span><br><span class="line">       * errorPage :当前页面发生异常后，会自动跳转到指定的错误页面</span><br><span class="line">       * isErrorPage :标识当前也是是否是错误页面。</span><br><span class="line">         * true:是，可以使用内置对象exception</span><br><span class="line">         * false :否。默认值。不可以使用内置对象exception</span><br><span class="line">     * include：页面包含的。导入页面的资源文件</span><br><span class="line">       * &lt;%@include file&#x3D;&quot;top.jsp&quot;%&gt;</span><br><span class="line">     * taglib：导入资源</span><br><span class="line">       * &lt; taglib prefix&#x3D;&quot;c&quot; uri&#x3D;&quot;http:&#x2F;&#x2F;java.sun.com&#x2F;jsp&#x2F;jstl&#x2F;core&quot;%&gt;</span><br><span class="line">       * prefix :前缀，自定义的</span><br><span class="line"></span><br><span class="line">6. 注释</span><br><span class="line"></span><br><span class="line">   * html注释：</span><br><span class="line">     * &lt;!-- --&gt;:只能注释html代码片段</span><br><span class="line">   * jsp注释：推荐使用</span><br><span class="line">     * &lt;%-- --%&gt;</span><br><span class="line"></span><br><span class="line">7. 内置对象</span><br><span class="line"></span><br><span class="line">   * 在jsp页面中不需要创建，直接使用的对象</span><br><span class="line">   * ![image-20201208155051320](C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201208155051320.png)</span><br><span class="line"></span><br><span class="line">## MVC</span><br><span class="line"></span><br><span class="line">1. M:Model，模型。javaBean</span><br><span class="line">   * 完成具体的业务操作，如：查询数据库，封装数据</span><br><span class="line">2. V：View，视图。JSP</span><br><span class="line">   * 显示数据</span><br><span class="line">3. C：controller，控制器。servlet</span><br><span class="line">   * 获取用户的输入</span><br><span class="line">   * 调用模型</span><br><span class="line">   * 将数据交给视图进行展示</span><br><span class="line">4. 优缺点：</span><br><span class="line">   1. 优点：</span><br><span class="line">      1. 耦合度低，方便维护，有利于分工协作</span><br><span class="line">      2. 重用度高</span><br><span class="line">   2. 缺点：</span><br><span class="line">      1. 项目复杂</span><br><span class="line"></span><br><span class="line">## Session</span><br><span class="line"></span><br><span class="line">* 概念︰服务器端会话技术，在一次会话的多次请求间共享数据，将数据保存在服务器端的对象中。</span><br><span class="line"></span><br><span class="line">* HttpSession快速入门:</span><br><span class="line"></span><br><span class="line">  1. 获取Httpsession对象∶</span><br><span class="line"></span><br><span class="line">     Httpsession session &#x3D; request.getSession( );</span><br><span class="line"></span><br><span class="line">  2. 使用Httpsession对象:</span><br><span class="line"></span><br><span class="line">     object getAttribute(string name)</span><br><span class="line"></span><br><span class="line">     void setAttribute(string name,object value)</span><br><span class="line"></span><br><span class="line">     void removeAttribute(string name)</span><br><span class="line"></span><br><span class="line">* 原理：</span><br><span class="line"></span><br><span class="line">  ![image-20201208151031392](C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201208151031392.png)</span><br><span class="line"></span><br><span class="line">* 细节</span><br><span class="line"></span><br><span class="line">  1. 当客户端关闭后，服务器不关闭，两次获取session是否为同一个</span><br><span class="line">     * 默认情况下不是</span><br><span class="line">     * 如果需要相同，则可以创建cookie,键为JSESSIONID，设置最大存活时间，让cookie持久化保存。</span><br><span class="line">  2. 客户端不关闭，服务器关闭后，两次获取的session是同一个吗?</span><br><span class="line">     * 不是同一个，但是要确保数据不丢失</span><br><span class="line">       * session的钝化:</span><br><span class="line">         * 在服努器正常到闭之前，将session对象系列化到硬盘上</span><br><span class="line">       * session的活化:</span><br><span class="line">         * 在服务器启动后，将session文件转化为内存中的session对象即可。</span><br><span class="line">  3. session的失效时间</span><br><span class="line">     1. 服务器关闭</span><br><span class="line">     2. session对象调用invalidate</span><br><span class="line">     3. session默认失效时间30分钟</span><br><span class="line">  4. session的特点</span><br><span class="line">     1. session用于存储一次会话的多次请求的数据，存在服务器端</span><br><span class="line">     2. session可以存储任意类型，任意大小的数据</span><br><span class="line">  5. session与cookie的区别</span><br><span class="line">     1. session存储数据在服务器端,Cookie在客户端</span><br><span class="line">     2. session没有数据大小限制，Cookie有</span><br><span class="line">     3. session数据安全,cookie相对于不安全</span><br><span class="line"></span><br><span class="line">## EL表达式</span><br><span class="line"></span><br><span class="line">1. 概念:Expression Language表达式语言</span><br><span class="line">2. 作用:替换和简化jsp页面中java代码的编写</span><br><span class="line">3. 语法∶$&#123;表达式&#125;</span><br><span class="line">4. 注意：</span><br><span class="line">   * jsp默认支持el表达式的。如果要忽略el表达式</span><br><span class="line">     * 设置jsp中page指合中: isELIgnored&#x3D;&quot;true”忽略当前jsp页面中所有的el表达式</span><br><span class="line">     * \$&#123;表达式&#125;︰忽略当前这个el表达式</span><br><span class="line">5. 使用：</span><br><span class="line">   1. 运算：</span><br><span class="line">      1. 算数运算符</span><br><span class="line">      2. 比较运算符</span><br><span class="line">      3. 逻辑运算符</span><br><span class="line">      4. 空运算符：empty</span><br><span class="line">         * 用于判断是否为空或者长度为0</span><br><span class="line">         * $&lt;empty list&gt;</span><br><span class="line">   2. 获取值</span><br><span class="line">      * el表达式只能从域对象中获取值</span><br><span class="line">      * 语法：</span><br><span class="line">        * $&lt;域名.键名&gt;：从指定域中获取指定键的值</span><br><span class="line">          * 域名：</span><br><span class="line">            1. pagescope --&gt; pagecontext</span><br><span class="line">            2. requestscope--&gt; request</span><br><span class="line">            3. sessionscope--&gt; session</span><br><span class="line">            4. applicationscope --&gt; application (servletcontext)</span><br><span class="line">        * $&lt;键名&gt;：表示依次从最小的域中查找是否有该键对应的值，直到找到为止。</span><br><span class="line">   3. 获取对象、list集合、Map集合的值</span><br><span class="line">      1. 对象∶$&#123;域名称.键名.属性名&#125;</span><br><span class="line">         * 本质上会去调用对象的getter方法</span><br><span class="line">      2. List集合︰$&#123;域名称.键名[索引]&#125;</span><br><span class="line">      3. Map集合：</span><br><span class="line">         * $&#123;域名称.键名.key名称&#125;</span><br><span class="line">         * $&#123;域名称.键名[&quot;key名称&quot;]&#125;</span><br><span class="line">   4. 隐式对象：</span><br><span class="line">      * 一共有11个隐式对象</span><br><span class="line">      * pageContext：</span><br><span class="line">        * 获取jsp其他8个内置对象</span><br><span class="line">        * $&#123;pageContext.request.contextPath&#125; :动态获取虚拟目录</span><br><span class="line">   5. 不熟练的时候遇到的坑：</span><br><span class="line">      1. 是$不是&amp;</span><br><span class="line">      2. 是&#123;&#125;不是&lt;&gt;</span><br><span class="line">      3. 取属性的时候要用属性名，比如request.setattribute(&quot;list&quot;,arrayList)，想取ArrayList的时候应该是requestscope.list</span><br><span class="line">      4. 这个el表达式真的就一表达式，里面是属性或者判断真假，不能写语句？不对哎，写语句好像也可以</span><br><span class="line"></span><br><span class="line">## JSTL</span><br><span class="line"></span><br><span class="line">1. 概念:avaServer Pages Tag Library SP标准标签库</span><br><span class="line"></span><br><span class="line">   * 是由Apache组织提供的开源的免费的jsp标签 &lt;标签&gt;</span><br><span class="line"></span><br><span class="line">2. 作用:用于简化和替换jsp页面上的java代码</span><br><span class="line"></span><br><span class="line">3. 使用步骤:</span><br><span class="line"></span><br><span class="line">   1. 导入jstl相关jar包</span><br><span class="line"></span><br><span class="line">   2. 引入标签库: taglib指合:&lt;%@taglib %&gt;</span><br><span class="line"></span><br><span class="line">      * 例子：&lt;%@taglib prefix&#x3D;&quot;c&quot; uri&#x3D;&quot;http:&#x2F;&#x2F;java.sun.com&#x2F;jsp&#x2F;jstl&#x2F;core&quot; %&gt;</span><br><span class="line"></span><br><span class="line">   3. 使用标签</span><br><span class="line"></span><br><span class="line">      1. if：相当于java代码的if语句</span><br><span class="line"></span><br><span class="line">         * test 必须属性，接受boolean表达式</span><br><span class="line">           * test如果为true，显示if标签体内容，否则不显示</span><br><span class="line">           * 一般和el表达式结合使用</span><br><span class="line">         * 没有else，只能再写一个&lt;c:if&gt;</span><br><span class="line"></span><br><span class="line">      2. choose：相当于java代码的switch语句</span><br><span class="line"></span><br><span class="line">         * 里面再用when来判断</span><br><span class="line"></span><br><span class="line">         * &#96;&#96;&#96;jsp</span><br><span class="line">           &lt;c:choose&gt;</span><br><span class="line">               &lt;c:when test&#x3D;&quot;$&#123;requestScope.num&#x3D;&#x3D;1&#125;&quot;&gt;</span><br><span class="line">                   &lt;h1&gt;</span><br><span class="line">                       就是1</span><br><span class="line">                   &lt;&#x2F;h1&gt;</span><br><span class="line">               &lt;&#x2F;c:when&gt;</span><br><span class="line">               &lt;c:when test&#x3D;&quot;$&#123;requestScope.num&#x3D;&#x3D;2&#125;&quot;&gt;</span><br><span class="line">                   &lt;h1&gt;</span><br><span class="line">                       就是2</span><br><span class="line">                   &lt;&#x2F;h1&gt;</span><br><span class="line">               &lt;&#x2F;c:when&gt;</span><br><span class="line">           &lt;&#x2F;c:choose&gt;</span><br></pre></td></tr></table></figure>
+
+ * 最后再用otherwise、</code></pre>
+</li>
+</ul>
+<ol start="3">
+<li><p>foreach：循环语句</p>
+<ul>
+<li><pre><code class="jsp">&lt;c:forEach begin=&quot;0&quot; end=&quot;2&quot; items=&quot;$&#123;requestScope.list&#125;&quot; step=&quot;1&quot; var=&quot;i&quot; varStatus=&quot;j&quot;&gt;
+    &lt;h1&gt;$&#123;i&#125;&lt;/h1&gt; &lt;br&gt;
+    &lt;h1&gt;$&#123;j.index&#125;&lt;/h1&gt; &lt;br&gt;
+    &lt;h1&gt;$&#123;j.count&#125;&lt;/h1&gt;
+
+</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<pre><code>       &lt;/c:forEach&gt;
+       ```
+
+     * begin和end决定循环开始和结尾，items代表要遍历的对象，step是每次变化的量，var代表当前循环的变量，varstatus代表整个循环的属性，.index代表当前循环的索引，.count代表当前循环的次数</code></pre>
+<h2 id="三层架构"><a href="#三层架构" class="headerlink" title="三层架构"></a>三层架构</h2><p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201211143927382.png" alt="image-20201211143927382"></p>
+<h2 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h2><ol>
+<li><p>概念：</p>
+<ul>
+<li><p>web中的过滤器︰当访问服务器的资源时，过滤器可以将请求拦截下来，完成一些特殊的功能。</p>
+</li>
+<li><p>过滤器的作用：登录验证、统—编码处理、敏感字符过滤</p>
+</li>
+</ul>
+</li>
+<li><p>快速配置</p>
+<ol>
+<li><p>定义一个类，实现Filter接口，注意是servlet相关的那个</p>
+</li>
+<li><p>覆写方法，三个，init，doFilter，destroy</p>
+</li>
+<li><p>配置拦截路径</p>
+<ol>
+<li><p>xml文件</p>
+<p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201214144957388.png" alt="image-20201214144957388"></p>
+</li>
+<li><p>注解WebFilter</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>过滤器细节：</p>
+<ol>
+<li>过滤器执行流程<ol>
+<li>执行过滤器</li>
+<li>执行放行后的资源</li>
+<li>回来执行过滤器放行代码下的内容</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>过滤器生命周期方法</p>
+<ol>
+<li>init:在服务器启动后，会创建Filter对象，然后调用init方法。只执行一次。用于加载资源</li>
+<li>doFilter:每一次请求被拦截资源时，会执行。执行多次</li>
+<li>destroy:在服务器关闭后，Filter对象被销毁。如果服务器是正常关闭，则会执行destroy方法。只执行一次。用于释放资源</li>
+</ol>
+</li>
+<li><p>过滤器配置详解</p>
+<ol>
+<li>具体资源路径:/index.jsp只有访问index.jsp资源时，过滤器才会被执行</li>
+<li>拦截目录: /user/*访问/user下的所有资源时，过滤器都会被执行</li>
+<li>后缀名拦截:* .jsp访问所有后缀名为jsp资源时，过滤器都会被执行*</li>
+<li>拦截所有资源:/*访问所有资源时，过滤器都会被执行</li>
+</ol>
+</li>
+<li><p>拦截方式配置：资源被访问的方式</p>
+<ol>
+<li>注解配置：<ul>
+<li>设置dispatchcherTypes属性<ol>
+<li>REQUEST:默认值。浏览器直接请求资源</li>
+<li>FORWARD:转发访问资源</li>
+<li>INCLUDE:包含访问资源</li>
+<li>ERROR:错误跳转资源</li>
+<li>ASYNC:异步访问资源</li>
+</ol>
+</li>
+<li>web.xml<ul>
+<li>设置<dispatcher></dispatcher></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>过滤器链</p>
+<ul>
+<li>执行顺序，假设有两个过滤器1和2<ol>
+<li>1</li>
+<li>2</li>
+<li>资源执行</li>
+<li>2</li>
+<li>1</li>
+</ol>
+</li>
+<li>先后顺序：<ul>
+<li>注解配者:按照类名的字符串比较规则比较，值小的先执行<ul>
+<li>例：AFilter和BFilter，先A后B</li>
+</ul>
+</li>
+<li>web. xml配置:谁定义在上边，谁先执行</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>增强对象的功能</p>
+<ol>
+<li>装饰模式</li>
+<li>代理模式<ol>
+<li>概念：<ol>
+<li>真实对象∶被代理的对象</li>
+<li>代理对象︰</li>
+<li>代理模式:代理对象代理真实对象，达到增强真实对象功能的目的</li>
+</ol>
+</li>
+<li>实现方式：<ol>
+<li>静态代理:有一个类文件描述代理模式</li>
+<li>动态代理:在内存中形成代理类<ul>
+<li>实现步骤<ul>
+<li>代理对象和真实对象实现相同的接口</li>
+<li>代理对象= Proxy. newInstance();<ul>
+<li>三个参数<ul>
+<li>类加载器:真实对象-getClass(. getClassLoader()</li>
+<li>接口数组:真实对象.getclass().getInterfaces()</li>
+<li>处理器:netr InvocationHandler()</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>使用代理对象调用方法。</li>
+<li>增强方法</li>
+</ul>
+</li>
+<li>增强方式：<ul>
+<li>增强参数列表</li>
+<li>增强返回值类型</li>
+<li>增强方法体执行逻辑</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="Listener"><a href="#Listener" class="headerlink" title="Listener"></a>Listener</h2><ul>
+<li><p>概念：web三大组件之一</p>
+<ul>
+<li>事件监听机制<ul>
+<li>事件：一件事情</li>
+<li>事件源:事件发生的地方监听器:一个对象</li>
+<li>注册监听︰将事件、事件源、监听器绑定在一起。当事件源上发生某个事件后，执行监听器代码</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>servletcontextListener:监听servletcontext对象的创建和销毁</p>
+<ul>
+<li>void contextDestroyed(ServletContextEvent sce) : servletContext对象被销毁之前会调用该方法</li>
+<li>void contextInitialized(ServletContextEvent sce) : ServletContext对象创建后会调用该方法</li>
+</ul>
+</li>
+<li><p>步骤：</p>
+<ol>
+<li><p>定义一个类，实现servletcontextListener接口</p>
+</li>
+<li><p>覆写方法</p>
+</li>
+<li><p>配置</p>
+<ol>
+<li><p>注解：@WebListener</p>
+</li>
+<li><p>web.xml</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/11/02/%E5%88%B7%E9%A2%98/%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/" rel="prev" title="">
+                  <i class="fa fa-chevron-left"></i> 
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/11/04/java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="next" title="">
+                   <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

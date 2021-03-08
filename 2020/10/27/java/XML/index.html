@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+
+  <meta name="description" content="title:XMLXML概念：Extensible Markup Language可扩展标记语言  可扩展：标签都是自定义的。  功能：存储数据 配置文件 在网络中传输   xml与html的区别 xml标签自定义 xml语法严格 xml存储数据，html展示数据    基本语法： xml文档的后缀名.xml xml第一行必须定义为文档声明 xml文档中有且仅有一个根标签 国性值必须使用引号(单">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2020/10/27/java/XML/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="title:XMLXML概念：Extensible Markup Language可扩展标记语言  可扩展：标签都是自定义的。  功能：存储数据 配置文件 在网络中传输   xml与html的区别 xml标签自定义 xml语法严格 xml存储数据，html展示数据    基本语法： xml文档的后缀名.xml xml第一行必须定义为文档声明 xml文档中有且仅有一个根标签 国性值必须使用引号(单">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-10-27T08:11:59.672Z">
+<meta property="article:modified_time" content="2020-11-03T06:55:37.808Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2020/10/27/java/XML/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title> | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Hexo</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#title-XML"><span class="nav-number">1.</span> <span class="nav-text">title:XML</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#XML"><span class="nav-number"></span> <span class="nav-text">XML</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">概念：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">基本语法：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86"><span class="nav-number">3.</span> <span class="nav-text">组成部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%A6%E6%9D%9F"><span class="nav-number">4.</span> <span class="nav-text">约束</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E7%B1%BB"><span class="nav-number">4.1.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E6%9E%90"><span class="nav-number">4.2.</span> <span class="nav-text">解析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%93%8D%E4%BD%9Cxml%E6%96%87%E6%A1%A3"><span class="nav-number">4.2.1.</span> <span class="nav-text">操作xml文档</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E6%9E%90xml%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="nav-number">4.2.2.</span> <span class="nav-text">解析xml的方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#xml%E5%B8%B8%E8%A7%81%E7%9A%84%E8%A7%A3%E6%9E%90%E5%99%A8"><span class="nav-number">4.2.3.</span> <span class="nav-text">xml常见的解析器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">5.</span> <span class="nav-text">对象的使用</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/27/java/XML/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-10-27 16:11:59" itemprop="dateCreated datePublished" datetime="2020-10-27T16:11:59+08:00">2020-10-27</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-11-03 14:55:37" itemprop="dateModified" datetime="2020-11-03T14:55:37+08:00">2020-11-03</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <hr>
+<h2 id="title-XML"><a href="#title-XML" class="headerlink" title="title:XML"></a>title:XML</h2><h1 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h1><h2 id="概念："><a href="#概念：" class="headerlink" title="概念："></a>概念：</h2><p>Extensible Markup Language可扩展标记语言</p>
+<ul>
+<li>可扩展：标签都是自定义的。<name> <age></li>
+<li>功能：存储数据<ul>
+<li>配置文件</li>
+<li>在网络中传输</li>
+</ul>
+</li>
+<li>xml与html的区别<ul>
+<li>xml标签自定义</li>
+<li>xml语法严格</li>
+<li>xml存储数据，html展示数据</li>
+</ul>
+</li>
+</ul>
+<h2 id="基本语法："><a href="#基本语法：" class="headerlink" title="基本语法："></a>基本语法：</h2><ul>
+<li>xml文档的后缀名.xml</li>
+<li>xml第一行必须定义为文档声明</li>
+<li>xml文档中有且仅有一个根标签</li>
+<li>国性值必须使用引号(单双都可)引起来</li>
+<li>标签必须正确关闭</li>
+<li>xml标签名称区分大小写</li>
+</ul>
+<h2 id="组成部分"><a href="#组成部分" class="headerlink" title="组成部分"></a>组成部分</h2><ol>
+<li>文档声明<ol>
+<li>格式：<?xml 属性列表 ?></li>
+<li>属性列表：<ul>
+<li>version :版本号，必须的属性</li>
+<li>encoding︰编码方式。告知解析引擎当前文档使用的字符集，默认值:ISO-8859-1</li>
+<li>standalone :是否独立<ul>
+<li>取值：<ul>
+<li>yes:不依赖其他文件</li>
+<li>no∶依赖其他文件</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>指令(了解)︰结合css的<ul>
+<li><?xml-stylesheet type="text/css" href="a.css" ?></li>
+</ul>
+</li>
+<li>标签：标签名称自定义的<ul>
+<li>规则：<ul>
+<li>名称可以包含字母、数字以及其他的字符</li>
+<li>名称不能以数字或者标点符号开始</li>
+<li>本名称不能以字母xml(或者XML、 xml等等)开始</li>
+<li>名称不能包含空格</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>属性：id属性唯一</li>
+<li>文本：<ul>
+<li>CDATA区：在该区域中的数据会被原样展示<ul>
+<li>格式：<![CDATA[ 数据 ]]></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h2><p>规定xml文档的书写规则</p>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ol>
+<li>DTD：一种简单的约束技术<ul>
+<li>引入DTD文档到XML文档中<ul>
+<li>内部DTD：将约束规则定义在xml文档中</li>
+<li>外部DTD：将约束的规则定义在外部的DTD文件中<ul>
+<li>本地：&lt;! DOCTYPE根标签名SYSTEM “dtd文件的位置”&gt;</li>
+<li>网络：&lt;IDOCTYPE根标签名PUBLIC “dtd文件名字””dtd文件的位置URL”&gt;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Schema：<ul>
+<li>引入：<ol>
+<li>填写xml文档的根元素</li>
+<li>引入xsi前缀． xmlns:xsi=”http: / / <a target="_blank" rel="noopener" href="http://www.w3.org/2001/XMLSchema-instance&quot;">www.w3.org/2001/XMLSchema-instance&quot;</a></li>
+<li>引入xsd文件命名空间． xsi:schemaLocation=”http: //<a target="_blank" rel="noopener" href="http://www.itcast.cn/xml">www.itcast.cn/xml</a> student.xsd”</li>
+<li>为每一个xsd约束声明一个前缀,作为标识xmlns=”http: / / <a target="_blank" rel="noopener" href="http://www.itcast.cn/xml&quot;">www.itcast.cn/xml&quot;</a></li>
+</ol>
+</li>
+<li><students xmlns:xsi="http: / / www . w3.org/2001/xMLSchema-instance"
+xmlns="http : / / www.itcast.cn/ xml"
+xsi:schemaLocation="http: / / www.itcast.cn/xml student.xsd"></li>
+</ul>
+</li>
+</ol>
+<h3 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h3><p>操作xml文档，将文档中的数据读取到内存中</p>
+<h4 id="操作xml文档"><a href="#操作xml文档" class="headerlink" title="操作xml文档"></a>操作xml文档</h4><ol>
+<li>解析(读取):将文档中的数据读取到内存中</li>
+<li>写入:将内存中的数据保存到xml文档中。持久化的存储</li>
+</ol>
+<h4 id="解析xml的方式"><a href="#解析xml的方式" class="headerlink" title="解析xml的方式"></a>解析xml的方式</h4><ol>
+<li>DOM:将标记语言文档一次性加载进内存，在内存中形成一颗dom树<ul>
+<li>优点:操作方便，可以对文档进行CRUD的所有操作</li>
+<li>缺点:占内存</li>
+</ul>
+</li>
+<li>SAX:逐行读取，基于事件驱动的。<ul>
+<li>优点:不占内存。</li>
+<li>缺点:只能读取，不能增删改</li>
+</ul>
+</li>
+</ol>
+<h4 id="xml常见的解析器"><a href="#xml常见的解析器" class="headerlink" title="xml常见的解析器"></a>xml常见的解析器</h4><ol>
+<li>JAXP : sun公司提供的解析器，支持dom和sax两种思想</li>
+<li>DOM4 :一款非常优秀的解析器</li>
+<li>jsoup : jsoup是一款Java的HTML解析器，可巿接解析某个URAL地址、HTML文本内容。它提供了一套非常省力的API，可通过DN’,css以及类似于jQuery的操作方法来取出和操作数据。</li>
+<li>PULL : Android操作系统内置的解析器，sax方式的。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JsoupDemo1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="comment">//获取students.xml的路径</span></span><br><span class="line">        <span class="comment">//获取document对象，根据xml文件获取</span></span><br><span class="line">        String path = JsoupDemo1.class.getClassLoader().getResource(<span class="string">&quot;student.xml&quot;</span>).getPath();</span><br><span class="line">        <span class="comment">//会出现空指针，原因是和xml文件在同一包下，需要把xml文件移出去，但是怎么访问同一包下的xml文件呢</span></span><br><span class="line">        Document document = Jsoup.parse(<span class="keyword">new</span> File(path),<span class="string">&quot;utf-8&quot;</span>);</span><br><span class="line">        <span class="comment">//Elements elements =  document.getElementsByTag(&quot;name&quot;);</span></span><br><span class="line">        Elements elements =  document.getElementsByTag(<span class="string">&quot;name&quot;</span>);</span><br><span class="line">        System.out.println(elements.size());</span><br><span class="line">        Element element = elements.get(<span class="number">0</span>);</span><br><span class="line">        System.out.println(element);</span><br><span class="line">        String name = element.text();</span><br><span class="line">        System.out.println(name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="对象的使用"><a href="#对象的使用" class="headerlink" title="对象的使用"></a>对象的使用</h2><ol>
+<li>Jsoup：工具类，解析html和xml文档，返回document<ul>
+<li>parse：解析html和xml文档，返回document<ul>
+<li>parse(File in，string charsetName)解析xml或html文件的。</li>
+<li>parse(string html):解析xml或html字符串</li>
+<li>parse(URL url， int timeoutMillis):通过网络路径获取指定的html或xml的文档对象</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Document：文档对象。代表内存中的dom树<ul>
+<li>获取Element对象<ul>
+<li>getElementById(string id):根据id属性值获取唯一的element对象</li>
+<li>getElementsByTag(string tagName):根据标签名称获取元秦对象集合</li>
+<li>getElementsByAttribute(String key):根据属性名称获取元秦对象集合</li>
+<li>getElementsByAttributevalue(String key，String value):根据对应的属性名和属性值获取元秦对象集合</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Elements：元素element集合，当做ArrayList使用</li>
+<li>element：元素对象<ul>
+<li>和document操作差不多的</li>
+<li>string attr( string key):根据属性名称获取属性值</li>
+<li>string text():获取文本内容</li>
+<li>string html():获取标签体的所有内容(包括字标签的字符串内容)</li>
+</ul>
+</li>
+<li>Node：节点对象</li>
+<li>快速查询：<ul>
+<li>selector：选择器<ul>
+<li>使用的方法:Elements select(string cssQuery)</li>
+<li>语法:参考selector类中定义的语法</li>
+</ul>
+</li>
+<li>Xpath：XPath即为XML路径语言，它是一种用来确定XML（标准通用标记语言的子集）文档中某部分位置的语言<ul>
+<li>本使用jsoup的Xpath需要额外导入jar包。</li>
+<li>查询w3cshool参考手册，使用xpath的语法完成查询</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/10/27/java/Bootstrap/" rel="prev" title="">
+                  <i class="fa fa-chevron-left"></i> 
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/10/29/%E9%BD%90%E6%AC%A1%E5%9D%90%E6%A0%87/" rel="next" title="齐次坐标">
+                  齐次坐标 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

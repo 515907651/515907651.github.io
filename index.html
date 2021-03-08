@@ -156,9 +156,17 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">34</span>
           <span class="site-state-item-name">posts</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">tags</span>
       </div>
   </nav>
 </div>
@@ -192,7 +200,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/22/JavaScript/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/08/%E6%AF%8F%E5%A4%A9%E7%9A%84%E5%A4%8D%E4%B9%A0%E5%86%85%E5%AE%B9/%E7%AC%AC%E4%B8%80%E5%91%A8/3.7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -209,7 +217,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/10/22/JavaScript/" class="post-title-link" itemprop="url">Untitled</a>
+            <a href="/2021/03/08/%E6%AF%8F%E5%A4%A9%E7%9A%84%E5%A4%8D%E4%B9%A0%E5%86%85%E5%AE%B9/%E7%AC%AC%E4%B8%80%E5%91%A8/3.7/" class="post-title-link" itemprop="url">3.7</a>
         </h2>
 
         <div class="post-meta-container">
@@ -220,14 +228,14 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2020-10-22 15:21:02" itemprop="dateCreated datePublished" datetime="2020-10-22T15:21:02+08:00">2020-10-22</time>
+      <time title="Created: 2021-03-08 10:53:31" itemprop="dateCreated datePublished" datetime="2021-03-08T10:53:31+08:00">2021-03-08</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-10-26 15:21:22" itemprop="dateModified" datetime="2020-10-26T15:21:22+08:00">2020-10-26</time>
+        <time title="Modified: 2021-03-07 10:46:54" itemprop="dateModified" datetime="2021-03-07T10:46:54+08:00">2021-03-07</time>
       </span>
 
   
@@ -240,321 +248,21 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><h1 id="ECMAScript"><a href="#ECMAScript" class="headerlink" title="ECMAScript"></a>ECMAScript</h1><p>客户端脚本语言标准</p>
-<h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><ol>
-<li><p>与html结合方式</p>
+          <h2 id="上午"><a href="#上午" class="headerlink" title="上午"></a>上午</h2><h3 id="LeetCode"><a href="#LeetCode" class="headerlink" title="LeetCode"></a>LeetCode</h3><p>131 分割回文字串</p>
+<p>给定一个字符串 s，将 s 分割成一些子串，使每个子串都是回文串。</p>
+<p>返回 s 所有可能的分割方案。</p>
+<p>示例:</p>
+<p>输入: “aab”<br>输出:<br>[<br>  [“aa”,”b”],<br>  [“a”,”a”,”b”]<br>]</p>
+<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/palindrome-partitioning">https://leetcode-cn.com/problems/palindrome-partitioning</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<p>用到了递归，对递归中的变量变化太不熟悉了。</p>
+<p>首先，递归中定义的变量每次递归都会调用</p>
+<p>题里那个删除和将ans加入res新建一个list就把我给搞晕了，当传入list 的时候，如果传入的是ans，那么传入的就是ans 的引用，必须是new ArrayList（ans），传一个新的进去。删除的时候，ans.remove(ans.size()-1)每次一个递归完事后吧ans清空，用来进行下面的递归</p>
+<p>递归的主要步骤：</p>
 <ol>
-<li><p>内部JS：</p>
-<ul>
-<li>定义script，标签内容就是js代码</li>
-</ul>
-</li>
-<li><p>外部JS：</p>
-<ul>
-<li>定义script，通过src属性引入外部的js文件</li>
-</ul>
-</li>
+<li>先找递归的结束条件</li>
+<li>找到状态的变化</li>
 </ol>
-<ul>
-<li><p>注意：</p>
-<ul>
-<li><p>script可以定义在html页面的任意位置，定义位置会影响执行顺序</p>
-</li>
-<li><p>script可以定义多个</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>注释</p>
-<ol>
-<li>单行注释：//注释内容</li>
-<li>多行注释：/* 注释内容 */</li>
-</ol>
-</li>
-<li><p>数据类型</p>
-<ol>
-<li>原始数据类型<ol>
-<li>number：数字。整数/小数/NaN（not a number 一个不是数字的数字类型）</li>
-<li>string：字符串。”abc” “a” ‘abc’ ‘a’</li>
-<li>boolean：true和false</li>
-<li>null：一个对象为空的占位符</li>
-<li>undefined：未定义。如果一个变量没有初始化，默认类型为undefined</li>
-<li>typeof可以显示数据类型</li>
-</ol>
-</li>
-<li>引用数据类型：对象</li>
-</ol>
-</li>
-<li><p>变量</p>
-<ul>
-<li><p>变量：一小块存储数据的内存空间</p>
-</li>
-<li><p>java语言是强类型语言，JavaScript是弱类型语言。</p>
-<ul>
-<li>强类型语言：在开辟变量存储空间时，定义了空间将来存储的数据的数据类型。只能存储固定类型的数据。</li>
-<li>弱类型语言：在开辟变量存储空间时，不定义空间将来存储的数据类型，可存放任意类型的数据</li>
-</ul>
-</li>
-<li><p>语法：var 变量名 = 初始化值</p>
-</li>
-</ul>
-</li>
-</ol>
-<ol start="5">
-<li><p>运算符</p>
-<ul>
-<li><p>+或者-都可以将其他类型转为number，如果转换不成就是NaN</p>
-</li>
-<li><p>比较运算符：</p>
-<ol>
-<li>类型相同:直接比较<ul>
-<li>字符串:按照字典顺序比较。按位逐一比较,直到得出大小为止。</li>
-</ul>
-</li>
-<li>类型不同:先进行类型转换,再比较</li>
-<li>===:全等于。在比较之前，先判断类型，如果类型不一样，则直接返回false</li>
-</ol>
-</li>
-<li><p>逻辑运算符：</p>
-<ul>
-<li><p>其他类型转boolean：</p>
-<ul>
-<li><p>number:e或NaN为假,其他为真</p>
-</li>
-<li><p>string:除了空字符串(“)，其他都是true</p>
-</li>
-<li><p>null&amp;undefined :都是false</p>
-</li>
-<li><p>对象都是true</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>特殊语法</p>
-<ul>
-<li><p>语句以;结尾，如果一行只有一条语句则;可以省略(不建议)</p>
-</li>
-<li><p>2变量的定义使用var关键字,也可以不使用</p>
-<ul>
-<li><p>用:―定义的变量是局部变量</p>
-</li>
-<li><p>不用:定义的变量是全局变量(不建议)</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>function</p>
-<ol>
-<li>定义<ul>
-<li>var fun = new function(形参列表，方法体)；</li>
-<li>function 方法名称（形参列表）{方法体}</li>
-<li>var 方法名 = function（形参列表）{方法体}</li>
-</ul>
-</li>
-<li>特点<ul>
-<li>length：代表形参的个数</li>
-<li>方法定义是，形参类型不用写，返回值类型不用写</li>
-<li>方法是一个对象，如果定义方法名称一样的方法，会被覆盖</li>
-<li>在js中，方法的调用只和方法名称有关，和参数列表无关</li>
-<li>在方法声明中有一个隐藏的内置对象（数组），arguments，封装所有参数</li>
-</ul>
-</li>
-</ol>
-</li>
-<li><p>各种对象</p>
-<ul>
-<li>Array：数组对象<ol>
-<li>创建：<ul>
-<li>var arr = new Array（元素列表）</li>
-<li>var arr = new Array（默认长度）</li>
-<li>var arr = [元素列表]</li>
-</ul>
-</li>
-<li>特点和属性<ul>
-<li>length</li>
-<li>数组长度可变，自动加长</li>
-<li>数组元素类型可变</li>
-<li>jion（符号），将数组中的元素按指定符号分割</li>
-<li>push（），在数组尾部添加一个</li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
-</li>
-</ol>
-<h2 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h2><ul>
-<li><p>功能：控制html文档的内容</p>
-</li>
-<li><p>概念：Document Object Model文档对象模型</p>
-<ul>
-<li>将标记语言文档的各个组成部分，封装为对象。可以使用这些对象，对标记语言文档进行cRUD的动态</li>
-</ul>
-</li>
-<li><p>w3C DOM标准被分为3个不同的部分︰</p>
-<ul>
-<li>核心DOM -针对任何结构化文档的标准模型<ul>
-<li>Document :文档对象</li>
-<li>Element :元秦对象</li>
-<li>Attribute :属性对象</li>
-<li>Text :文本对象</li>
-<li>comment:注释对象</li>
-<li>Node :节点对象，其他5个的父对象</li>
-</ul>
-</li>
-<li>XMLDOM -针对XML文档的标准模型</li>
-<li>HTML DOM -针对HTML文档的标准模型</li>
-</ul>
-</li>
-<li><p>核心DOM模型：</p>
-<ul>
-<li><p>Document :文档对象</p>
-<ol>
-<li><p>创建(获取):在html dom模型中可以使用windows对象来获取</p>
-<ol>
-<li>window . document</li>
-<li>document</li>
-</ol>
-</li>
-<li><p>方法</p>
-<ol>
-<li>获取Element对象：<ol>
-<li>getElementById() :根据id属性值获取元素对象。id属性值一般唯一</li>
-<li>getElementsByTagName():根据元素名称获取元素对象们。返回值是一个数组</li>
-<li>getElementsByClassName():根据Class属性值获取元素对象们。返回值是一个数组</li>
-<li>getElementsByName():根据name属性值获取元素对象们。返回值是一个数组</li>
-</ol>
-</li>
-<li>创建其他DOM对象:<ul>
-<li>createAttribute(name)</li>
-<li>createComment(）</li>
-<li>createElement()</li>
-<li>createTextNode()</li>
-</ul>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-<li><p>Element :元秦对象</p>
-</li>
-<li><p>Node :节点对象，其他5个的父对象</p>
-</li>
-</ul>
-</li>
-<li><p>代码：获取页面标签(元秦)对象Element<br>document.getElementById(“id值”):通过元素的id获取元素对象</p>
-</li>
-<li><p>操作Element对象︰</p>
-<ol>
-<li>修改属性值:<ol>
-<li>明确获取的对象是哪一个?</li>
-<li>查看API文档，找其中有哪些属性可以设置</li>
-</ol>
-</li>
-<li>修改标签体内容:<ul>
-<li>属性:innerHTML</li>
-</ul>
-</li>
-</ol>
-</li>
-<li><p>事件：</p>
-<ul>
-<li>功能：某些组件被执行某些操作后，触发某些代码的执行</li>
-<li>绑定事件：<ul>
-<li>直接在html标签上，指定事件属性，属性值是js代码<ul>
-<li>事件：oneclick—单击事件</li>
-</ul>
-</li>
-<li>通过js获取元素对象，指定事件属性，设置一个函数</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h2><ol>
-<li><p>概念：browser object model 浏览器对象模型</p>
-<ul>
-<li>将浏览器的各个组成部分封装成对象</li>
-</ul>
-</li>
-<li><p>组成：</p>
-<ul>
-<li>window：窗口对象<ol>
-<li>创建</li>
-<li>方法<ol>
-<li>与弹出框有关的方法：<ul>
-<li>alert(）显示带有一段消息和─个确认按钮的警告框。</li>
-<li>confirm(）显示带有一段消息以及确认按钮和取消按钮的对话框。<ul>
-<li>*如果用户点击取消按钮，则方法返回false</li>
-</ul>
-</li>
-<li>prompt显示可提示用户输入的对话框。<ul>
-<li>返回值：获取用户输入的值</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>与打开关闭有关的方法<ul>
-<li>close（）关闭浏览器窗口（关闭当前调用它的窗口）</li>
-<li>open（）打开一个新窗口</li>
-</ul>
-</li>
-</ol>
-</li>
-<li>特点<ul>
-<li>window对象不需要创建可以直接使用window使用。window .方法名();</li>
-<li>window引用可以省略。方法名(）</li>
-</ul>
-</li>
-<li>属性<ol>
-<li>获取其他BOM1对家:<ul>
-<li>history</li>
-<li>location</li>
-<li>Navigator</li>
-<li>Screen </li>
-</ul>
-</li>
-<li>获取DOM对象<ul>
-<li>document</li>
-</ul>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-</ul>
-</li>
-<li><p>prompt（）显示可提示用户输入的对话框。</p>
-<ul>
-<li>navigator：浏览器对象</li>
-<li>screen：显示器屏幕对象</li>
-<li>history：历史记录对象</li>
-<li>location：地址栏对象</li>
-</ul>
-</li>
-<li><p>与定时器有关的方法</p>
-<ol>
-<li>setTimeout（）在指定的毫秒数后调用函数或者计算表达式<ul>
-<li>参数：<ol>
-<li>js代码或者对象</li>
-<li>毫秒值</li>
-</ol>
-</li>
-<li>返回值：唯一标识，用于取消计时器</li>
-</ul>
-</li>
-<li>clearTimeout（）取消由 setTimeout()方法设置的 timeout。</li>
-<li>setInterval()按照指定的周期（以毫秒计)来调用函数或计算表达式。</li>
-<li>clearInterval()取消由setInterval()设置的timeout。</li>
-</ol>
-</li>
-<li></li>
-</ol>
+<p>很难啊，递归一直理解不好。</p>
 
       
     </div>
@@ -576,7 +284,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/20/CSS/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/08/%E6%AF%8F%E5%A4%A9%E7%9A%84%E5%A4%8D%E4%B9%A0%E5%86%85%E5%AE%B9/%E7%AC%AC%E4%B8%80%E5%91%A8/3.6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -593,7 +301,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/10/20/CSS/" class="post-title-link" itemprop="url">Untitled</a>
+            <a href="/2021/03/08/%E6%AF%8F%E5%A4%A9%E7%9A%84%E5%A4%8D%E4%B9%A0%E5%86%85%E5%AE%B9/%E7%AC%AC%E4%B8%80%E5%91%A8/3.6/" class="post-title-link" itemprop="url">Untitled</a>
         </h2>
 
         <div class="post-meta-container">
@@ -604,14 +312,14 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2020-10-20 15:16:41" itemprop="dateCreated datePublished" datetime="2020-10-20T15:16:41+08:00">2020-10-20</time>
+      <time title="Created: 2021-03-08 10:53:31" itemprop="dateCreated datePublished" datetime="2021-03-08T10:53:31+08:00">2021-03-08</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-10-22 15:21:13" itemprop="dateModified" datetime="2020-10-22T15:21:13+08:00">2020-10-22</time>
+        <time title="Modified: 2021-03-06 21:30:25" itemprop="dateModified" datetime="2021-03-06T21:30:25+08:00">2021-03-06</time>
       </span>
 
   
@@ -624,167 +332,24 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><ul>
-<li>概念：Cascading Style Sheets 层叠样式表<ul>
-<li>层叠：多个样式可以作用在同一个html元素上，同时生效</li>
-</ul>
-</li>
-<li>优点：<ul>
-<li>功能强大</li>
-<li>将内容展示和样式控制分离<ul>
-<li>降低耦合度，解耦</li>
-<li>让分工协作更容易</li>
-<li>提高开发效率</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="css的使用"><a href="#css的使用" class="headerlink" title="css的使用"></a>css的使用</h2><ol>
-<li><p>内联样式</p>
-<ul>
-<li><p>在标签内使用style属性指定CSS代码</p>
-</li>
-<li><pre><code class="html">&lt;div style=&quot;color:red&quot;&gt;
-    生如夏花
-&lt;/div&gt;
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   * 不推荐使用，达不到分离的效果</span><br><span class="line"></span><br><span class="line">2. 内部样式</span><br><span class="line"></span><br><span class="line">   * 在head标签内，定义style标签，style标签体内容就是css代码</span><br><span class="line"></span><br><span class="line">   * &#96;&#96;&#96;html</span><br><span class="line">     &lt;style&gt;</span><br><span class="line">         div&#123;</span><br><span class="line">         color:blue</span><br><span class="line">         &#125;</span><br><span class="line">     &lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure></code></pre>
-</li>
-</ul>
-</li>
-<li><p>外部样式</p>
-<ul>
-<li><p>定义css资源文件</p>
-</li>
-<li><p>在head标签内，定义link标签，引入外部资源文件</p>
-</li>
-<li><pre><code class="css">div&#123;
-color:yellow;
-&#125;
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* &#96;&#96;&#96;html</span><br><span class="line">  &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;a.css&quot;&gt;</span><br></pre></td></tr></table></figure></code></pre>
-</li>
-</ul>
-</li>
-</ol>
-<ul>
-<li>三种方式范围不断增大</li>
-<li>1不常用，常用2.3</li>
-</ul>
-<ol start="4">
-<li><p>css语法：</p>
-<ul>
-<li><p>格式：</p>
-<p>选择器{</p>
-<p>​    属性名1:属性值1;</p>
-<p>​    属性名2:属性值2;</p>
-<p>​    属性名3:属性值3;</p>
-<p>​    …</p>
-<p>}</p>
-</li>
-<li><p>选择器：筛选具有相似特征的元素</p>
-</li>
-<li><p>注意：</p>
-<p>每一对属性需要;隔开，最后一行可以不用</p>
-</li>
-</ul>
-</li>
-<li><p>选择器</p>
-<ol>
-<li>基础选择器<ol>
-<li>id选择器：选择具体的id属性值的元素，建议在一个html文件中id唯一<ul>
-<li>语法：#id属性值{}</li>
-</ul>
-</li>
-<li>元素选择器：选择具有相同标签名称的元素<ul>
-<li>语法：标签名称{}</li>
-<li>注意：id选择器优先高于元素选择器</li>
-</ul>
-</li>
-<li>类选择器：选择具有相同class属性值的元素<ul>
-<li>语法：.class属性值{}</li>
-<li>注意：类选择器优先级高于元素选择器</li>
-</ul>
-</li>
-</ol>
-</li>
-<li>扩展选择器<ol>
-<li>选择所有元素：<ul>
-<li>语法：*{}</li>
-</ul>
-</li>
-<li>并集选择器：<ul>
-<li>语法：选择器1，选择器2{}</li>
-</ul>
-</li>
-<li>子选择器：筛选选择器1元素下的选择器2元素<ul>
-<li>语法：选择器1 选择器2{}</li>
-</ul>
-</li>
-<li>父选择器：筛选选择器2的父元素选择器1<ul>
-<li>语法：选择器1&gt;选择器2{}</li>
-</ul>
-</li>
-<li>属性选择器：选择元素名称，属性名=属性值的元素<ul>
-<li>语法：元素名称[属性名=”属性值”]{}</li>
-</ul>
-</li>
-<li>伪类选择器：选择一些元素具有的状态<ul>
-<li>语法：元素：状态[]</li>
-<li>如：a<ul>
-<li>状态：<ul>
-<li>link：初始化的状态</li>
-<li>visited：被访问过的状态</li>
-<li>active：正在访问状态</li>
-<li>hover：鼠标悬浮状态</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-<li><p>属性</p>
-<ol>
-<li>字体、文本<ul>
-<li>font-size：字体大小</li>
-<li>color：文本颜色</li>
-<li>text-align：对齐方式</li>
-<li>line-height：行高</li>
-</ul>
-</li>
-<li>背景<ul>
-<li>background</li>
-</ul>
-</li>
-<li>边框<ul>
-<li>border</li>
-</ul>
-</li>
-<li>尺寸<ul>
-<li>width</li>
-<li>height</li>
-</ul>
-</li>
-<li>盒子模型：控制布局<ul>
-<li>margin：外边距</li>
-<li>padding：内边距<ul>
-<li>默认情况下内边距会影响整个盒子的大小</li>
-<li>box-sizing：border-box；设置盒子的属性，让width和height就是盒子的大小</li>
-</ul>
-</li>
-<li>flout：浮动<ul>
-<li>left</li>
-<li>right</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-</li>
-</ol>
+          <hr>
+<h2 id="title-3-6"><a href="#title-3-6" class="headerlink" title="title:3.6"></a>title:3.6</h2><h2 id="上午"><a href="#上午" class="headerlink" title="上午"></a>上午</h2><p>复习了3.4,3.4的知识，效率贼低</p>
+<h3 id="LeetCode每日一题"><a href="#LeetCode每日一题" class="headerlink" title="LeetCode每日一题"></a>LeetCode每日一题</h3><p>给定一个循环数组（最后一个元素的下一个元素是数组的第一个元素），输出每个元素的下一个更大元素。数字 x 的下一个更大的元素是按数组遍历顺序，这个数字之后的第一个比它更大的数，这意味着你应该循环地搜索它的下一个更大的数。如果不存在，则输出 -1。</p>
+<p>示例 1:</p>
+<p>输入: [1,2,1]<br>输出: [2,-1,2]<br>解释: 第一个 1 的下一个更大的数是 2；<br>数字 2 找不到下一个更大的数；<br>第二个 1 的下一个最大的数需要循环搜索，结果也是 2。</p>
+<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/next-greater-element-ii">https://leetcode-cn.com/problems/next-greater-element-ii</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<p>用单调栈来做</p>
+<h2 id="下午"><a href="#下午" class="headerlink" title="下午"></a>下午</h2><h3 id="LeetCode每日一题的简单版"><a href="#LeetCode每日一题的简单版" class="headerlink" title="LeetCode每日一题的简单版"></a>LeetCode每日一题的简单版</h3><p>给你两个 没有重复元素 的数组 nums1 和 nums2 ，其中nums1 是 nums2 的子集。</p>
+<p>请你找出 nums1 中每个元素在 nums2 中的下一个比其大的值。</p>
+<p>nums1 中数字 x 的下一个更大元素是指 x 在 nums2 中对应位置的右边的第一个比 x 大的元素。如果不存在，对应位置输出 -1 。</p>
+<p>示例 1:</p>
+<p>输入: nums1 = [4,1,2], nums2 = [1,3,4,2].<br>输出: [-1,3,-1]<br>解释:<br>    对于 num1 中的数字 4 ，你无法在第二个数组中找到下一个更大的数字，因此输出 -1 。<br>    对于 num1 中的数字 1 ，第二个数组中数字1右边的下一个较大数字是 3 。<br>    对于 num1 中的数字 2 ，第二个数组中没有下一个更大的数字，因此输出 -1 。<br>示例 2:</p>
+<p>输入: nums1 = [2,4], nums2 = [1,2,3,4].<br>输出: [3,-1]<br>解释:<br>    对于 num1 中的数字 2 ，第二个数组中的下一个较大数字是 3 。<br>    对于 num1 中的数字 4 ，第二个数组中没有下一个更大的数字，因此输出 -1 。</p>
+<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/next-greater-element-i">https://leetcode-cn.com/problems/next-greater-element-i</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<h2 id="晚上"><a href="#晚上" class="headerlink" title="晚上"></a>晚上</h2><h3 id="LeetCode剑指offer26题"><a href="#LeetCode剑指offer26题" class="headerlink" title="LeetCode剑指offer26题"></a>LeetCode剑指offer26题</h3><p>输入两棵二叉树A和B，判断B是不是A的子结构。(约定空树不是任意一个树的子结构)</p>
+<p>B是A的子结构， 即 A中有出现和B相同的结构和节点值</p>
+<p>一点思路都没有，用到了递归，代码也写不出来，只能cv完事</p>
+<p>复习MySQL45讲7.8，学习9.10</p>
 
       
     </div>
@@ -806,7 +371,7 @@ color:yellow;
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/16/%E9%81%87%E5%88%B0%E7%9A%84bug/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/08/%E6%AF%8F%E5%A4%A9%E7%9A%84%E5%A4%8D%E4%B9%A0%E5%86%85%E5%AE%B9/%E7%AC%AC%E4%B8%80%E5%91%A8/3.5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -823,75 +388,7 @@ color:yellow;
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/10/16/%E9%81%87%E5%88%B0%E7%9A%84bug/" class="post-title-link" itemprop="url">Untitled</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2020-10-16 15:06:33 / Modified: 15:06:34" itemprop="dateCreated datePublished" datetime="2020-10-16T15:06:33+08:00">2020-10-16</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="遇到的bug"><a href="#遇到的bug" class="headerlink" title="遇到的bug"></a>遇到的bug</h1><h2 id="世界标准时间"><a href="#世界标准时间" class="headerlink" title="世界标准时间"></a>世界标准时间</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Connection conn = DriverManager.getConnection(<span class="string">&quot;jdbc:mysql://localhost:3306/gg?serverTimezone=UTC&quot;</span>,<span class="string">&quot;root&quot;</span>,<span class="string">&quot;315818&quot;</span>);</span><br><span class="line"><span class="comment">//不加?serverTimezone=UTC会报错</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="梯子不能上网"><a href="#梯子不能上网" class="headerlink" title="梯子不能上网"></a>梯子不能上网</h2><p>拨号名必须为英文</p>
-<h2 id="No-database-selected"><a href="#No-database-selected" class="headerlink" title="No database selected"></a>No database selected</h2><p>要先选定数据库</p>
-<p>use gg;</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/16/HTML/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/16/HTML/" class="post-title-link" itemprop="url">Untitled</a>
+            <a href="/2021/03/08/%E6%AF%8F%E5%A4%A9%E7%9A%84%E5%A4%8D%E4%B9%A0%E5%86%85%E5%AE%B9/%E7%AC%AC%E4%B8%80%E5%91%A8/3.5/" class="post-title-link" itemprop="url">Untitled</a>
         </h2>
 
         <div class="post-meta-container">
@@ -902,14 +399,14 @@ color:yellow;
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2020-10-16 14:48:07" itemprop="dateCreated datePublished" datetime="2020-10-16T14:48:07+08:00">2020-10-16</time>
+      <time title="Created: 2021-03-08 10:53:31" itemprop="dateCreated datePublished" datetime="2021-03-08T10:53:31+08:00">2021-03-08</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-10-20 09:39:00" itemprop="dateModified" datetime="2020-10-20T09:39:00+08:00">2020-10-20</time>
+        <time title="Modified: 2021-03-05 21:51:21" itemprop="dateModified" datetime="2021-03-05T21:51:21+08:00">2021-03-05</time>
       </span>
 
   
@@ -922,218 +419,24 @@ color:yellow;
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><p>Hyper Text Markup Language 超文本标记语言</p>
-<p>超文本：超文本是用超链接的方法，将各种不同空间的文字信息组织在一起的网状文本</p>
-<p>标记语言：由标签构成的语言，不是编程语言</p>
-<h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><ol>
-<li><p>html文档后缀名.html或者.htm</p>
-</li>
-<li><p>标签分为</p>
-<ol>
-<li>围堵标签：有开始和结束标签。<html></html></li>
-<li>自闭合标签：开始标签和结束标签在一起。<br/></li>
-</ol>
-</li>
-<li><p>标签可以嵌套</p>
-<p>错误嵌套：<a> <b></a></b></p>
-<p>正确嵌套：<a> <b></b></a></p>
-</li>
-<li><p>在开始标签中可以定义属性。属性由键值对构成，值需要引号（单双都可）引起来</p>
-</li>
-<li><p>html的标签不分大小写，建议小写</p>
-</li>
-</ol>
-<h2 id="标签学习"><a href="#标签学习" class="headerlink" title="标签学习"></a>标签学习</h2><ol>
-<li><p>文件标签：构成html最基本的根标签</p>
-<ul>
-<li>html：html文件的根标签</li>
-<li>head：头标签。用于指定html文件的一些属性，引入外部资源</li>
-<li>title：标题标签</li>
-<li>body：体标签</li>
-<li>!DOCTYPE：html5中定义该文档是html文档，两边加&lt;&gt;</li>
-</ul>
-</li>
-<li><p>文本标签：和文本有关的标签</p>
-<ul>
-<li><p>注释：<!-- 注释内容--></p>
-</li>
-<li><p>h1 to h6：标题标签，字体依次变小</p>
-</li>
-<li><p>p：换行标签</p>
-</li>
-<li><p>hr：展示一条水平线</p>
-<p>属性：</p>
-<ul>
-<li>color</li>
-<li>width</li>
-<li>size</li>
-<li>align：center， left，right</li>
-</ul>
-</li>
-<li><p>b：字体加粗</p>
-</li>
-<li><p>i：字体斜体</p>
-</li>
-<li><p>font：字体标签</p>
-</li>
-<li><p>center：文本居中</p>
-</li>
-<li><p>属性定义：</p>
-<ul>
-<li>color：<ul>
-<li>英文单词：red，green等</li>
-<li>rgb（值1，值2，值3）：值的范围：0-255</li>
-<li>#值1值2值3：值的范围：00-FF</li>
-</ul>
-</li>
-<li>width：<ul>
-<li>数值：单位是像素</li>
-<li>数值%：占比相对于父元素的比例</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>图片标签：</p>
-<p>ima source=路径</p>
-<p>路径：</p>
-<ul>
-<li>绝对路径</li>
-<li>相对路径：<ul>
-<li>./ 代表当前目录</li>
-<li>../ 代表上一级目录</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>列表标签：</p>
-<ul>
-<li>有序列表：ol，li代表行</li>
-<li>无序列表：ul，li代表行</li>
-</ul>
-</li>
-<li><p>连接标签：</p>
-<p>a href=”指定资源”URL</p>
-<p>target：</p>
-<ul>
-<li>_self：在当前页面跳转</li>
-<li>_blank：空页面打开</li>
-</ul>
-</li>
-<li><p>div 和 span</p>
-<p>结合css使用</p>
-<p>span中的内容没有任何效果，只能起一个包含的作用，文字不换行，块级标签</p>
-<p>div自动换行，内联标签</p>
-</li>
-<li><p>语义化标签：为了提高可读性</p>
-<ul>
-<li>header</li>
-<li>footer</li>
-</ul>
-</li>
-<li><p>表格标签：</p>
-<ul>
-<li><p>table：定义表格</p>
-<ul>
-<li>width：宽度</li>
-<li>border：边框</li>
-<li>cellpadding：定义内容和单元格之间的距离</li>
-<li>cellspacing：定义单元格之间的距离。如果指定为0，单元格的线为0</li>
-<li>bgcolor：背景色</li>
-<li>align：对齐方式</li>
-</ul>
-</li>
-<li><p>tr：行</p>
-<ul>
-<li>bgcolor：背景颜色</li>
-<li>align：对其方式</li>
-</ul>
-</li>
-<li><p>td：单元格</p>
-<ul>
-<li>colspan：合并列</li>
-<li>rowspan：合并行</li>
-</ul>
-</li>
-<li><p>th：表头单元格</p>
-</li>
-<li><p>caption：表格标题</p>
-</li>
-<li><p>tread：表格的头部分</p>
-</li>
-<li><p>tbody：表格的体部分</p>
-</li>
-<li><p>tfoot：表格的脚</p>
-</li>
-</ul>
-</li>
-<li><p>表单标签</p>
-<ul>
-<li>概念：用于采集用户数据，和服务器进行交互</li>
-<li>form：用于定义表单的。可以定义一个范围，范围代表采集用户数据的范围</li>
-<li>属性：<ul>
-<li>action：指定提交数据的URL</li>
-<li>method：指定提交方式<ul>
-<li>get：<ul>
-<li>请求参数会在地址栏显示。封装在请求中</li>
-<li>请求参数大小有限制</li>
-<li>不安全</li>
-</ul>
-</li>
-<li>post：<ul>
-<li>请求参数不在地址栏显示。封装在请求体中</li>
-<li>参数大小没有限制</li>
-<li>安全</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>表单项中的数据要想被提交：必须指定name参数</li>
-</ul>
-</li>
-</ol>
-   <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;$&quot;</span> <span class="attr">method</span>=<span class="string">&quot;get&quot;</span>&gt;</span></span><br><span class="line">    用户名:<span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    密码:<span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;登录&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+          <hr>
+<h2 id="title：3-5"><a href="#title：3-5" class="headerlink" title="title：3.5"></a>title：3.5</h2><h1 id="3-5学习内容"><a href="#3-5学习内容" class="headerlink" title="3.5学习内容"></a>3.5学习内容</h1><h2 id="上午"><a href="#上午" class="headerlink" title="上午"></a>上午</h2><h3 id="LeetCode每日一题"><a href="#LeetCode每日一题" class="headerlink" title="LeetCode每日一题"></a>LeetCode每日一题</h3><p>232 用栈实现队列</p>
+<p>请你仅使用两个栈实现先入先出队列。队列应当支持一般队列的支持的所有操作（push、pop、peek、empty）：</p>
+<p>实现 MyQueue 类：</p>
+<p>void push(int x) 将元素 x 推到队列的末尾<br>int pop() 从队列的开头移除并返回元素<br>int peek() 返回队列开头的元素<br>boolean empty() 如果队列为空，返回 true ；否则，返回 false</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; stack1用来做中间转换</span><br><span class="line">&#x2F;&#x2F; stack2用来存储最终的数据</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>input：可以通过type属性值，改变元素展示的样式<ul>
-<li>type属性：<ul>
-<li>text：文本输入框，默认值<ul>
-<li>placeholder：指定输入框的提示信息，当输入框的内容发生变化时，会自动清空提示信息</li>
-</ul>
-</li>
-<li>password：密码输入框</li>
-<li>radio：单选框<ul>
-<li>想要让多个单选框实现单选的效果，则多个单选框的name属性必须一致</li>
-<li>指定value属性，指定其被选中后提交的值</li>
-<li>checked属性，指定默认值</li>
-</ul>
-</li>
-<li>checkbox：复选框<ul>
-<li>一般会给每一个单选框提供value属性，指定其被选中后提交的值</li>
-<li>checked属性，指定默认值</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>label：指定输入项的文字描述信息<ul>
-<li>label属性一般会和input的id属性对应。如果对应了，点击label区域，会让input输入框获取焦点</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>select：下拉列表<ul>
-<li>子元素：option，指定列表项</li>
-</ul>
-</li>
-<li>textarea：文本域<ul>
-<li>cols：指定列数，每一行有多少字符</li>
-<li>rows：默认多少行</li>
-</ul>
-</li>
-</ul>
+<h3 id="和亓老师谈话"><a href="#和亓老师谈话" class="headerlink" title="和亓老师谈话"></a>和亓老师谈话</h3><p>受益匪浅</p>
+<h3 id="学习futuretask类"><a href="#学习futuretask类" class="headerlink" title="学习futuretask类"></a>学习futuretask类</h3><p>可以返回值的多线程</p>
+<h2 id="下午"><a href="#下午" class="headerlink" title="下午"></a>下午</h2><p>去理发店剪了头发，正月不让理头发都是封建迷信！哈哈哈，前天还和同学说正月不能理发，结果今天自己就去了，只怪头发长的太难受了。</p>
+<p>理发店黑心的很，年前说168的烫头，现在涨到了268，以后把卡里的钱花光就不再去他家了。他家的小泰迪怪可怜的，心脏不好，老是病恹恹的，打喷嚏打个不停。</p>
+<p>然后在宿舍看了一下午棍勇，不愧是大家点名的爽番，爽翻了。</p>
+<p>怎么学习记录给写成日记了</p>
+<h2 id="晚上"><a href="#晚上" class="headerlink" title="晚上"></a>晚上</h2><h3 id="offer24题"><a href="#offer24题" class="headerlink" title="offer24题"></a>offer24题</h3><p>7.10分才醒的，写了个offer上的题，10分钟吧。</p>
+<p>定义一个函数，输入一个链表的头节点，反转该链表并输出反转后链表的头节点。</p>
+<p>难点在于想到用栈去实现，或者递归。再者就是头结点的处理，链表题的共同难点。</p>
+<h3 id="MySQL45讲"><a href="#MySQL45讲" class="headerlink" title="MySQL45讲"></a>MySQL45讲</h3><p>复习5.6，学习7.8</p>
+<p>效率很低啊</p>
 
       
     </div>
@@ -1155,7 +458,7 @@ color:yellow;
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/09/%E5%88%A4%E6%96%AD%E9%93%BE%E8%A1%A8%E4%B8%AD%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E7%8E%AF/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/08/%E6%AF%8F%E5%A4%A9%E7%9A%84%E5%A4%8D%E4%B9%A0%E5%86%85%E5%AE%B9/%E7%AC%AC%E4%B8%80%E5%91%A8/3.4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1172,7 +475,7 @@ color:yellow;
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/10/09/%E5%88%A4%E6%96%AD%E9%93%BE%E8%A1%A8%E4%B8%AD%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E7%8E%AF/" class="post-title-link" itemprop="url">Untitled</a>
+            <a href="/2021/03/08/%E6%AF%8F%E5%A4%A9%E7%9A%84%E5%A4%8D%E4%B9%A0%E5%86%85%E5%AE%B9/%E7%AC%AC%E4%B8%80%E5%91%A8/3.4/" class="post-title-link" itemprop="url">3.4日复习内容</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1183,82 +486,14 @@ color:yellow;
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2020-10-09 15:34:13" itemprop="dateCreated datePublished" datetime="2020-10-09T15:34:13+08:00">2020-10-09</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="判断链表中是否存在环"><a href="#判断链表中是否存在环" class="headerlink" title="判断链表中是否存在环"></a>判断链表中是否存在环</h1><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>快慢指针判断，快指针fast每次走两步，满指针slow每次走一步，如果存在环，两者必定相遇</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasCycle</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//判断head为空和判断head.next为空</span></span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span> || head.next == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//设置快慢指针，从头开始</span></span><br><span class="line">        ListNode slow = head;</span><br><span class="line">        ListNode fast = head.next;</span><br><span class="line">        <span class="keyword">while</span> (slow != fast) &#123;</span><br><span class="line">            <span class="keyword">if</span> (fast == <span class="keyword">null</span> || fast.next == <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            slow = slow.next;</span><br><span class="line">            fast = fast.next.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="自己写的代码"><a href="#自己写的代码" class="headerlink" title="自己写的代码"></a>自己写的代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123;</span></span><br><span class="line"><span class="comment"> *         val = x;</span></span><br><span class="line"><span class="comment"> *         next = null;</span></span><br><span class="line"><span class="comment"> *     &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasCycle</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        ListNode slow = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">if</span>(head.next==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        slow = head.next;</span><br><span class="line">        ListNode fast = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">if</span>(head.next.next==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        fast = head.next.next;</span><br><span class="line">        <span class="keyword">while</span>(slow!=fast)&#123;</span><br><span class="line">            <span class="keyword">if</span>(slow.next==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            slow = slow.next;</span><br><span class="line">            <span class="keyword">if</span>(fast.next==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            <span class="keyword">if</span>(fast.next.next==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            fast = fast.next.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>简直就是shit，本来想用指针，写的是 ListNode *slow = head，应该把 * 去掉的，重复在判断.next是否为空。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/30/MySQL%E5%AD%A6%E4%B9%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/30/MySQL%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">MySQL学习</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2020-09-30 19:05:40" itemprop="dateCreated datePublished" datetime="2020-09-30T19:05:40+08:00">2020-09-30</time>
+      <time title="Created: 2021-03-08 10:53:31" itemprop="dateCreated datePublished" datetime="2021-03-08T10:53:31+08:00">2021-03-08</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-10-16 14:48:19" itemprop="dateModified" datetime="2020-10-16T14:48:19+08:00">2020-10-16</time>
+        <time title="Modified: 2021-03-04 21:31:20" itemprop="dateModified" datetime="2021-03-04T21:31:20+08:00">2021-03-04</time>
       </span>
 
   
@@ -1271,372 +506,643 @@ color:yellow;
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="MySQL学习"><a href="#MySQL学习" class="headerlink" title="MySQL学习"></a>MySQL学习</h1><h1 id="DQL"><a href="#DQL" class="headerlink" title="DQL"></a>DQL</h1><h3 id="排序查询"><a href="#排序查询" class="headerlink" title="排序查询"></a>排序查询</h3><p>语法：order by 子句</p>
-<p>​        order by 排序字段1 排序方式1， 排序字段2 排序方式2…</p>
-<p>排序方式：</p>
-<p>​        asc：升序，默认</p>
-<p>​        desc：降序</p>
-<p>注意：</p>
-<p>​        当有多个排序条件时，当前面值一样，再去排后面的。</p>
-<h3 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h3><p>将一列作为一个整体，进行计算</p>
-<p>1.count：计算个数</p>
-<p>​        1.一般选择非空的列（主键）</p>
-<p>​        2.count（*）</p>
-<p>2.max计算最大值</p>
-<p>3.min计算最小值</p>
-<p>4.sum计算和</p>
-<p>5.average计算平均值</p>
-<p>注意：聚合函数的计算要排除null值</p>
-<p>解决方法：1.选择不为null的列 2.用ifnull函数</p>
-<h2 id="分组查询"><a href="#分组查询" class="headerlink" title="分组查询"></a>分组查询</h2><p>1.语法：group by 分组字段；</p>
-<p>注意：1.分组之后查询的字段：分组查询、聚合函数</p>
-<p>​            2.where和having的区别：where在分组之前进行限定，如果不满足条件，则不参与分组。having在分组之后进行限定，若不满足结果，则不会被查询出来</p>
-<p>​            where后面不可以跟聚合函数，having后面可以跟着聚合函数</p>
-<p>例子：SELECT id FROM stu WHERE name!=”gang” GROUP BY name HAVING id&gt;AVE(id);</p>
-<h2 id="分页查询"><a href="#分页查询" class="headerlink" title="分页查询"></a>分页查询</h2><p>1.语法：limit 开始的位置，每页的数量</p>
-<p>例子：SELECT id FROM temp1 LIMIT 0,3;<br>           SELECT id FROM temp1 LIMIT 3,3;</p>
-<h2 id="SELECT-FROM"><a href="#SELECT-FROM" class="headerlink" title="SELECT FROM"></a>SELECT FROM</h2><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><p>SELECT 字段列表 </p>
-<p>FROM 表名列表 </p>
-<p>WHERE 条件列表 </p>
-<p>GROUP BY 分组字段 </p>
-<p>HAVING 分组之后的条件 </p>
-<p>ORDER BY 排序 </p>
-<p>LIMIT 分页限定    </p>
-<h3 id="基础查询"><a href="#基础查询" class="headerlink" title="基础查询"></a>基础查询</h3><h4 id="多个字段的查询"><a href="#多个字段的查询" class="headerlink" title="多个字段的查询"></a>多个字段的查询</h4><p>SELECT 字段名1，字段名2… FROM 表名</p>
-<p>如果是查询所有，可以用SELECT*</p>
-<h4 id="去重"><a href="#去重" class="headerlink" title="去重"></a>去重</h4><p>distinct</p>
-<p>distinct加在select后面</p>
-<p>SELECT DISTINCT name  FROM temp1 ;</p>
-<h4 id="计算列"><a href="#计算列" class="headerlink" title="计算列"></a>计算列</h4><p>一般可以用四则运算计算一些列的值（一般是数值的计算）。</p>
-<p>例子：SELECT math+english FROM grade;</p>
-<p>ifnull（表达式1，表达式2）：null参与的运算，计算结果都为null</p>
-<p>表达式1：那个字段需要判断null</p>
-<p>表达式2：将为null的值换位表达式2</p>
-<p>例子：SELECT math + ifnull(english,0) FROM grade;</p>
-<h4 id="起别名"><a href="#起别名" class="headerlink" title="起别名"></a>起别名</h4><p>as：as 可以省略</p>
-<h2 id="WHERE"><a href="#WHERE" class="headerlink" title="WHERE"></a>WHERE</h2><p>where 后面跟着条件</p>
-<p>运算符：</p>
+          <h1 id="3-4复习内容"><a href="#3-4复习内容" class="headerlink" title="3.4复习内容"></a>3.4复习内容</h1><h2 id="上午"><a href="#上午" class="headerlink" title="上午"></a>上午</h2><h3 id="算法题"><a href="#算法题" class="headerlink" title="算法题"></a>算法题</h3><p>300.最长递增子序列 dp</p>
+<p>给你一个整数数组 nums ，找到其中最长严格递增子序列的长度。</p>
+<p>子序列是由数组派生而来的序列，删除（或不删除）数组中的元素而不改变其余元素的顺序。例如，[3,6,2,7] 是数组 [0,3,1,6,2,2,7] 的子序列。</p>
+<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-increasing-subsequence">https://leetcode-cn.com/problems/longest-increasing-subsequence</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<h3 id="Java-Guide"><a href="#Java-Guide" class="headerlink" title="Java Guide"></a>Java Guide</h3><ol>
+<li>mysql索引</li>
+<li>list，map，set大体框架</li>
+<li>hashMap的遍历，iterator一直不太熟</li>
+</ol>
+<h2 id="下午"><a href="#下午" class="headerlink" title="下午"></a>下午</h2><p>看了20集项目视频，效率很低</p>
+<h2 id="晚上"><a href="#晚上" class="headerlink" title="晚上"></a>晚上</h2><p>做上午的题，用贪心和dp结合的方法，找bug找了一个小时，到8.30了</p>
+<p>复习MysQL45讲第3、4讲</p>
+<p>第三讲：事务的一些性质</p>
 <ul>
-<li><p>&lt;, &gt;, &lt;=, &gt;=, =, &lt;&gt;</p>
-</li>
-<li><p>BETWEEN…AND</p>
-</li>
-<li><p>IN(集合)</p>
-</li>
-<li><p>LIKE：模糊查询</p>
+<li>ACID</li>
+<li>四种事务隔离级别，会出现的问题</li>
+<li>事务的回滚日志，不可以使用长事务，事务的隔离实现</li>
+<li>事务的显式开启</li>
+</ul>
+<p>第四讲：索引上</p>
 <ul>
-<li><p>占位符：</p>
-<ul>
-<li><p>_ ：单个任意字符</p>
-</li>
-<li><p>% ：多个任意字符</p>
-<p>例子：SELCET name FROM stu WHERE name LIKE “gang__”;</p>
-</li>
+<li>什么是索引</li>
+<li>索引的类型，hash表，有序数组，平衡树，各自的特点</li>
+<li>innoDB使用N叉B+树，整型的话差不多是17，减小树的高度来减少访存，扩大索引内存块</li>
+<li>主键索引也叫聚簇索引，非主键索引也叫二级索引</li>
+<li>二级索引的回表和不回表</li>
+<li>索引维护，涉及到B+树的插入和删除时的分裂和合并等对树结构的更改，尽量用长度短的自增索引作为主键索引</li>
 </ul>
-</li>
-</ul>
-</li>
-<li><p>IS NULL</p>
-</li>
-<li><p>AND 或者 &amp;&amp;</p>
-</li>
-<li><p>OR 或者 ||</p>
-</li>
-<li><p>NOT 或者 ！</p>
-</li>
-</ul>
-<p>例子：</p>
-<p>查询年龄大于等于20，小于等于30</p>
-<p>SELECT * FROM student WHERE age &gt;=20 &amp;&amp; age&lt;=30;</p>
-<p>SELECT * FROM student WHERE age &gt;=20 AND age&lt;=30;</p>
-<p>SELECT * FROM student WHERE age BETWEEN 20 AND 30;</p>
-<p>查询年龄22岁，18岁，25岁的信息</p>
-<p>SELECT * FROM student WHERE age = 22 OR age = 18 OR age = 25；</p>
-<p>SELECT * FROM student WHERE age IN (22,18,25);</p>
-<p>查询英语成绩为NULL</p>
-<p>SELECT * FROM student WHERE english = NULL;</p>
-<p>SELECT * FROM student WHERE English IS NULL;</p>
-<p>查询英语成绩不为null</p>
-<p>SELECT * FROM student WHERE English IS NOT NULL;</p>
-<h2 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>对表中数据进行限定，保证数据的正确性、有效性和完整性</p>
-<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ol>
-<li>主键约束：primary key</li>
-<li>非空约束： not null</li>
-<li>唯一约束：unique</li>
-<li>外键约束：foreign key</li>
-</ol>
-<h3 id="非空约束"><a href="#非空约束" class="headerlink" title="非空约束"></a>非空约束</h3><ol>
-<li><p>创建表时添加约束</p>
-<p>CREATE TABLE stu(</p>
-<p>id INT,</p>
-<p>name VARCHAR(20) NOT NULL </p>
-<p>)</p>
-</li>
-<li><p>创建表完成后，添加非空约束</p>
-<p>ALTER TABLE stu MODIFY name VARCHAR(20) NOT NULL;</p>
-</li>
-<li><p>删除非空约束</p>
-<p>ALTER TABLE stu MODIFY name VARCHAR(20);</p>
-</li>
-</ol>
-<h3 id="唯一约束"><a href="#唯一约束" class="headerlink" title="唯一约束"></a>唯一约束</h3><ol>
-<li><p>创建表时，添加唯一约束</p>
-<p>CREATE TABLE stu(</p>
-<p>id INT,</p>
-<p>name VARCHAR(20) UNIQUE</p>
-<p>)</p>
-<p>注意唯一约束的表中，可以有多个NULL</p>
-</li>
-<li><p>删除唯一约束</p>
-<p>ALTER TABLE stu DROP INDEX name;</p>
-<p>注意不能像非空那样直接更改</p>
-</li>
-<li><p>创建表后，添加唯一约束</p>
-<p>ALTER TABLE stu MODIFY name VARCHAR(20) UNIQUE;</p>
-</li>
-</ol>
-<h3 id="主键约束"><a href="#主键约束" class="headerlink" title="主键约束"></a>主键约束</h3><ol>
-<li><p>注意：</p>
-<ol>
-<li>含义：非空且唯一</li>
-<li>一张表只能有一个主键</li>
-<li>主键就是表中记录的唯一标识</li>
-</ol>
-</li>
-<li><p>在创建表时，添加主键约束</p>
-<p>CREATE TABLE stu(</p>
-<p>id INT PRIMARY KEY,</p>
-<p>name VARCHAR(20) </p>
-<p>)</p>
-</li>
-<li><p>删除主键</p>
-<p>– 错误 ALTER TABLE sut MODIFY id INT;</p>
-<p>ALTER TABLE stu DROP PRIMARY KEY;</p>
-</li>
-<li><p>创建完表后，添加主键</p>
-<p>ALTER TABLE stu MODIFY id INT PRIMARY KEY;</p>
-</li>
-</ol>
-<h3 id="自动增长"><a href="#自动增长" class="headerlink" title="自动增长"></a>自动增长</h3><ol>
-<li><p>如果某一列是数值类型的，可以用AUTO_INCREMENT完成值的自动增长</p>
-</li>
-<li><p>在创建表时，添加主键约束，完成主键自动增长</p>
-<p>CREATE TABLE stu(</p>
-<p>id INT PRIMARY KEY AUTO_INCREMENT,</p>
-<p>name VARCHAR(20) </p>
-<p>)</p>
-</li>
-<li><p>删除自动增长</p>
-<p>ALTER TABLE stu MODIFY id INT ;</p>
-</li>
-<li><p>添加自动增长</p>
-<p>ALTER TABLE stu MODIFY id INT AUTO_INCREMENT;</p>
-</li>
-</ol>
-<h3 id="外键约束"><a href="#外键约束" class="headerlink" title="外键约束"></a>外键约束</h3><ol>
-<li><p>foreign key，让表和表产生关系，从而保证数据的正确性。</p>
-<p>CREATE TABLE(</p>
-<p>…</p>
-<p>外键列</p>
-<p>CONSTRAIT 外键名称 FOREIGH KEY (外键列名称) REFERENCENCES 主表名称（主表列名称）</p>
-<p>)；</p>
-</li>
-<li><p>删除外键</p>
-<p>ALTER TABLE 表名 DROP FOREIGH KEY 外键名称;</p>
-</li>
-<li><p>创建表之后添加外键</p>
-<p>ALTER TABLE 表名 ADD CONSTRAIT 外键名称 FOREIGH KEY (外键列名称) REFERENCENCES 主表名称（主表列名称);</p>
-</li>
-<li><p>级联操作</p>
-<ol>
-<li><p>添加级联</p>
-<p>ALTER TABLE 表名 ADD CONSTRAIT 外键名称 FOREIGH KEY (外键列名称) REFERENCENCES 主表名称（主表列名称) ON UPDATE CASCADE ON DELETE CASCADE;</p>
-</li>
-</ol>
-</li>
-</ol>
-<h2 id="多表"><a href="#多表" class="headerlink" title="多表"></a>多表</h2><h3 id="实现关系"><a href="#实现关系" class="headerlink" title="实现关系"></a>实现关系</h3><h4 id="一对多（多对一）"><a href="#一对多（多对一）" class="headerlink" title="一对多（多对一）"></a>一对多（多对一）</h4><p>在多的一方建立外键，指向一的一方的主键</p>
-<h4 id="多对多"><a href="#多对多" class="headerlink" title="多对多"></a>多对多</h4><p>需要第三张中间表，中间表至少包含两个字段，将这两个字段座位第三张表的外键，分别指向两张表的主键</p>
-<h2 id="三大范式"><a href="#三大范式" class="headerlink" title="三大范式"></a>三大范式</h2><p>第一范式（1NF）：每一项都是不可分割的原子数据项</p>
-<p>第二范式（2NF）：在1NF的基础上，非码属性必须完全依赖于码（在1NF基础上消除非主属性对主码的部分函数依赖）</p>
-<p>第三范式（3NF）：在2NF的基础上，任何非主属性不依赖于其他非主属性</p>
-<h2 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h2><h3 id="内连接查询"><a href="#内连接查询" class="headerlink" title="内连接查询"></a>内连接查询</h3><h4 id="隐式内查询"><a href="#隐式内查询" class="headerlink" title="隐式内查询"></a>隐式内查询</h4><p>直接用where</p>
-<p>SELECT * FROM stu1 t1, stu2 t2 WHERE t1.id = t2.id;</p>
-<h4 id="显式内查询"><a href="#显式内查询" class="headerlink" title="显式内查询"></a>显式内查询</h4><p>SELECT* FROM stu1 [INNER] JOINT stu2 ON stu1.id = stu2.id;</p>
-<h3 id="外连接查询"><a href="#外连接查询" class="headerlink" title="外连接查询"></a>外连接查询</h3><h4 id="左外连接"><a href="#左外连接" class="headerlink" title="左外连接"></a>左外连接</h4><p>SELECT 字段 FROM 表1 LEFT [OUTER] JOIN 表2 ON 条件；</p>
-<p>查询的是表一（左表）全部加交集部分</p>
-<h4 id="右外连接"><a href="#右外连接" class="headerlink" title="右外连接"></a>右外连接</h4><p>SELECT 字段 FROM 表1 RIGHT [OUTER] JOIN 表2 ON 条件；</p>
-<p>查询的是表2（右表）全部加交集部分</p>
-<h3 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h3><p>查询中嵌套查询</p>
-<h4 id="子查询是单行单列的"><a href="#子查询是单行单列的" class="headerlink" title="子查询是单行单列的"></a>子查询是单行单列的</h4><p>查询大于平均工资的人的姓名</p>
-<p>SELECT name FROM employee WHERE salary &gt; (SELCET AVG(salary) from employee);</p>
-<h4 id="子查询是多行单列的"><a href="#子查询是多行单列的" class="headerlink" title="子查询是多行单列的"></a>子查询是多行单列的</h4><p>使用in去选择判断</p>
-<p>查询学了数学和英语的人的名字</p>
-<p>SELECT name FROM stu WHERE class IN (SELECT class FROM stu2 WHERE class IN (‘math’,’english’));</p>
-<h4 id="子查询是多行多列的"><a href="#子查询是多行多列的" class="headerlink" title="子查询是多行多列的"></a>子查询是多行多列的</h4><p>将子查询看做一个虚拟表进行查询</p>
-<p>查询入职时间在2011年以后的员工信息和部门信息</p>
-<p>SELECT* FROM dept t1，（SELECT* FROM emplyee WHERE date&gt;2011）t2 WHERE t1.id = t2.id;</p>
-<p>不使用嵌套：</p>
-<p>SELECT* FROM emp t1, dept t2 WHERE t1.id = t2.id AND t1.date &gt; 2011;</p>
-<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><h3 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h3><p>如果一个包含多个步骤的业务操作被事务管理，那么这些操作要么同时成功，要么同时失败</p>
-<h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><ol>
-<li>开启事务：START TRANSACTION</li>
-<li>回滚：ROLL BACK</li>
-<li>提交：COMMIT</li>
-</ol>
-<h3 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h3><p>事务提交的两种方式：</p>
-<ol>
-<li><p>自动提交：</p>
-<p>mysql是自动提交的</p>
-<p>一条DML语句会提交一次事务</p>
-</li>
-<li><p>手动提交：</p>
-<p>Oracle数据库是手动提交的</p>
-<p>需要先开启事务，在提交</p>
-</li>
-</ol>
-<p>修改事务的默认提交方式：</p>
-<p>查看事务的默认提交方式：SELECT @@AUTOCOMMIT；– 1代表自动提交 0代表手动提交</p>
-<p>修改默认提交方式：SET @@AUTOCOMMIT=0;</p>
-<h3 id="事务的四大特征"><a href="#事务的四大特征" class="headerlink" title="事务的四大特征"></a>事务的四大特征</h3><ol>
-<li>原子性：是不可分割的最小操作单元，要么同时成功，要么同时失败</li>
-<li>持久性：当事务成功提交或回滚后，数据库会持久化保存数据</li>
-<li>隔离性：多个事务之间，相互独立</li>
-<li>一致性：事务操作前后，数据总量不变</li>
-</ol>
-<h3 id="事务的隔离级别"><a href="#事务的隔离级别" class="headerlink" title="事务的隔离级别"></a>事务的隔离级别</h3><h4 id="概念-2"><a href="#概念-2" class="headerlink" title="概念"></a>概念</h4><p>多个事务是相互独立，互相隔离的。但是多个事务操作同一批数据，会引发一系列问题，需要设置隔离级别</p>
-<h4 id="存在问题"><a href="#存在问题" class="headerlink" title="存在问题"></a>存在问题</h4><ol>
-<li>脏读：一个事务，读取到另一个事务中没有提交的数据</li>
-<li>不可重复读（虚读）：在同一个事务中，两次读取到的数据不一样</li>
-<li>幻读：一个事务操作数据表中的所有记录，另一个事务添加了一条数据，则第一个事务查询不到自己的修改</li>
-</ol>
-<h4 id="隔离级别"><a href="#隔离级别" class="headerlink" title="隔离级别"></a>隔离级别</h4><ol>
-<li><p>READ UNCOMMITTED：读未提交</p>
-<p>产生问题：脏读、不可重复读、幻读</p>
-</li>
-<li><p>READ COMMITTED：读已提交</p>
-<p>产生的问题：不可重复读、幻读</p>
-</li>
-<li><p>REPEATABLE READ：可重复读</p>
-<p>产生的问题：幻读</p>
-</li>
-<li><p>SERIALIZABLE：串行化</p>
-<p>解决以上所有问题</p>
-</li>
-</ol>
-<p>隔离级别越高，安全性越高，效率越低</p>
-<h1 id="DCL"><a href="#DCL" class="headerlink" title="DCL"></a>DCL</h1><p>SQL分类：</p>
-<ol>
-<li>DDL:操作数据库和表</li>
-<li>DML:增删改表中的数据</li>
-<li>DQL:查表中的数据</li>
-<li>DLC:管理用户，授权</li>
-</ol>
-<p>DBA:数据库管理员</p>
-<ol>
-<li><p>添加用户：</p>
-<p>CREATE USER “用户名”@”主机名” IDENTIFIED BY “密码”；</p>
-</li>
-<li><p>删除用户：</p>
-<p>DROP USER “用户名”@”主机名”；</p>
-</li>
-<li><p>修改用户密码：</p>
-<p>UPDATE USER SET PASSWORD = PASSWORD(‘新密码’) WHERE USER = ‘用户名’；</p>
-<p>SET PASSWORD FOR ‘用户名‘@’主机’ = PASSWORD(‘新密码’)；</p>
-</li>
-<li><p>查询用户：</p>
-<p>–切换到目标数据库</p>
-<p>use gg；</p>
-<p>–查询user表</p>
-<p>SELECT * FROM USER;</p>
-<p>%表示可以在任意主机使用用户登录数据库</p>
-</li>
-</ol>
-<p>权限管理</p>
-<ol>
-<li><p>查询权限</p>
-<p>SHOW GRANTS FOR ‘用户名‘@’主机名’;</p>
-</li>
-<li><p>授予权限</p>
-<p>GRANT 权限列表 ON 数据库名.表名 TO ‘用户名‘@’主机名’;</p>
-</li>
-<li><p>撤销权限</p>
-<p>REVOKE 权限列表 ON 数据库名.表名 FROM ‘用户名‘@’主机名’;</p>
-</li>
-</ol>
-<h1 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h1><ol>
-<li>DriverManager：驱动管理对象</li>
-</ol>
-<ul>
-<li><p>注册驱动：告诉程序使用哪一个数据库驱动jar</p>
-<p>static void registerDriver(Driver driver)：注册与给定的驱动程序 DriverManager。</p>
-<p>写代码使用 Class.forName(“com.mysql.cj.jdbc.Driver”) 会自动调用DriverManager</p>
-</li>
-<li><p>获取数据库连接：</p>
-<p>方法：static Connection getConnection(String url, String user, String password)</p>
-<p>url：指定连接的路径，jdbc:mysql://ip地址(域名):端口号/数据库名称</p>
-</li>
-</ul>
-<ol start="2">
-<li><p>Connection：数据库连接对象</p>
-<ul>
-<li><p>获取执行sql的对象：</p>
-<p>Statement createStatement()</p>
-<p>PreparedStatement preparedStatement (String sql)</p>
-</li>
-<li><p>管理事务：</p>
-<p>开启事务：setAutoCommit(boolean automent)：调用该方法设置参数为false，开启事务</p>
-<p>提交事务：commit()</p>
-<p>回滚事务：roolback()</p>
-</li>
-</ul>
-</li>
-<li><p>Statement：执行sql的对象</p>
-<ul>
-<li><p>boolean execute(String sql)：可以执行任意的sql （了解）</p>
-</li>
-<li><p>int executeUpdate(String sql)：执行DML(insert、update、delete)语句，DDL语句，</p>
-<p>返回值是影响的行数，小于0则执行失败</p>
-</li>
-<li><p>ResultSet executeQuery(String sql)：执行DQL(select)语句</p>
-</li>
-</ul>
-</li>
-<li><p>ResultSet：结果集对象，封装查询结果</p>
-<ul>
-<li><p>next()：游标向下一行</p>
-</li>
-<li><p>getXxx(参数)：获取数据</p>
-<p>参数：</p>
-<ol>
-<li>int：代表列的编号，从1开始</li>
-<li>String：代表列名称</li>
-</ol>
-<p>遍历的时候用while(resultSet.next())</p>
-</li>
-</ul>
-</li>
-</ol>
-<p>插入练习(insert)：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.cast.jdbc;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.DriverManager;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"><span class="keyword">import</span> java.sql.Statement;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JdbcDemo2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">        Connection conn = <span class="keyword">null</span>;</span><br><span class="line">        Statement stmt = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Class.forName(<span class="string">&quot;com.mysql.cj.jdbc.Driver&quot;</span>);</span><br><span class="line">            String sql = <span class="string">&quot;insert into temp1 values(2,&#x27;hu&#x27;)&quot;</span>;</span><br><span class="line">            conn = DriverManager.getConnection(<span class="string">&quot;jdbc:mysql://localhost:3306/gg?serverTimezone=UTC&quot;</span>, <span class="string">&quot;root&quot;</span>, <span class="string">&quot;315818&quot;</span>);</span><br><span class="line">            stmt = conn.createStatement();</span><br><span class="line">            <span class="keyword">int</span> count = stmt.executeUpdate(sql);</span><br><span class="line">            <span class="keyword">if</span>(count&gt;<span class="number">0</span>)&#123;</span><br><span class="line">                System.out.println(count);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;错误&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span> (SQLException throwables) &#123;</span><br><span class="line">                throwables.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(stmt!=<span class="keyword">null</span>)&#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    stmt.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (SQLException throwables) &#123;</span><br><span class="line">                    throwables.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(conn!= <span class="keyword">null</span>)&#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    conn.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (SQLException throwables) &#123;</span><br><span class="line">                    throwables.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>学习MySQL第5,、6讲</p>
 
-<p>更新操作（update）:</p>
-<p>删除操作（delete）：</p>
-<ol start="5">
-<li><p>PreparedStatement：执行sql的对象</p>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/04/java/Mybatis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/04/java/Mybatis/" class="post-title-link" itemprop="url">Untitled</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-01-04 19:27:42" itemprop="dateCreated datePublished" datetime="2021-01-04T19:27:42+08:00">2021-01-04</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-01-09 20:52:31" itemprop="dateModified" datetime="2021-01-09T20:52:31+08:00">2021-01-09</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <hr>
+<h2 id="title：mybatis"><a href="#title：mybatis" class="headerlink" title="title：mybatis"></a>title：mybatis</h2><h1 id="Mybatis"><a href="#Mybatis" class="headerlink" title="Mybatis"></a>Mybatis</h1><p>开发步骤：</p>
+<p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210104192904057.png" alt="image-20210104192904057"></p>
 <ol>
-<li><p>sql注入问题：在拼接sql语句的时候，有一些sql的特殊关键字段参与字符串的拼接。会造成安全性问题。</p>
+<li><pre><code class="xml">&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;mysql&lt;/groupId&gt;
+        &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+        &lt;version&gt;5.1.32&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.mybatis&lt;/groupId&gt;
+        &lt;artifactId&gt;mybatis&lt;/artifactId&gt;
+        &lt;version&gt;3.4.6&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;junit&lt;/groupId&gt;
+        &lt;artifactId&gt;junit&lt;/artifactId&gt;
+        &lt;version&gt;4.12&lt;/version&gt;
+        &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;log4j&lt;/groupId&gt;
+        &lt;artifactId&gt;log4j&lt;/artifactId&gt;
+        &lt;version&gt;1.2.12&lt;/version&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">4. &#96;&#96;&#96;xml</span><br><span class="line">   &lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot; ?&gt;</span><br><span class="line">   &lt;!DOCTYPE mapper PUBLIC &quot;-&#x2F;&#x2F;mybatis.org&#x2F;&#x2F;DTD Mapper 3.0&#x2F;&#x2F;EN&quot; &quot;http:&#x2F;&#x2F;mybatis.org&#x2F;dtd&#x2F;mybatis-3-mapper.dtd&quot;&gt;</span><br><span class="line">   &lt;mapper namespace&#x3D;&quot;userMapper&quot;&gt;</span><br><span class="line">       &lt;select id&#x3D;&quot;findAll&quot; resultType&#x3D;&quot;domain.User&quot;&gt;</span><br><span class="line">           select * from user</span><br><span class="line">       &lt;&#x2F;select&gt;</span><br><span class="line">   &lt;&#x2F;mapper&gt;</span><br></pre></td></tr></table></figure></code></pre>
 </li>
-<li><p>解决用PreparedStatement</p>
+<li><pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE configuration PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
+        &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;
+&lt;configuration&gt;
+    &lt;environments default=&quot;development&quot;&gt;
+        &lt;environment id=&quot;development&quot;&gt;
+            &lt;transactionManager type=&quot;JDBC&quot;/&gt;
+            &lt;dataSource type=&quot;POOLED&quot;&gt;
+                &lt;property name=&quot;driver&quot; value=&quot;com.mysql.jdbc.Driver&quot;/&gt;
+                &lt;property name=&quot;url&quot; value=&quot;jdbc:mysql://localhost:3306/gg?serverTimezone=UTC&quot;/&gt;
+                &lt;property name=&quot;username&quot; value=&quot;root&quot;/&gt;
+                &lt;property name=&quot;password&quot; value=&quot;315818&quot;/&gt;
+            &lt;/dataSource&gt;
+        &lt;/environment&gt;
+    &lt;/environments&gt;
+    &lt;mappers&gt;
+        &lt;mapper resource=&quot;mapper/UserMapper.xml&quot;/&gt;
+    &lt;/mappers&gt;
+&lt;/configuration&gt;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">数据库中的数据名要与domain中的数据名一致，估计是set和get方法要找对应的方法。</span><br><span class="line"></span><br><span class="line">文档类型[定义](https:&#x2F;&#x2F;baike.baidu.com&#x2F;item&#x2F;定义)（DTD，Document Type Definition）是一种特殊文档，它规定、约束符合标准通用标示语言（SGML）或SGML子集可扩展标示语言（XML）规则的定义和陈述。</span><br><span class="line"></span><br><span class="line">## Mybatis映射文件概述</span><br><span class="line"></span><br><span class="line">![image-20210104211709104](C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210104211709104.png)</span><br><span class="line"></span><br><span class="line">## 插入数据</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;java</span><br><span class="line">User user &#x3D; new User();</span><br><span class="line">user.setId(1);</span><br><span class="line">user.setUserPass(&quot;123456465&quot;);</span><br><span class="line">user.setUsername(&quot;wang&quot;);</span><br><span class="line">InputStream resourceAsStream &#x3D; Resources.getResourceAsStream(&quot;sqlMapConfig.xml&quot;);</span><br><span class="line">SqlSessionFactory build &#x3D; new SqlSessionFactoryBuilder().build(resourceAsStream);</span><br><span class="line">SqlSession sqlSession &#x3D; build.openSession();</span><br><span class="line">sqlSession.insert(&quot;userMapper.save&quot;,user);</span><br><span class="line">&#x2F;&#x2F;List&lt;User&gt; userList &#x3D; sqlSession.selectList(&quot;userMapper.findAll&quot;);</span><br><span class="line">sqlSession.commit();</span><br><span class="line">&#x2F;&#x2F; 提交事务，Mybatis默认不自动提交</span><br><span class="line">sqlSession.close();</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ol>
+<p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210104213439447.png" alt="image-20210104213439447"></p>
+<h2 id="增删改查"><a href="#增删改查" class="headerlink" title="增删改查"></a>增删改查</h2><p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210104214400437.png" alt="image-20210104214400437"></p>
+<h2 id="核心配置文件"><a href="#核心配置文件" class="headerlink" title="核心配置文件"></a>核心配置文件</h2><p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210104214434306.png" alt="image-20210104214434306"></p>
+<h2 id="environments"><a href="#environments" class="headerlink" title="environments"></a>environments</h2><p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210104214530219.png" alt="image-20210104214530219"></p>
+<p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210104214546406.png" alt="image-20210104214546406"></p>
+<h2 id="mapper"><a href="#mapper" class="headerlink" title="mapper"></a>mapper</h2><p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210104214656875.png" alt="image-20210104214656875"></p>
+<h2 id="properties"><a href="#properties" class="headerlink" title="properties"></a>properties</h2><p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210104214825615.png" alt="image-20210104214825615"></p>
+<h2 id="typeAliases"><a href="#typeAliases" class="headerlink" title="typeAliases"></a>typeAliases</h2><p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210104215530036.png" alt="image-20210104215530036"></p>
+<p>要遵守顺序</p>
+<h2 id="Myba相应API"><a href="#Myba相应API" class="headerlink" title="Myba相应API"></a>Myba相应API</h2><p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210104220218368.png" alt="image-20210104220218368"></p>
+<p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210104220232585.png" alt="image-20210104220232585"></p>
+<p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210104220259604.png" alt="image-20210104220259604"></p>
+<h1 id="Mybatis的Dao层实现"><a href="#Mybatis的Dao层实现" class="headerlink" title="Mybatis的Dao层实现"></a>Mybatis的Dao层实现</h1><h2 id="代理开发"><a href="#代理开发" class="headerlink" title="代理开发"></a>代理开发</h2><p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210105155005180.png" alt="image-20210105155005180"></p>
+<p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210105155345573.png" alt="image-20210105155345573"></p>
+<p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210105195240564.png" alt="image-20210105195240564"></p>
+<p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210105205930945.png" alt="image-20210105205930945"></p>
+<h2 id="多表操作"><a href="#多表操作" class="headerlink" title="多表操作"></a>多表操作</h2><h3 id="一对一查询"><a href="#一对一查询" class="headerlink" title="一对一查询"></a>一对一查询</h3><p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210109195638271.png" alt="image-20210109195638271"></p>
+<p>其中对应的user可以用<img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210109200015383.png" alt="image-20210109200015383"></p>
+<h3 id="一对多查询"><a href="#一对多查询" class="headerlink" title="一对多查询"></a>一对多查询</h3><p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210109200702339.png" alt="image-20210109200702339"></p>
+<h3 id="多对多查询"><a href="#多对多查询" class="headerlink" title="多对多查询"></a>多对多查询</h3><p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20210109201638928.png" alt="image-20210109201638928"></p>
+<p>感觉就是写个resultMap，然后补充它的内容，如果里面有其他类的list就加个collection</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/29/java/BUG/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/29/java/BUG/" class="post-title-link" itemprop="url">Untitled</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2020-12-29 15:49:44 / Modified: 15:52:33" itemprop="dateCreated datePublished" datetime="2020-12-29T15:49:44+08:00">2020-12-29</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="特别难搞的bug"><a href="#特别难搞的bug" class="headerlink" title="特别难搞的bug"></a>特别难搞的bug</h1><h2 id="spring依赖项冲突"><a href="#spring依赖项冲突" class="headerlink" title="spring依赖项冲突"></a>spring依赖项冲突</h2><p>当导入两个有相同依赖的jar包时，冲突，导入不同版本的jar包，冲突，尽量统一版本</p>
+<p>我是在导入spring-web时子容器启动失败，看了自己的lib目录下，已经有个spring-MVC-release包了，里面包含着各种需要的spring包，没必要再继续导包</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/19/java/Spring/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/19/java/Spring/" class="post-title-link" itemprop="url">Spring</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-12-19 15:50:42" itemprop="dateCreated datePublished" datetime="2020-12-19T15:50:42+08:00">2020-12-19</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-01-02 19:27:21" itemprop="dateModified" datetime="2021-01-02T19:27:21+08:00">2021-01-02</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><p>开发步骤：</p>
+<ol>
+<li><p>导入坐标（这一步我没做啊）</p>
+</li>
+<li><p>创建bean</p>
 <ul>
-<li><p>sql使用？作为占位符。例子：select* from temp1 where id = ? and name = ?;</p>
+<li><p>这一步在applicationContext.xml文件中创建新的bean，id可以自己取，要求唯一，类名写自己需要的类的名字</p>
 </li>
-<li><p>PreparedStatement pres = Connection.preparestatement (String sql)</p>
+<li><pre><code class="xml">&lt;bean id=&quot;first&quot; class=&quot;Impl.UserDaoImpl&quot;&gt;&lt;/bean&gt;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3. 创建applicationContext.xml文件（idea在模板中创建好了）</span><br><span class="line"></span><br><span class="line">4. 在配置文件中进行配置（第二步写的就是）</span><br><span class="line"></span><br><span class="line">5. 创建applicationContext，再getBean</span><br><span class="line"></span><br><span class="line">bean标签基本配置</span><br><span class="line"></span><br><span class="line">* 用于配置对象交由Spring来创建。</span><br><span class="line"></span><br><span class="line">* 默认情况下它调用的是类中的无参构造函数，如果没有无参构造函数则不能创建成功</span><br><span class="line"></span><br><span class="line">* 基本属性</span><br><span class="line"></span><br><span class="line">  * id: Bean实例在Spring容器中的唯一标识</span><br><span class="line">  * class: Bean的全限定名称</span><br><span class="line"></span><br><span class="line">* 范围配置：scope</span><br><span class="line"></span><br><span class="line">  ![image-20201219162039239](C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201219162039239.png)</span><br><span class="line"></span><br><span class="line">  * singleton</span><br><span class="line">    * bean的实例化对象只有一个</span><br><span class="line">    * Bean的实例化时机:当Spring核心文件被加载时，实例化配置的Bean实例</span><br><span class="line">    * 生命周期：</span><br><span class="line">      * 对象创建:当应用加载，创建容器时，对象就被创建了</span><br><span class="line">      * 对象运行:只要容器在，对象一直活着</span><br><span class="line">      * 对象销毁:当应用卸载，销毁容器时，对象就被销毁了</span><br><span class="line">  * prototype</span><br><span class="line">    * 实例化对象有多个</span><br><span class="line">    * Bean的实例化时机:当调用getBean0方法时实例化Bean</span><br><span class="line">      * 对象创建:当使用对象时，创建新的对象实例</span><br><span class="line">      * 对象运行:只要对象在使用中，就一直活着</span><br><span class="line">      * 对象销毁:当对象长时间不用时，被Java的垃圾回收器回收了</span><br><span class="line"></span><br><span class="line">* bean的生命周期配置</span><br><span class="line"></span><br><span class="line">  * init-method:指定类中的初始化方法名称</span><br><span class="line">  * destroy-method:指定类中销毁方法名称</span><br><span class="line"></span><br><span class="line">* bean实例化的三种方式</span><br><span class="line"></span><br><span class="line">  * 无参构造方法</span><br><span class="line"></span><br><span class="line">  * 工厂静态方法：getbean(factory)</span><br><span class="line"></span><br><span class="line">    * &#96;&#96;&#96;xml</span><br><span class="line">      &lt;bean id&#x3D;&quot;factory&quot; class&#x3D;&quot;factory.StaticFactory&quot; factory-method&#x3D;&quot;getUserDaoImpl&quot;&gt;&lt;&#x2F;bean&gt;</span><br></pre></td></tr></table></figure></code></pre>
 </li>
-<li><p>给？赋值：</p>
-<p>setXxx（位置，值） </p>
+<li><p>工厂实例方法: getbean(userDao)</p>
+<ul>
+<li><pre><code class="xml">&lt;bean id=&quot;factory&quot; class=&quot;factory.Dynamic&quot;&gt;&lt;/bean&gt;
+&lt;bean id=&quot;userDao&quot; factory-bean=&quot;factory&quot; factory-method=&quot;getUerDao&quot;&gt;&lt;/bean&gt;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 依赖注入：Dependency Injection</span><br><span class="line"></span><br><span class="line">  * 注入方法</span><br><span class="line"></span><br><span class="line">    * 构造方法</span><br><span class="line"></span><br><span class="line">      * &#96;&#96;&#96;xml</span><br><span class="line">        &lt;bean id&#x3D;&quot;userDaoImpl&quot; class&#x3D;&quot;Impl.UserDaoImpl&quot;&#x2F;&gt;</span><br><span class="line">        &lt;bean id&#x3D;&quot;service&quot; class&#x3D;&quot;service.UserService&quot;&gt;</span><br><span class="line">            &lt;constructor-arg name&#x3D;&quot;userDao&quot; ref&#x3D;&quot;userDaoImpl&quot;&#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;bean&gt;</span><br></pre></td></tr></table></figure></code></pre>
+</li>
+<li><p>set方法</p>
+<ul>
+<li><p>p注入</p>
+<ul>
+<li><p>修改applicationContext，xmlns:p=”<a target="_blank" rel="noopener" href="http://www.springframework.org/schema/p&quot;">http://www.springframework.org/schema/p&quot;</a></p>
+</li>
+<li><pre><code class="xml">&lt;bean id=&quot;userDaoImpl&quot; class=&quot;Impl.UserDaoImpl&quot;&gt;&lt;/bean&gt;
+&lt;bean id=&quot;service&quot; class=&quot;service.UserService&quot; p:userDao-ref=&quot;userDaoImpl&quot;/&gt;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* &#96;&#96;&#96;xml</span><br><span class="line">  &lt;bean id&#x3D;&quot;userDaoImpl&quot; class&#x3D;&quot;Impl.UserDaoImpl&quot;&gt;&lt;&#x2F;bean&gt;</span><br><span class="line">  &lt;bean id&#x3D;&quot;service&quot; class&#x3D;&quot;service.UserService&quot;&gt;</span><br><span class="line">      &lt;property name&#x3D;&quot;userDao&quot; ref&#x3D;&quot;userDaoImpl&quot;&gt;</span><br><span class="line">      &lt;&#x2F;property&gt;</span><br><span class="line">  &lt;&#x2F;bean&gt;</span><br></pre></td></tr></table></figure></code></pre>
 </li>
 </ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>依赖注入的数据类型（上面的都是类，这里是些其他的）</p>
+<ul>
+<li><p>普通属性（int, String什么的）</p>
+<ul>
+<li><p>首先类中要有对应的属性，然后还要有对应的set方法，没有set方法，即使是public的也不行，亲测哦</p>
+</li>
+<li><pre><code class="xml">&lt;bean id=&quot;userDaoImpl&quot; class=&quot;Impl.UserDaoImpl&quot;&gt;
+   &lt;property name=&quot;name&quot; value=&quot;gang&quot;/&gt;
+   &lt;property name=&quot;age&quot; value=&quot;12&quot;/&gt;
+&lt;/bean&gt;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* Map</span><br><span class="line"></span><br><span class="line">  * 有对应的map</span><br><span class="line"></span><br><span class="line">  * &#96;&#96;&#96;xml</span><br><span class="line">    &lt;property name&#x3D;&quot;map&quot;&gt;</span><br><span class="line">        &lt;map&gt;</span><br><span class="line">            &lt;entry key&#x3D;&quot;u1&quot; value-ref&#x3D;&quot;user1&quot;&#x2F;&gt;</span><br><span class="line">            &lt;entry key&#x3D;&quot;u2&quot; value-ref&#x3D;&quot;user2&quot;&#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;map&gt;</span><br><span class="line">    &lt;&#x2F;property&gt;</span><br></pre></td></tr></table></figure></code></pre>
+</li>
+</ul>
+</li>
+<li><p>List</p>
+<ul>
+<li><p>有对应的List</p>
+</li>
+<li><pre><code class="xml">&lt;property name=&quot;stringList&quot;&gt;
+   &lt;list&gt;
+       &lt;value&gt;zhangsan&lt;/value&gt;
+       &lt;value&gt;lisi&lt;/value&gt;
+   &lt;/list&gt;
+&lt;/property&gt;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 导入其他的xml配置文件</span><br><span class="line"></span><br><span class="line">  * &lt;import resource&#x3D;&quot;被引用的xml文件的地址&quot;&gt;</span><br><span class="line"></span><br><span class="line">* 总体</span><br><span class="line"></span><br><span class="line">  ![image-20201221145012174](C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201221145012174.png)</span><br><span class="line"></span><br><span class="line">## Spring配置数据源</span><br><span class="line"></span><br><span class="line">* 数据源（连接池）的作用</span><br><span class="line">  * 数据源(连接池)是提高程序性能如出现的事先实例化数据源，初败始台化部分连接资源使用连接资源时从数据源中获取</span><br><span class="line">  * 使用完毕后将连接资源归还给数据源</span><br><span class="line"></span><br><span class="line">c3p0：</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;java</span><br><span class="line">ComboPooledDataSource dataSource &#x3D; new ComboPooledDataSource();</span><br><span class="line">dataSource.setDriverClass(&quot;com.mysql.jdbc.Driver&quot;);</span><br><span class="line">dataSource.setJdbcUrl(&quot;jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;gg?serverTimezone&#x3D;UTC&quot;);</span><br><span class="line">&#x2F;&#x2F; 不加?后面这一段时区报错</span><br><span class="line">dataSource.setUser(&quot;root&quot;);</span><br><span class="line">dataSource.setPassword(&quot;315818&quot;);</span><br><span class="line">Connection connection &#x3D; dataSource.getConnection();</span><br><span class="line">System.out.println(connection);</span><br><span class="line">connection.close();</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>druid：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">DruidDataSource dataSource = <span class="keyword">new</span> DruidDataSource();</span><br><span class="line">dataSource.setDriverClassName(<span class="string">&quot;com.mysql.jdbc.Driver&quot;</span>);</span><br><span class="line">dataSource.setUrl(<span class="string">&quot;jdbc:mysql://localhost:3306/gg?serverTimezone=UTC&quot;</span>);</span><br><span class="line">dataSource.setUsername(<span class="string">&quot;root&quot;</span>);</span><br><span class="line">dataSource.setPassword(<span class="string">&quot;315818&quot;</span>);</span><br><span class="line">Connection connection = dataSource.getConnection();</span><br><span class="line">System.out.println(connection);</span><br></pre></td></tr></table></figure>
+
+<p>配置文件，properties</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ResourceBundle rb = ResourceBundle.getBundle(<span class="string">&quot;jdbc&quot;</span>);</span><br><span class="line">String driver = rb.getString(<span class="string">&quot;jdbc.driver&quot;</span>);</span><br><span class="line">String url = rb.getString(<span class="string">&quot;jdbc.url&quot;</span>);</span><br><span class="line">String username = rb.getString(<span class="string">&quot;jdbc.user&quot;</span>);</span><br><span class="line">String password = rb.getString(<span class="string">&quot;jdbc.password&quot;</span>);</span><br><span class="line">ComboPooledDataSource dataSource = <span class="keyword">new</span> ComboPooledDataSource();</span><br><span class="line">dataSource.setPassword(password);</span><br><span class="line">dataSource.setUser(username);</span><br><span class="line">dataSource.setJdbcUrl(url);</span><br><span class="line">dataSource.setDriverClass(driver);</span><br><span class="line">Connection connection = dataSource.getConnection();</span><br><span class="line">System.out.println(connection);</span><br><span class="line">connection.close();</span><br></pre></td></tr></table></figure>
+
+<p>配置文件+spring beans</p>
+<ul>
+<li><p>applicationcontex.xml文件要改</p>
+<ul>
+<li><p>xmlns:context=”<a target="_blank" rel="noopener" href="http://www.springframework.org/schema/context&quot;">http://www.springframework.org/schema/context&quot;</a></p>
+</li>
+<li><pre><code class="xml">xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                     http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context.xsd&quot;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* &#96;&#96;&#96;xml</span><br><span class="line">  &lt;context:property-placeholder location&#x3D;&quot;classpath:jdbc.properties&quot;&#x2F;&gt;</span><br><span class="line">  &lt;bean id&#x3D;&quot;datasource&quot; class&#x3D;&quot;com.mchange.v2.c3p0.ComboPooledDataSource&quot;&gt;</span><br><span class="line">      &lt;property name&#x3D;&quot;password&quot; value&#x3D;&quot;$&#123;jdbc.password&#125;&quot;&#x2F;&gt;</span><br><span class="line">      &lt;property name&#x3D;&quot;driverClass&quot; value&#x3D;&quot;$&#123;jdbc.driver&#125;&quot;&#x2F;&gt;</span><br><span class="line">      &lt;property name&#x3D;&quot;jdbcUrl&quot; value&#x3D;&quot;$&#123;jdbc.url&#125;&quot;&#x2F;&gt;</span><br><span class="line">      &lt;property name&#x3D;&quot;user&quot; value&#x3D;&quot;$&#123;jdbc.user&#125;&quot;&#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;bean&gt;</span><br></pre></td></tr></table></figure></code></pre>
+</li>
+</ul>
+</li>
+<li><pre><code class="java">ApplicationContext context = new ClassPathXmlApplicationContext(&quot;WEB-INF/applicationContext.xml&quot;);
+ComboPooledDataSource datasource = (ComboPooledDataSource)context.getBean(&quot;datasource&quot;);
+Connection connection = datasource.getConnection();
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## Spring注解开发</span><br><span class="line"></span><br><span class="line">![image-20201222200848844](C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201222200848844.png)</span><br><span class="line"></span><br><span class="line">问题1：案例只对属性（field）进行注解，没有对构造函数和set方法进行注解</span><br><span class="line"></span><br><span class="line">![image-20201224160445467](C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201224160445467.png)</span><br><span class="line"></span><br><span class="line">PropertySource()括号中内容要加classpath</span><br><span class="line"></span><br><span class="line">各个注解都得用熟练啊</span><br><span class="line"></span><br><span class="line">### Spring继承junit步骤</span><br><span class="line"></span><br><span class="line">1. 导入spring集成Junit的坐标</span><br><span class="line">2. 使用@Runwith注解替换原来的运行期</span><br><span class="line">3. 使用econtextConfiguration指定配置文件或配置类</span><br><span class="line">4. 使用eAutowired注入需要测试的对象创建测试方法进行测试</span><br><span class="line"></span><br><span class="line">## AOP</span><br><span class="line"></span><br><span class="line">1. 概念</span><br><span class="line"></span><br><span class="line">   AOP为Aspect Oriented Programming的缩写，意思为面向切面编程，是通过预编译方式和运行期动态代理实现程序功能的统一维护的一种技术。</span><br><span class="line">   AOP是OOP的延续，是软件开发中的一个热点，也是Spring框架中的一个重要内容，是函数式编程的一种衍生范型、利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。</span><br><span class="line"></span><br><span class="line">2. 作用</span><br><span class="line"></span><br><span class="line">   1. 在程序运行期间，在不修改源码的情兄下对方法进行功能增强</span><br><span class="line">   2. 减少重复代码，提高开发效率，并且便于维护</span><br><span class="line">   3. ![image-20201224210010962](C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201224210010962.png)</span><br><span class="line"></span><br><span class="line">3. 动态代理技术</span><br><span class="line"></span><br><span class="line">   1. JDK代理：基于接口的动态代理技术</span><br><span class="line">   2. cglib代理：基于父类的动态代理</span><br><span class="line">   3. ![image-20201224210133938](C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201224210133938.png)</span><br><span class="line"></span><br><span class="line">4. 相关概念</span><br><span class="line"></span><br><span class="line">   ![image-20201224210217199](C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201224210217199.png)</span><br><span class="line"></span><br><span class="line">5. AOP开发需要注意的事项</span><br><span class="line"></span><br><span class="line">   ![image-20201225144330311](C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201225144330311.png)</span><br><span class="line"></span><br><span class="line">   ![image-20201225144421438](C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201225144421438.png)</span><br><span class="line"></span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">   ### 基于注解的AOP开发</span><br><span class="line"></span><br><span class="line">   &#96;&#96;&#96;xml</span><br><span class="line">   &lt;bean id&#x3D;&quot;target&quot; class&#x3D;&quot;aop.Target&quot;&#x2F;&gt;</span><br><span class="line">   &lt;bean id&#x3D;&quot;myAspect&quot; class&#x3D;&quot;aop.MyAspect&quot;&#x2F;&gt;</span><br><span class="line">   &lt;aop:config&gt;</span><br><span class="line">       &lt;aop:aspect ref&#x3D;&quot;myAspect&quot;&gt;</span><br><span class="line">           &lt;aop:before method&#x3D;&quot;before&quot; pointcut&#x3D;&quot;execution(public void aop.Target.save())&quot;&#x2F;&gt;</span><br><span class="line">       &lt;&#x2F;aop:aspect&gt;</span><br><span class="line">   &lt;&#x2F;aop:config&gt;</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+<p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201225151635920.png" alt="image-20201225151635920"></p>
+<p>通知的类型</p>
+<p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201225151935729.png" alt="image-20201225151935729"></p>
+<p>切点表达式的抽取</p>
+<p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201225153252872.png" alt="image-20201225153252872"></p>
+<p>知识要点</p>
+<p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201225153750671.png" alt="image-20201225153750671"></p>
+<h3 id="基于注解的AOP开发"><a href="#基于注解的AOP开发" class="headerlink" title="基于注解的AOP开发"></a>基于注解的AOP开发</h3><p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201225153838138.png" alt="image-20201225153838138"></p>
+<p>注解通知的类型</p>
+<p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201225163624466.png" alt="image-20201225163624466"></p>
+<p>pointcut的抽取</p>
+<p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201225163716383.png" alt="image-20201225163716383"></p>
+<p>主要知识点</p>
+<p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201225163747740.png" alt="image-20201225163747740"></p>
+<h2 id="Spring-JdbcTemplate"><a href="#Spring-JdbcTemplate" class="headerlink" title="Spring JdbcTemplate"></a>Spring JdbcTemplate</h2><p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201225194910758.png" alt="image-20201225194910758"></p>
+<h3 id="编程式事务控制相关对象"><a href="#编程式事务控制相关对象" class="headerlink" title="编程式事务控制相关对象"></a>编程式事务控制相关对象</h3><p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201225195128096.png" alt="image-20201225195128096"></p>
+<p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201225195521716.png" alt="image-20201225195521716"></p>
+<p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201225195655855.png" alt="image-20201225195655855"></p>
+<p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201225195736398.png" alt="image-20201225195736398"></p>
+<p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201225200307916.png" alt="image-20201225200307916"></p>
+<h2 id="将applicationContext加入servletContext并获取"><a href="#将applicationContext加入servletContext并获取" class="headerlink" title="将applicationContext加入servletContext并获取"></a>将applicationContext加入servletContext并获取</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ServletContext context = sce.getServletContext();</span><br><span class="line">String contextConfigLocation = context.getInitParameter(<span class="string">&quot;contextConfigLocation&quot;</span>);</span><br><span class="line"><span class="comment">//System.out.println(contextConfigLocation);</span></span><br><span class="line">ApplicationContext applicationContext = <span class="keyword">new</span> ClassPathXmlApplicationContext(contextConfigLocation);</span><br><span class="line"><span class="comment">//ApplicationContext applicationContext = new ClassPathXmlApplicationContext(&quot;applicationContext.xml&quot;);</span></span><br><span class="line"><span class="comment">//ApplicationContext applicationContext = WebApplicationContextUtils.getApplicationContext(context);</span></span><br><span class="line">context.setAttribute(<span class="string">&quot;applicationContext&quot;</span>,applicationContext);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="comment">//ApplicationContext applicationContext = (ApplicationContext) req.getServletContext().getAttribute(&quot;applicationContext&quot;);</span></span><br><span class="line">        <span class="comment">//ApplicationContext applicationContext = WebApplicationContextUtils.getApplicationContext(this.getServletContext());</span></span><br><span class="line">        ApplicationContext applicationContext = WebApplicationContextUtils.getWebApplicationContext(<span class="keyword">this</span>.getServletContext());</span><br><span class="line">        System.out.println(applicationContext);</span><br><span class="line">        <span class="comment">//UserService userService = (UserService) applicationContext.getBean(&quot;userService&quot;);</span></span><br><span class="line">        <span class="comment">//userService.save();</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里遇到一个bug，多个重复jar包冲突</p>
+<h2 id="SpringMVC"><a href="#SpringMVC" class="headerlink" title="SpringMVC"></a>SpringMVC</h2><p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201229160010344.png" alt="image-20201229160010344"></p>
+<p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201229160412606.png" alt="image-20201229160412606"></p>
+<h3 id="SpringMVC的执行流程"><a href="#SpringMVC的执行流程" class="headerlink" title="SpringMVC的执行流程"></a>SpringMVC的执行流程</h3><p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201229185551361.png" alt="image-20201229185551361"></p>
+<p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201229185607892.png" alt="image-20201229185607892"></p>
+<h3 id="SpringMVC的注解"><a href="#SpringMVC的注解" class="headerlink" title="SpringMVC的注解"></a>SpringMVC的注解</h3><p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201229190109581.png" alt="image-20201229190109581"></p>
+<p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201229190310290.png" alt="image-20201229190310290"></p>
+<p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201229191114356.png" alt="image-20201229191114356"></p>
+<p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201229191158795.png" alt="image-20201229191158795"></p>
+<h4 id="RequestMapping"><a href="#RequestMapping" class="headerlink" title="RequestMapping"></a>RequestMapping</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//jsp从哪里拿的属性啊</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/go&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">go</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;Controller saving running&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;success.jsp&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@RequestMapping(&quot;/go1&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> ModelAndView <span class="title">go1</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ModelAndView modelAndView = <span class="keyword">new</span> ModelAndView();</span><br><span class="line">    modelAndView.setViewName(<span class="string">&quot;success.jsp&quot;</span>);</span><br><span class="line">    modelAndView.addObject(<span class="string">&quot;s1&quot;</span>,<span class="string">&quot;why so serious&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> modelAndView;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@RequestMapping(&quot;/go2&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">go2</span><span class="params">(Model model)</span></span>&#123;</span><br><span class="line">    model.addAttribute(<span class="string">&quot;s1&quot;</span>,<span class="string">&quot;come on&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;success.jsp&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@RequestMapping(&quot;/go3&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">go3</span><span class="params">(HttpServletRequest request)</span></span>&#123;</span><br><span class="line">    request.setAttribute(<span class="string">&quot;s1&quot;</span>,<span class="string">&quot;hold on&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;success.jsp&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/go4&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">go4</span><span class="params">(HttpServletResponse response)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        response.getWriter().println(<span class="string">&quot;坚持就是胜利！奥利给！&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;success.jsp&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/go5&quot;)</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">go5</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;面对什么困难都不要怕，微笑着面对它&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/go6&quot;)</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">go6</span><span class="params">()</span> <span class="keyword">throws</span> JsonProcessingException </span>&#123;</span><br><span class="line">        User user = <span class="keyword">new</span> User();</span><br><span class="line">        user.setAge(<span class="number">11</span>);</span><br><span class="line">        user.setName(<span class="string">&quot;刚刚&quot;</span>);</span><br><span class="line">        ObjectMapper objectMapper = <span class="keyword">new</span> ObjectMapper();</span><br><span class="line">        String s = objectMapper.writeValueAsString(user);</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/go7&quot;)</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> User <span class="title">go7</span><span class="params">()</span> <span class="keyword">throws</span> JsonProcessingException </span>&#123;</span><br><span class="line">        User user = <span class="keyword">new</span> User();</span><br><span class="line">        user.setAge(<span class="number">11</span>);</span><br><span class="line">        user.setName(<span class="string">&quot;刚刚&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> user;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/go8&quot;)</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">go8</span><span class="params">(String username, <span class="keyword">int</span> age)</span></span>&#123;</span><br><span class="line">        System.out.println(username);</span><br><span class="line">        System.out.println(age);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/go9&quot;)</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">go9</span><span class="params">(User user)</span></span>&#123;</span><br><span class="line">        System.out.println(user);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/go10&quot;)</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">go10</span><span class="params">(String[] strs)</span></span>&#123;</span><br><span class="line">        System.out.println(Arrays.asList(strs));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/go11&quot;)</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">go11</span><span class="params">(Vo vo)</span></span>&#123;</span><br><span class="line">        System.out.println(vo);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/go12&quot;)</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">go12</span><span class="params">(<span class="meta">@RequestParam(&quot;name&quot;)</span> String username)</span></span>&#123;</span><br><span class="line">        System.out.println(username);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/go13/&#123;username&#125;&quot;)</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">go13</span><span class="params">(<span class="meta">@PathVariable(&quot;username&quot;)</span> String username)</span></span>&#123;</span><br><span class="line">        System.out.println(username);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/go14&quot;)</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">go14</span><span class="params">(Date date)</span> </span>&#123;</span><br><span class="line">        System.out.println(date);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/go15&quot;)</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">go15</span><span class="params">(HttpServletRequest request, HttpServletResponse response, HttpSession session)</span> </span>&#123;</span><br><span class="line">        System.out.println(request);</span><br><span class="line">        System.out.println(response);</span><br><span class="line">        System.out.println(session);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/go16&quot;)</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">go16</span><span class="params">(<span class="meta">@RequestHeader(&quot;User-Agent&quot;)</span> String user_agent)</span> </span>&#123;</span><br><span class="line">        System.out.println(user_agent);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/go17&quot;)</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">go17</span><span class="params">(<span class="meta">@CookieValue(&quot;JSESSIONID&quot;)</span> String user_agent)</span> </span>&#123;</span><br><span class="line">        System.out.println(user_agent);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="SpringMVC-1"><a href="#SpringMVC-1" class="headerlink" title="SpringMVC"></a>SpringMVC</h2><h3 id="SpringMVC异常处理"><a href="#SpringMVC异常处理" class="headerlink" title="SpringMVC异常处理"></a>SpringMVC异常处理</h3>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/17/java/JVM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/17/java/JVM/" class="post-title-link" itemprop="url">JVM</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2020-12-17 15:50:25 / Modified: 15:50:48" itemprop="dateCreated datePublished" datetime="2020-12-17T15:50:25+08:00">2020-12-17</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h1>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/15/java/Redis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/15/java/Redis/" class="post-title-link" itemprop="url">Redis</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2020-12-15 14:25:20 / Modified: 15:25:05" itemprop="dateCreated datePublished" datetime="2020-12-15T14:25:20+08:00">2020-12-15</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><ol>
+<li><p>概念: redis是一款高性能的NOSQL系列的非关系型数据库</p>
+<p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201215142819245.png" alt="image-20201215142819245"></p>
+</li>
+<li><p>redis的数据结构</p>
+<p><img src="C:\Users\51590\AppData\Roaming\Typora\typora-user-images\image-20201215143045852.png" alt="image-20201215143045852"></p>
+<ul>
+<li>字符串类型 String<ol>
+<li>存储: set key value</li>
+<li>获取:get key</li>
+<li>删除: del key</li>
+</ol>
+</li>
+<li>哈希类型 hash<ol>
+<li>存储: hset key field value</li>
+<li>获取︰<ul>
+<li>hget key field:获取指定的field对应的值 </li>
+<li>hgetall key:获取所有的field和value</li>
+</ul>
+</li>
+<li>删除: hdel key field</li>
+</ol>
+</li>
+<li>列表类型 list<ol>
+<li>添加<ol>
+<li>lpush key value:将元素加入列表左表</li>
+<li>rpush key value :将元素加入列表右边</li>
+</ol>
+</li>
+<li>获取<ul>
+<li>lrange key startl end:范围获取</li>
+</ul>
+</li>
+<li>删除<ol>
+<li>lpop key :，删除列表最左边的元素，并将元秦返回</li>
+<li>rpop key : |删除列表最右边的元素，并将元秦返回</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>集合类型 set 不允许重复元素<ol>
+<li>存储:sadd key value</li>
+<li>获取: smembers key:获取set集合中所有元素</li>
+<li>删除: srem key value:删除set集合中的某个元秦</li>
+</ol>
+</li>
+<li>有序集合类型 sortedset 不允许重复元素且有序<ol>
+<li>存储:zadd key score value :</li>
+<li>获取:Irange key start end</li>
+<li>删除: zrem key value</li>
+</ol>
+</li>
+<li>通用命令：<ul>
+<li>keys * :查询所有的键</li>
+<li>type key :获取键对应的value的类型</li>
+<li>del key :删除指定的key value</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>持久化,RDB和AOF的区别<a target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1654694618189745916&amp;wfr=spider&amp;for=pc">https://baijiahao.baidu.com/s?id=1654694618189745916&amp;wfr=spider&amp;for=pc</a></p>
+<ol>
+<li>redis是一个内存数据库，当redis服务器重后，获取电脑重后，数据会丢失，我们可以捋redis内存中的数据持久化保存到硬盘的文件中。、</li>
+<li>redis持久化机制：<ol>
+<li>RDB(Redis Database):默认方式,不需要进行配逻，默认就使用这种机制<ul>
+<li>在一定的间隔时间中，检测key的变化情况，然后持久化数据</li>
+<li>save secs keys，secs是秒数，keys是key数</li>
+<li>修改步骤是，先修改配置文件，再重启服务器指定配置文件</li>
+</ul>
+</li>
+<li>AOF(Apend Only File):日志记录的方式，可以记录每一条命合的操作。可以每一次命合操作后，持久化数据<ul>
+<li>编辑配置文件(redis.windows.conf)</li>
+<li>appendonly no -&gt; appendonly yes(开启)</li>
+<li>appendfsync always:每一次操作都进行持久化</li>
+<li>appendfsync everysec:每隔一秒进行一次持久化</li>
+<li>appendfsync no:不进行持久化</li>
+</ul>
+</li>
+</ol>
 </li>
 </ol>
 </li>
@@ -1662,7 +1168,7 @@ color:yellow;
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/14/java/Stack&Deque/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1679,7 +1185,7 @@ color:yellow;
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86/" class="post-title-link" itemprop="url">Untitled</a>
+            <a href="/2020/12/14/java/Stack&Deque/" class="post-title-link" itemprop="url">Stack&Deque</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1689,8 +1195,9 @@ color:yellow;
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2020-09-29 19:41:55" itemprop="dateCreated datePublished" datetime="2020-09-29T19:41:55+08:00">2020-09-29</time>
+      <time title="Created: 2020-12-14 19:22:18 / Modified: 19:24:30" itemprop="dateCreated datePublished" datetime="2020-12-14T19:22:18+08:00">2020-12-14</time>
     </span>
 
   
@@ -1703,240 +1210,11 @@ color:yellow;
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h1><h2 id="递归代码"><a href="#递归代码" class="headerlink" title="递归代码"></a>递归代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> \* Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> \* public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> \*   int val;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> \*   TreeNode left;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> \*   TreeNode right;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> \*   TreeNode() &#123;&#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> \*   TreeNode(int val) &#123; this.val = val; &#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> \*   TreeNode(int val, TreeNode left, TreeNode right) &#123;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> \*     this.val = val;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> \*     this.left = left;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> \*     this.right = right;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> \*   &#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> \* &#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">postorderTraversal</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">​    postorderTraversal1(root);</span><br><span class="line"></span><br><span class="line">​    <span class="keyword">return</span> list;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postorderTraversal1</span><span class="params">(TreeNode node)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">​    <span class="keyword">if</span>(node==<span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">​    postorderTraversal1(node.left);</span><br><span class="line"></span><br><span class="line">​    postorderTraversal1(node.right);</span><br><span class="line"></span><br><span class="line">​    list.add(node.val);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="递归总结"><a href="#递归总结" class="headerlink" title="递归总结"></a>递归总结</h2><p>先遍历左子树，再右子树，最后是根节点，其实三种遍历（先序，中序和后续遍历）的递归写法特别像，就改变一下读取node的value位置。</p>
-<p>1.返回条件：当 node==null 的时候返回，如果输入的是一个空树，那么就可以直接返回list。</p>
-<p>2.递归的过程：先对左子树进行后续遍历，不断把左节点的后续遍历入栈，直到到最左边的节点；最左边的节点没有左节点了（变成根节点），出栈一层，这时候进行此节点的右节点的后续遍历，依次进栈出栈。</p>
-<p>3.遇到的小问题：list定义在Solution里面才可以，定义在方法里不行（必须要传到子函数里鸭）</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/28/Queue%E7%9A%84%E4%BD%BF%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/28/Queue%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Untitled</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2020-09-28 16:47:36" itemprop="dateCreated datePublished" datetime="2020-09-28T16:47:36+08:00">2020-09-28</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Queue的使用"><a href="#Queue的使用" class="headerlink" title="Queue的使用"></a>Queue的使用</h1><h2 id="Queue的说明"><a href="#Queue的说明" class="headerlink" title="Queue的说明"></a>Queue的说明</h2><p>最大的特点就是先进先出，FIFO(first in first out)</p>
-<p>主要有三种方法插入（insertion），提取（extraction）和检视（inspection），这三个都是继承自Collection大类的。每一个有两种形式的方法，区别是一种会throws exception，另一种会返回值（null or false，主要用于插入元素是固定大小的）</p>
-<table>
-<thead>
-<tr>
-<th align="left">-</th>
-<th align="center">-throws exception</th>
-<th align="center">return values</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">insert</td>
-<td align="center">add()</td>
-<td align="center">offer()</td>
-</tr>
-<tr>
-<td align="left">remove</td>
-<td align="center">remove()</td>
-<td align="center">poll()</td>
-</tr>
-<tr>
-<td align="left">examine</td>
-<td align="center">element()</td>
-<td align="center">peek()</td>
-</tr>
-</tbody></table>
-<p>一般用后面这几个</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/08/newpapername/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/08/newpapername/" class="post-title-link" itemprop="url">试用</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2020-09-08 09:32:13 / Modified: 09:49:14" itemprop="dateCreated datePublished" datetime="2020-09-08T09:32:13+08:00">2020-09-08</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>不像想象中的那么cool</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/08/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/08/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2020-09-08 09:11:11" itemprop="dateCreated datePublished" datetime="2020-09-08T09:11:11+08:00">2020-09-08</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+          <h1 id="为什么Stack被弃用"><a href="#为什么Stack被弃用" class="headerlink" title="为什么Stack被弃用"></a>为什么Stack被弃用</h1><p>因为 Stack 是 JDK 1.0 的产物。它继承自 Vector，Vector 都不被推荐使用了，你说 Stack 还会被推荐吗？</p>
+<p>当初 JDK1.0 在开发时，可能为了快速的推出一些基本的数据结构操作，所以推出了一些比较粗糙的类。比如，Vector、Stack、Hashtable等。这些类中的一些方法加上了 synchronized 关键字，容易给一些初级程序员在使用上造成一些误解！而且在之前的几个版本中，性能还不怎么好。</p>
+<p>基于 Vector 实现的栈 Stack。底层实际上还是数组，所以还是存在需要扩容。Vector 是由数组实现的集合类，它包含了大量集合处理的方法。而 Stack 之所以继承 Vector，是为了复用 Vector 中的方法，来实现进栈（push）、出栈(pop)等操作。这里就是 Stack 设计不好的地方，既然只是为了实现栈，不用链表来单独实现，而是为了复用简单的方法而迫使它继承 Vector，Stack 和 Vector 本来是毫无关系的。这使得 Stack 在基于数组实现上效率受影响，另外因为继承 Vector 类，Stack 可以复用 Vector 大量方法，这使得 Stack 在设计上不严谨。</p>
+<p>Java 提供了 Deuqe。Deque 是继承自 Queue，而 Stack 是继承自 Vector。Java 中的 Deuqe，即“double ended queue”的缩写，是 Java 中的双端队列集合类型。Deque 具备普通队列 FIFO 的功能，同时它也具备了 Stack 的 LIFO 功能，并且保留了 push 和 pop 函数，所以使用起来应该是一点障碍都没有。</p>
+<p>ArrayDeque 是 Deque 接口的一种具体实现，是依赖于可变数组来实现的。ArrayDeque 没有容量限制，可根据需求自动进行扩容。ArrayDeque 可以作为栈来使用，效率要高于 Stack。ArrayDeque 也可以作为队列来使用，效率相较于基于双向链表的 LinkedList 也要更好一些。注意，ArrayDeque 不支持为 null 的元素</p>
 
       
     </div>
@@ -1956,6 +1234,9 @@ color:yellow;
 
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
 
 
 
@@ -1995,7 +1276,7 @@ color:yellow;
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

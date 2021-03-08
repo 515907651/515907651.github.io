@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+
+  <meta name="description" content="NumpyNumpy.reshape()里面有负数比如Numpy.reshape(1,-1)，那么-1这个地方的维度就是原先矩阵的维度，如原矩阵为12*24的，那么-1为24 Numpy的行列[行，列] [行1:行2, 列1:列2] Numpy的平均值和标准差mean(a, axis, dtype, out,keepdims) axis的设置：  axis不设置值，默认对矩阵a的m*n个数求平均值">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Numpy小贴士">
+<meta property="og:url" content="http://example.com/2020/11/19/python/numpy/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="NumpyNumpy.reshape()里面有负数比如Numpy.reshape(1,-1)，那么-1这个地方的维度就是原先矩阵的维度，如原矩阵为12*24的，那么-1为24 Numpy的行列[行，列] [行1:行2, 列1:列2] Numpy的平均值和标准差mean(a, axis, dtype, out,keepdims) axis的设置：  axis不设置值，默认对矩阵a的m*n个数求平均值">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-11-19T02:57:26.990Z">
+<meta property="article:modified_time" content="2020-12-07T03:03:19.927Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2020/11/19/python/numpy/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Numpy小贴士 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Hexo</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Numpy"><span class="nav-number">1.</span> <span class="nav-text">Numpy</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Numpy-reshape-%E9%87%8C%E9%9D%A2%E6%9C%89%E8%B4%9F%E6%95%B0"><span class="nav-number">1.1.</span> <span class="nav-text">Numpy.reshape()里面有负数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Numpy%E7%9A%84%E8%A1%8C%E5%88%97"><span class="nav-number">1.2.</span> <span class="nav-text">Numpy的行列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Numpy%E7%9A%84%E5%B9%B3%E5%9D%87%E5%80%BC%E5%92%8C%E6%A0%87%E5%87%86%E5%B7%AE"><span class="nav-number">1.3.</span> <span class="nav-text">Numpy的平均值和标准差</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Numpy%E5%88%9D%E5%A7%8B%E5%8C%96%E7%9F%A9%E9%98%B5%EF%BC%8C%E5%B0%86%E6%89%80%E6%9C%89%E5%85%83%E7%B4%A0%E7%BD%AE%E4%B8%BA%E9%9B%B6"><span class="nav-number">1.4.</span> <span class="nav-text">Numpy初始化矩阵，将所有元素置为零</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%BC%E6%8E%A5%E7%9F%A9%E9%98%B5%EF%BC%8Cconcatenate"><span class="nav-number">1.5.</span> <span class="nav-text">拼接矩阵，concatenate</span></a></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/19/python/numpy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Numpy小贴士
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-11-19 10:57:26" itemprop="dateCreated datePublished" datetime="2020-11-19T10:57:26+08:00">2020-11-19</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-12-07 11:03:19" itemprop="dateModified" datetime="2020-12-07T11:03:19+08:00">2020-12-07</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Numpy"><a href="#Numpy" class="headerlink" title="Numpy"></a>Numpy</h1><h2 id="Numpy-reshape-里面有负数"><a href="#Numpy-reshape-里面有负数" class="headerlink" title="Numpy.reshape()里面有负数"></a>Numpy.reshape()里面有负数</h2><p>比如Numpy.reshape(1,-1)，那么-1这个地方的维度就是原先矩阵的维度，如原矩阵为12*24的，那么-1为24</p>
+<h2 id="Numpy的行列"><a href="#Numpy的行列" class="headerlink" title="Numpy的行列"></a>Numpy的行列</h2><p>[行，列]</p>
+<p>[行1:行2, 列1:列2]</p>
+<h2 id="Numpy的平均值和标准差"><a href="#Numpy的平均值和标准差" class="headerlink" title="Numpy的平均值和标准差"></a>Numpy的平均值和标准差</h2><p>mean(a, axis, dtype, out,keepdims)</p>
+<p>axis的设置：</p>
+<ol>
+<li>axis不设置值，默认对矩阵a的m*n个数求平均值，然后返回</li>
+<li>axis设置为0，对行进行操作，压缩行，求各列平均值，返回1*n的矩阵</li>
+<li>axis设置为1，对列进行操作，压缩列，求各行平均值，返回m*1的矩阵</li>
+</ol>
+<p>std()</p>
+<p>numpy和pandas计算的std是不一样的</p>
+<ul>
+<li>numpy 计算的是总体(母体)标准差,参数ddof = 0</li>
+<li>pandas 计算的是样本标准差,参数ddof = 1</li>
+</ul>
+<h2 id="Numpy初始化矩阵，将所有元素置为零"><a href="#Numpy初始化矩阵，将所有元素置为零" class="headerlink" title="Numpy初始化矩阵，将所有元素置为零"></a>Numpy初始化矩阵，将所有元素置为零</h2><p>numpy.zero(矩阵行列)</p>
+<h2 id="拼接矩阵，concatenate"><a href="#拼接矩阵，concatenate" class="headerlink" title="拼接矩阵，concatenate"></a>拼接矩阵，concatenate</h2><p>numpy.concatenate(<em>a1**</em>,** <em>a2**</em>,** <em>…)**</em>,** <em>axis=0**</em>,** <em>out=None</em>)</p>
+<ul>
+<li>axis=0 时按行拼接</li>
+<li>axis = 1时按列拼接</li>
+<li>不设置axis直接flatten，变成1*n的矩阵</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/11/17/java/%E5%8F%8D%E5%B0%84/" rel="prev" title="反射">
+                  <i class="fa fa-chevron-left"></i> 反射
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/12/07/python/pytorch/" rel="next" title="">
+                   <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
